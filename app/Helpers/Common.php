@@ -3,6 +3,12 @@
 namespace App\Helpers;
 
 use App\Models\Menus;
+use App\Models\SocialIcons;
+use Auth;
+use Awcodes\Curator\Models\Media;
+use Carbon\Carbon;
+use Config;
+use DB;
 
 class Common
 {

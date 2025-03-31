@@ -18,9 +18,12 @@ return new class extends Migration
             $table->boolean('status')->default(true);
             $table->integer('order_by')->nullable();
             $table->foreignId('parent_id')->nullable()->constrained('menuses')->onDelete('cascade');
-              $table->boolean('is_url')->default(false);
+            $table->boolean('is_url')->default(false);
             $table->longText('url')->nullable();
-            $table->string('target');
+            $table->string('target')->nullable();
+            $table->string('title')->nullable();
+            $table->string( 'content')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
