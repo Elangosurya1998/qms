@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('floating_menuses', function (Blueprint $table) {
+        Schema::create('floating_menus', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('link')->nullable();
+            $table->string('target')->nullable();
+            $table->boolean('status')->default(true);
+            $table->integer('order_by')->nullable();
+            $table->date('publish_date')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('floating_menuses');
+        Schema::dropIfExists('floating_menus');
     }
 };

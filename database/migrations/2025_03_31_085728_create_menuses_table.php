@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('menuses', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
+            $table->string('name');
+            $table->boolean('status')->default(true);
+            $table->integer('order_by')->nullable();
+            $table->foreignId('parent_id')->nullable()->constrained('menuses')->onDelete('cascade');
+              $table->boolean('is_url')->default(false);
+            $table->longText('url')->nullable();
+            $table->string('target');
             $table->timestamps();
         });
     }
