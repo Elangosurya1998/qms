@@ -1,0 +1,3805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Metas & Morweb CMS assets -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Home</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:title" content="Home" />
+
+    <link type="text/css" href="{{ asset('frontend/res/css/common.css') }}" rel="stylesheet" />
+    <link type="text/css" href="{{ asset('frontend/res/css/mw.cells.css') }}" rel="stylesheet" />
+    <link type="text/css" href="{{ asset('frontend/res/css/mw.formse39a.css?3c59dc048e8850243be8079a5c74d079') }}"
+        rel="stylesheet" />
+    <link type="text/css" href="{{ asset('frontend/cms3t/res/vit-lib/status.css') }}" rel="stylesheet" />
+    <link type="text/css" href="{{ asset('frontend/cms3t/res/mediaelement/mediaelementplayer.css') }}"
+        rel="stylesheet" />
+    <link type="text/css" href="{{ asset('frontend/res/pages/css/front.css') }}" rel="stylesheet" />
+    <link type="text/css" href="{{ asset('frontend/res/pages/css/spacer.css') }}" rel="stylesheet" />
+    <link type="text/css" href="{{ asset('frontend/res/button/css/button.css') }}" rel="stylesheet" />
+    <link type="text/css" href="{{ asset('frontend/res/files/css/files.css') }}" rel="stylesheet" />
+    <link type="text/css" href="{{ asset('frontend/res/gensoclinks/css/gensoclinks.css') }}" rel="stylesheet" />
+
+
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/json2.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/jQuery/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/mw.media.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/mediaelement/mediaelement-and-player.js') }}">
+    </script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/tinymce/js/tinymce/tinymce.jquery.min.js') }}">
+    </script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/tinymce/js/tinymce/jquery.tinymce.min.js') }}">
+    </script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/tinymce/js/tinymce/tinymce.morweb.js') }}"></script>
+    <script type="text/javascript">
+        tinyMCE.baseURL = '{{ asset('frontend/cms3t/res/tinymce/js/tinymce/index.html') }}';
+    </script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/jQuery/ui/jquery.ui.core.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/jQuery/ui/jquery.ui.widget.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/jQuery/ui/jquery.ui.mouse.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/jQuery/ui/jquery.ui.position.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/jQuery/ui/jquery.ui.draggable.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/jQuery/ui/jquery.ui.droppable.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/jQuery/ui/jquery.ui.sortable.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/jQuery/jquery.AjaxUpload.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/jQuery/hoverIntent.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/jQuery/superfish.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/vit-lib/common.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/vit-lib/ajax.js') }}"></script>
+    <script type="text/javascript">
+        CMS_ALIAS = 'cms3t';
+        CMS_RES = 'res';
+        CMS_JS = 'js';
+        CMS_CSS = 'css';
+        CMS_IMAGES = 'images';
+    </script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/mw.urls.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/mw.common.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/mw.system.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/mw.forms.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/res/system/js/mwSelectInput.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/cms3t/res/js/mw.front.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/res/pages/js/mw.responsive.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/res/button/js/button.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/res/files/js/files.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/res/intouch/js/block.contacts.js') }}"></script>
+
+
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('frontend/images/favicon.ico') }}" type="image/x-icon" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../use.typekit.net/gsb3tcf.css">
+
+    <!-- Vendor Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('frontend/css/vendors/fontawesome/5.15.4/all.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/vendors/animate/3.7.2/animate.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/vendors/magnific-popup/1.1.0/magnific-popup.css') }}" />
+    <link href="../unpkg.com/aos%402.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('frontend/css/rootf3ee.css?v=3.2') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/globalf3ee.css?v=3.2') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/allf3ee.css?v=3.2') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/overridef3ee.css?v=3.2') }}" />
+
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YPYWBKNT8"></script>
+
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+
+        gtag('js', new Date());
+
+
+        gtag('config', 'G-2YPYWBKNT8');
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YPYWBKNT8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2YPYWBKNT8');
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Default Page -->
+    <div class="defaultPage">
+
+        <!-- Header -->
+        <header id="headerArea">
+            <div id="wPPTXX0009ZQ1GVA" class="mwPageBlock Include" style="">
+                <div class="blockContents">
+
+                    <script>
+                        /* Sticky Menu Add Class and Animation */
+                        jQuery(window).scroll(function() {
+                            var scroll = $(window).scrollTop();
+                            if (scroll >= 45) {
+                                jQuery(".header").addClass("stuck");
+                            }
+                            if (scroll <= 45) {
+                                jQuery(".header").removeClass("stuck")
+                            }
+                        });
+                    </script>
+                    <!-- Header Two -->
+                    <div class="header headerTwo is-sticky">
+                        <div class="headerWrap">
+                            <div class="megaMenu content-style">
+                                <div class="mma">
+                                    <div class="mmInner">
+                                        <div class="mmMenuWrap">
+                                            <div id="wRD5T62GCENNQUFU" class="mwPageBlock Menu" style="">
+                                                <div class="blockContents">
+                                                    <ul id="mb697HaEX">
+                                                        <li class="no-children"><a href="about-bfc.html"><span
+                                                                    class="Title">About BFC</span></a></li>
+                                                        <li class="no-children"><a href="The-Foley-Family.html"><span
+                                                                    class="Title">The Foley Family</span></a></li>
+                                                        <li class="no-children"><a href="Calendar.html"><span
+                                                                    class="Title">BFC Calendar</span></a></li>
+                                                        <li class="no-children"><a href="Mission-Belief.html"><span
+                                                                    class="Title">Mission & Belief</span></a></li>
+                                                        <li class="no-children"><a
+                                                                href="Fundraising-and-Events.html"><span
+                                                                    class="Title">Community Events</span></a></li>
+                                                        <li class="no-children"><a
+                                                                href="Board-of-Directors.html"><span
+                                                                    class="Title">Board of Directors</span></a></li>
+                                                        <li class="no-children"><a href="Social-Media.html"><span
+                                                                    class="Title">Social Media</span></a></li>
+                                                        <li class="no-children"><a href="Staff-directory.html"><span
+                                                                    class="Title">Staff Directory</span></a></li>
+                                                        <li class="no-children"><a href="Visual-Guidelines.html"><span
+                                                                    class="Title">Visual Guidelines</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentWrap">
+                                            <div id="wTZ70YY2WMVFBFLT" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <h3>
+                                                        About BFC
+                                                    </h3>
+                                                    <p>
+                                                        Bishop Foley Catholic's mission and ministry is to form young
+                                                        minds, get to know and love Christ, while at the same time
+                                                        receiving an excellent academic education. BFC is a warm and
+                                                        welcoming
+                                                        community that offers many opportunities for growth in academic
+                                                        excellence, friendships, teamwork, and faith. In turn, BFC
+                                                        benefits from the many talents and gifts our students bring to
+                                                        the
+                                                        community.
+                                                    </p>
+                                                    <p>
+                                                        <a href="about-bfc.html">Learn More</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentImage">
+                                            <div id="wHKYMKO5Z21U1S82" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <p>
+                                                        <img src="{{ asset('frontend/files/_cache/9be1103f1b839067b38347e30d29d252.jpg?247x225') }}"
+                                                            alt="AboutBFC_MenuNav247.jpg" width="247"
+                                                            height="225" />
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mmb">
+                                    <div class="mmInner">
+                                        <div class="mmMenuWrap">
+                                            <div id="w7SXZKUSG6QNTPBL" class="mwPageBlock Menu" style="">
+                                                <div class="blockContents">
+                                                    <ul id="mJtPC6HLq">
+                                                        <li class="no-children"><a href="Why-BFC.html"><span
+                                                                    class="Title">Why BFC</span></a></li>
+                                                        <li class="no-children"><a href="Visit-BFC.html"><span
+                                                                    class="Title">Visit BFC</span></a></li>
+                                                        <li class="no-children"><a href="Future-Ventures.html"><span
+                                                                    class="Title">Future Ventures</span></a></li>
+                                                        <li class="no-children"><a href="Affording-BFC.html"><span
+                                                                    class="Title">Affording BFC</span></a></li>
+                                                        <li class="no-children"><a
+                                                                href="International-students.html"><span
+                                                                    class="Title">International Students</span></a>
+                                                        </li>
+                                                        <li class="no-children"><a href="Transfer-Students.html"><span
+                                                                    class="Title">Transfer Students</span></a></li>
+                                                        <li class="no-children"><a href="HSPT.html"><span
+                                                                    class="Title">HSPT</span></a></li>
+                                                        <li class="no-children"><a href="Events-Documents.html"><span
+                                                                    class="Title">Events & Documents</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentWrap">
+                                            <div id="w3OVSLG789FXAS9R" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <h3>
+                                                        Admissions
+                                                    </h3>
+                                                    <p>
+                                                        Join the Foley Family!&nbsp;When you take part in&nbsp;on-campus
+                                                        tours, Venture for a Day experiences, and open houses, you
+                                                        will&nbsp;be able to discover what it means to be part
+                                                        of&nbsp;our
+                                                        extraordinary community and how we can&nbsp;assist you&nbsp;as
+                                                        you venture to become the very best version of yourself.
+                                                    </p>
+                                                    <p>
+                                                        <a href="Why-BFC.html">Learn More</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentImage">
+                                            <div id="wXGEF2IGH9DVGCUH" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <p>
+                                                        <img src="{{ asset('frontend/files/_cache/998166517c7f696431336d40503d2d8f.jpg?247x247') }}"
+                                                            alt="Admissions_MenuDisp247x247_v2.jpg" width="247"
+                                                            height="247" />
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mmc">
+                                    <div class="mmInner">
+                                        <div class="mmMenuWrap">
+                                            <div id="wS2UW10ZTSNL2U8J" class="mwPageBlock Menu" style="">
+                                                <div class="blockContents">
+                                                    <ul id="msGphgFb0">
+                                                        <li class="no-children"><a
+                                                                href="Academics-departments.html"><span
+                                                                    class="Title">Academic Departments</span></a></li>
+                                                        <li class="no-children"><a
+                                                                href="Graduation-and-Grading.html"><span
+                                                                    class="Title">Graduation and Grading</span></a>
+                                                        </li>
+                                                        <li class="no-children"><a href="Technology.html"><span
+                                                                    class="Title">Technology</span></a></li>
+                                                        <li class="no-children"><a href="Counseling.html"><span
+                                                                    class="Title">Counseling</span></a></li>
+                                                        <li class="no-children"><a
+                                                                href="The-BFC-Media-Center.html"><span
+                                                                    class="Title">Media Center</span></a></li>
+                                                        <li class="no-children"><a href="PASS.html"><span
+                                                                    class="Title">PASS</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentWrap">
+                                            <div id="w3ONEJGYR15XPMNJ" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <h3>
+                                                        Academics&nbsp;
+                                                    </h3>
+                                                    <p>
+                                                        Bishop Foley Catholic offers a college preparatory academic
+                                                        program with more than 100 courses and 20 AP and honors classes.
+                                                        In addition to the traditional required high school classes,
+                                                        Foley
+                                                        includes additional course offerings in STEM, performing/visual
+                                                        arts, foreign language, theology, and more.
+                                                    </p>
+                                                    <p>
+                                                        <a href="Academics-departments.html">Learn More</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentImage">
+                                            <div id="wVJIII13B5RLXT6F" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <p>
+                                                        <img src="{{ asset('frontend/files/_cache/4dc6e90324d6f0fcf1f9d58f7409b1be.jpg?247x247') }}"
+                                                            alt="Academics_SocialStudies_crop247x247.jpg"
+                                                            width="247" height="247" />
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mmd">
+                                    <div class="mmInner">
+                                        <div class="mmMenuWrap">
+                                            <div id="wA78VTBU0TQDXV5K" class="mwPageBlock Menu" style="">
+                                                <div class="blockContents">
+                                                    <ul id="m8O5F1nyb">
+                                                        <li class="no-children"><a
+                                                                href="Extracurricular-Activities.html"><span
+                                                                    class="Title">Extracurricular
+                                                                    Activities</span></a></li>
+                                                        <li class="no-children"><a
+                                                                href="Student-Parent-Handbook.html"><span
+                                                                    class="Title">Student & Parent Handbook</span></a>
+                                                        </li>
+                                                        <li class="no-children"><a href="Honor-Code.html"><span
+                                                                    class="Title">Honor Code</span></a></li>
+                                                        <li class="no-children"><a
+                                                                href="Performing-Visual-Arts.html"><span
+                                                                    class="Title">Performing & Visual Arts</span></a>
+                                                        </li>
+                                                        <li class="no-children"><a href="VentureNation.html"><span
+                                                                    class="Title">VentureNation</span></a></li>
+                                                        <li class="no-children"><a href="Spirit-Shop.html"><span
+                                                                    class="Title">Spirit Shop</span></a></li>
+                                                        <li class="no-children"><a href="Photo-Albums.html"><span
+                                                                    class="Title">Photo Albums</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentWrap">
+                                            <div id="wRKH8ZA1HAYDTT59" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <h3>
+                                                        Student Life
+                                                    </h3>
+                                                    <p>
+                                                        Ventures at Bishop Foley Catholic&nbsp;can explore&nbsp;a
+                                                        diverse mix of clubs and extracurricular activities that appeal
+                                                        to a variety of interests. Students can participate in clubs
+                                                        that
+                                                        explore music, performing arts, visual arts, community service,
+                                                        faith, science, technology, and much more.
+                                                    </p>
+                                                    <p>
+                                                        <a href="Extracurricular-Activities.html">Learn More</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentImage">
+                                            <div id="wHC6EYORLP441IPU" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <p>
+                                                        <img src="{{ asset('frontend/files/_cache/caed7af96d7b4c22bab69d0ecf3d53a3.jpg?247x247') }}"
+                                                            alt="Foley2019BeTheDifference0092_crop2.jpg"
+                                                            width="247" height="247" />
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mme">
+                                    <div class="mmInner">
+                                        <div class="mmMenuWrap">
+                                            <div id="wKK3OX4T77VMRAAJ" class="mwPageBlock Menu" style="">
+                                                <div class="blockContents">
+                                                    <ul id="mDMxsZMyM">
+                                                        <li class="no-children"><a href="Athletics.html"><span
+                                                                    class="Title">Venture Athletics</span></a></li>
+                                                        <li class="no-children"><a
+                                                                href="https://www.bfcathletics.com/"
+                                                                target="_blank"><span class="Title">BFC Athletics -
+                                                                    Big Teams</span></a></li>
+                                                        <li class="no-children"><a
+                                                                href="Athletics-Calendar.html"><span
+                                                                    class="Title">Athletics Calendar</span></a></li>
+                                                        <li class="no-children"><a href="Alumni-Athletes.html"><span
+                                                                    class="Title">Alumni Athletes</span></a></li>
+                                                        <li class="no-children"><a href="Facility-Rentals.html"><span
+                                                                    class="Title">Facility Rentals</span></a></li>
+                                                        <li class="no-children"><a href="Spirit-Wear.html"><span
+                                                                    class="Title">Spirit Wear</span></a></li>
+                                                        <li class="no-children"><a
+                                                                href="Championships-and-Honors.html"><span
+                                                                    class="Title">Championships and Honors</span></a>
+                                                        </li>
+                                                        <li class="no-children"><a
+                                                                href="Athletic-Summer-Camps.html"><span
+                                                                    class="Title">Athletic Summer Camps</span></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentWrap">
+                                            <div id="w7VIS65K7HKSU2II" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <h3>
+                                                        Athletics
+                                                    </h3>
+                                                    <p>
+                                                        Bishop Foley Catholic&rsquo;s mission and ministry is to form
+                                                        young minds, get to know and love Christ, while at the same time
+                                                        receiving an excellent academic education. BFC is a warm and
+                                                        welcoming community that offers many opportunities for growth in
+                                                        academic excellence, friendships, teamwork, and faith.
+                                                    </p>
+                                                    <p>
+                                                        <a href="Athletics.html">Learn More</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentImage">
+                                            <div id="wX1UX1FGECJ1OIJQ" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <p>
+                                                        <img src="{{ asset('frontend/files/_cache/8038d3668302af8d6540e10a28d8330d.jpg?247x247') }}"
+                                                            alt="Athletics_AthleticNews_crop2.jpg" width="247"
+                                                            height="247" />
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mmf">
+                                    <div class="mmInner">
+                                        <div class="mmMenuWrap">
+                                            <div id="wGN15ZMQ6DC5O0SK" class="mwPageBlock Menu" style="">
+                                                <div class="blockContents">
+                                                    <ul id="mguU1E0BY">
+                                                        <li class="no-children"><a href="Foley-Faith.html"><span
+                                                                    class="Title">Foley Faith</span></a></li>
+                                                        <li class="no-children"><a href="Grandparents-Day.html"><span
+                                                                    class="Title">Grandparents Day 2023</span></a>
+                                                        </li>
+                                                        <li class="no-children"><a href="Christian-Service.html"><span
+                                                                    class="Title">Christian Service</span></a></li>
+                                                        <li class="no-children"><a
+                                                                href="Prayer-and-Event-Opportunities.html"><span
+                                                                    class="Title">Prayer and Event
+                                                                    Opportunities</span></a></li>
+                                                        <li class="no-children"><a href="Catholic-Corner.html"><span
+                                                                    class="Title">Catholic Corner Monthly</span></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentWrap">
+                                            <div id="wG2LKQSBT4TGO6GV" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <h3>
+                                                        Faith
+                                                    </h3>
+                                                    <p>
+                                                        Bishop Foley Catholic High school strives to be a
+                                                        Christ-centered school that encourages students and staff to
+                                                        live as missionary disciples. We accomplish this mission by
+                                                        rooting our day in
+                                                        countless opportunities to pray, serve and learn.
+                                                    </p>
+                                                    <p>
+                                                        <a href="Foley-Faith.html">Learn More</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentImage">
+                                            <div id="wRWKA1VYXGN8ZX1N" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <p>
+                                                        <img src="{{ asset('frontend/files/_cache/ba1abb12ef54e7826f155911c49fc5b9.png?271x271') }}"
+                                                            alt="megamenuabout.png" width="271" height="271" />
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mmh">
+                                    <div class="mmInner">
+                                        <div class="mmMenuWrap">
+                                            <div id="wIFR47NEZZ968I91" class="mwPageBlock Menu" style="">
+                                                <div class="blockContents">
+                                                    <ul id="mnMrTGyFI">
+                                                        <li class="no-children"><a href="Alumni.html"><span
+                                                                    class="Title">Alumni Actions</span></a></li>
+                                                        <li class="no-children"><a href="Alumni-Board.html"><span
+                                                                    class="Title">Alumni Board</span></a></li>
+                                                        <li class="no-children"><a href="Alumni-Spotlights.html"><span
+                                                                    class="Title">Alumni Spotlights</span></a></li>
+                                                        <li class="no-children"><a
+                                                                href="Reunion-and-Events.html"><span
+                                                                    class="Title">Reunion and Events</span></a></li>
+                                                        <li class="no-children"><a
+                                                                href="Voice-of-the-Ventures.html"><span
+                                                                    class="Title">Voice of the Ventures</span></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentWrap">
+                                            <div id="wTI2ST583EFQL6G7" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <h3>
+                                                        Alumni
+                                                    </h3>
+                                                    <p>
+                                                        Foley alumni, parents, faculty, staff and friends of our beloved
+                                                        school understand the value of a Bishop Foley Catholic
+                                                        education. We are ever grateful to those who support our
+                                                        Mission, which
+                                                        is to provide a Christ-centered environment that emphasizes
+                                                        academic excellence to develop the whole person in mind, body
+                                                        and spirit.
+                                                    </p>
+                                                    <p>
+                                                        <a href="Alumni.html">Learn More</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mmContentImage">
+                                            <div id="wSXIMFDX0UDC9RMQ" class="mwPageBlock Content" style="">
+                                                <div class="blockContents">
+                                                    <p>
+                                                        <img src="{{ asset('frontend/files/_cache/e532eb847882bfff9d151653b931971c.jpg?247x247') }}"
+                                                            alt="Alumni_crop2.jpg" width="247" height="247" />
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Header Search Bar -->
+                            <div class="headerSearchBar">
+                                <div class="searchBar">
+                                    <div class="searchBarWrap"><span class="fa fa-times searchBtn"></span>
+                                        <div class="searchBarForm">
+                                            <form action="https://www.bishopfoley.org/search" method="GET">
+                                                <input type="text" name="q" value=""
+                                                    placeholder="Search">
+                                                <button type="submit"> <i class="fa fa-search"></i> <span
+                                                        class="_sr-only">Search</span> </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Header Utility Bar -->
+                            <div class="headerUtilityBar">
+                                <div class="utilityBar">
+                                    <div class="utilityBarWrap">
+
+                                        <!-- Utility Left -->
+                                        <div class="utilityBarLeft">
+                                            <div class="utilityBarDropDown">
+                                                <ul>
+                                                    <li><a href="#" target="_blank"><span
+                                                                class="fas fa-user"></span> Current Families <span
+                                                                class="fas fa-caret-down"></span></a>
+                                                        <div class="utilDD">
+                                                            <div id="w5FTFY71OGWXJWTO" class="mwPageBlock Menu"
+                                                                style="">
+                                                                <div class="blockContents">
+                                                                    <ul id="mJuXFDaXM">
+                                                                        <li class="no-children"><a
+                                                                                href="Daily-Announcements.html"><span
+                                                                                    class="Title">Daily
+                                                                                    Announcements</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="Menu.html"><span
+                                                                                    class="Title">Lunch
+                                                                                    Menu</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="Parent-Portal.html"><span
+                                                                                    class="Title">Parent
+                                                                                    Portal</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="https://www.signupgenius.com/"
+                                                                                target="_blank"><span
+                                                                                    class="Title">SignUp
+                                                                                    Genius</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="Attendance.html"><span
+                                                                                    class="Title">Attendance</span></a>
+                                                                        </li>
+                                                                        <li class="no-children"><a
+                                                                                href="Student-Parent-Handbook.html"><span
+                                                                                    class="Title">Student & Parent
+                                                                                    Handbook</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="School-Year-Calendar.html"><span
+                                                                                    class="Title">School Year
+                                                                                    Calendar</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="Emergency-Preparedness.html"><span
+                                                                                    class="Title">Emergency
+                                                                                    Preparedness</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="Counseling.html"><span
+                                                                                    class="Title">Counseling</span></a>
+                                                                        </li>
+                                                                        <li class="no-children"><a
+                                                                                href="Parent-Teacher-Conferences.html"><span
+                                                                                    class="Title">Parent Teacher
+                                                                                    Conferences</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="Media-Center.html"><span
+                                                                                    class="Title">Media
+                                                                                    Center</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="Parent-Groups-and-Involvement.html"><span
+                                                                                    class="Title">Parent Groups and
+                                                                                    Involvement</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="Grandparents-Club.html"><span
+                                                                                    class="Title">Grandparents
+                                                                                    Club</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="Graduation-Requirements.html"><span
+                                                                                    class="Title">Graduation
+                                                                                    Requirements</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="files/galleries/2023-24_SummerReading.pdf"
+                                                                                target="_blank"><span
+                                                                                    class="Title">Summer
+                                                                                    Reading</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="Athletic-Forms.html"><span
+                                                                                    class="Title">Athletic
+                                                                                    Forms</span></a></li>
+                                                                        <li class="no-children"><a
+                                                                                href="All-School-Raffle.html"><span
+                                                                                    class="Title">All School
+                                                                                    Raffle</span></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="utilityBarItems">
+                                                <div id="wSRPOXJTZ1TTXIB0" class="mwPageBlock Menu" style="">
+                                                    <div class="blockContents">
+                                                        <ul id="mfhDY0lm2">
+                                                            <li class="no-children"><a href="index.html"><span
+                                                                        class="Title"><span
+                                                                            class="fa fa-home"></span> Home</span></a>
+                                                            </li>
+                                                            <li class="no-children"><a
+                                                                    href="https://bfchs-mi.client.renweb.com/pwr/"
+                                                                    target="_blank"><span class="Title"><span
+                                                                            class="fas fa-globe"></span> FACTS
+                                                                        Login</span></a></li>
+                                                            <li class="no-children"><a href="Calendar.html"><span
+                                                                        class="Title"><span
+                                                                            class="fas fa-calendar"></span>
+                                                                        Calendar</span></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Utility Right -->
+                                        <div class="utilityBarRight">
+
+                                            <!-- Utility Bar Menu -->
+                                            <div class="utilityBarMenu">
+                                                <div id="w16N1F0LL532PWJ5" class="mwPageBlock Menu" style="">
+                                                    <div class="blockContents">
+                                                        <ul id="m8K74y54S">
+                                                            <li class="no-children"><a
+                                                                    href="https://1stplacespiritwear.com/schools/MI/Madison+Heights/Bishop+Foley+Catholic+High+School"
+                                                                    target="_blank"><span class="Title">Online
+                                                                        Store</span></a></li>
+                                                            <li class="no-children"><a href="contact-us.html"><span
+                                                                        class="Title">Contact Us</span></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Header Main -->
+                            <div class="headerMain">
+
+                                <!-- Header Main Left -->
+                                <div class="headerMainLeft">
+
+                                    <!-- Header Logo -->
+                                    <div class="headerLogo trans"> <a href="index.html"><img
+                                                src="{{ asset('frontend/images/logo.svg') }}" class="trans"
+                                                title="Bishop Foley Catholic High School" /></a> </div>
+                                </div>
+
+                                <!-- Header Main Right -->
+                                <div class="headerMainRight">
+
+                                    <!-- Header Menu -->
+                                    <div class="headerMenu">
+                                        <!--
+          <div id="wKCR8VNJB54ZYWQ3" class="mwPageBlock Menu" style=""><div class="blockContents"><ul id="mk33GLJ5U">
+<li class="has-children"><a href="/about-bfc"><span class="Title">About BFC</span></a><ul>
+<li class="no-children"><a><span class="Title">The Foley Family</span></a></li>
+<li class="no-children"><a><span class="Title">Mission & Belief</span></a></li>
+<li class="no-children"><a><span class="Title">Visual Guidelines</span></a></li>
+<li class="no-children"><a><span class="Title">Calendar & Events</span></a></li>
+<li class="no-children"><a><span class="Title">Directory</span></a></li></ul></li>
+<li class="has-children"><a><span class="Title">Admissions</span></a><ul>
+<li class="no-children"><a><span class="Title">Why BFC</span></a></li>
+<li class="no-children"><a><span class="Title">Future Ventures</span></a></li>
+<li class="no-children"><a><span class="Title">Apply to bfc</span></a></li>
+<li class="no-children"><a><span class="Title">Visit BFC</span></a></li>
+<li class="no-children"><a><span class="Title">Affording BFC</span></a></li>
+<li class="no-children"><a><span class="Title">International & Transfer</span></a></li>
+<li class="no-children"><a><span class="Title">HSPT</span></a></li>
+<li class="no-children"><a><span class="Title">Class of 20## Events & Document</span></a></li></ul></li>
+<li class="no-children"><a><span class="Title">Academics</span></a></li>
+<li class="no-children"><a><span class="Title">Student Life </span></a></li>
+<li class="no-children"><a><span class="Title">Athletics</span></a></li>
+<li class="no-children"><a><span class="Title">Faith</span></a></li></ul></div></div>
+   --->
+
+                                        <div class="Menu">
+                                            <div class="blockContents ">
+                                                <ul>
+                                                    <li><a href="#" class="mmaa">About BFC</a></li>
+                                                    <li><a href="#" class="mmbb">Admissions</a></li>
+                                                    <li><a href="#" class="mmcc">Academics</a></li>
+                                                    <li><a href="#" class="mmdd">Student Life</a></li>
+                                                    <li><a href="#" class="mmee">Athletics</a></li>
+                                                    <li><a href="#" class="mmff">Faith</a></li>
+                                                    <li><a href="#" class="mmhh">Alumni</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Utility Bar Search -->
+                                    <div class="utilityBarSearch">
+                                        <button class="searchBtn"><i class="fas fa-search"></i></button>
+                                    </div>
+
+                                    <!-- Header Buttons -->
+                                    <div class="headerBtns">
+                                        <div id="wLDU4YFJAJKTQ9JV" class="mwPageBlock Button" style="">
+                                            <div class="blockContents">
+                                                <div class="mwBtnCenter">
+                                                    <div class="btn btnHalfRoundYellow">
+                                                        <a href="https://bfchs-mi.client.renweb.com/oa/"
+                                                            template="default" class="medium" target="_blank">Apply
+                                                            Now</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="supportDropDown">
+                                            <div id="wWS6GGG8UYX5MYG0" class="mwPageBlock Button" style="">
+                                                <div class="blockContents">
+                                                    <div class="mwBtnCenter">
+                                                        <div class="btn btnHalfRoundBlack">
+                                                            <a href="Support-Us.html" template="default"
+                                                                class="medium" target="_self">Support Us</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="supportDropMenu">
+
+                                                <div id="wMHW7VDA66NBS70T" class="mwPageBlock Menu" style="">
+                                                    <div class="blockContents">
+                                                        <ul id="mBX1EmLLn">
+                                                            <li class="no-children"><a
+                                                                    href="Fundraising-and-Events.html"><span
+                                                                        class="Title">Community Events</span></a></li>
+                                                            <li class="no-children"><a href="Donate.html"><span
+                                                                        class="Title">Donate</span></a></li>
+                                                            <li class="no-children"><a href="Club-1965.html"><span
+                                                                        class="Title">Club 1965</span></a></li>
+                                                            <li class="no-children"><a href="Annual-Fund.html"><span
+                                                                        class="Title">Foley Fund</span></a></li>
+                                                            <li class="no-children"><a
+                                                                    href="Thank-You-2024.html"><span
+                                                                        class="Title">2024 Donors</span></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <style>
+                                        .supportDropMenu {
+                                            display: none;
+                                            position: relative
+                                        }
+
+                                        .supportDropDown:hover .supportDropMenu {
+                                            display: block;
+                                        }
+
+                                        .supportDropMenu {
+                                            position: absolute;
+                                            top: 60px;
+                                            width: 157px;
+                                            background: #efefef;
+                                            padding: 10px 0px 10px;
+                                            border-radius: 0 0 10px 10px;
+                                        }
+
+                                        .supportDropMenu li {
+                                            padding: 10px 20px;
+                                            border-bottom: 1px solid #000;
+                                        }
+
+                                        .supportDropMenu li:last-child {
+                                            border: none;
+                                        }
+
+                                        .supportDropMenu li a {
+                                            color: #000;
+                                        }
+
+                                        .supportDropMenu li:hover {
+                                            background: var(--color-yellow);
+                                        }
+
+                                        .supportDropMenu li:hover a {
+                                            color: #fff;
+                                        }
+                                    </style>
+
+                                    <!-- Header Mobile Menu -->
+                                    <div class="headerMobileMenu">
+                                        <button class="burger burgerOne" aria-label="Open mobile menu"> <span
+                                                class="burgerLines"> <span class="burgerLine"></span> <span
+                                                    class="burgerLine"></span> <span class="burgerLine"></span> <span
+                                                    class="burgerLine"></span> <span class="burgerLine"></span> <span
+                                                    class="burgerLine"></span> </span> <span class="burgerSlashes">
+                                                <span class="burgerSlash"></span> <span class="burgerSlash"></span>
+                                                <span class="burgerSlash"></span> <span class="burgerSlash"></span>
+                                            </span> <span class="burgerText"> <span class="textOpen"
+                                                    aria-hidden="true">Menu</span> <span class="textClose"
+                                                    aria-hidden="true">Close</span> </span> </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu -->
+                    <div class="mobileMenu mobileMenuOne content-style" aria-hidden="true">
+
+                        <!-- Backdrop -->
+                        <div class="mobileMenuBackdrop"></div>
+
+                        <!-- Wrap -->
+                        <div class="mobileMenuWrap">
+
+                            <!-- Inner -->
+                            <div class="mobileMenuInner _bg-white">
+
+                                <!-- Close Button -->
+                                <div class="mobileMenuClose">
+                                    <button class="burger burgerOne open" aria-label="Close mobile menu"> <span
+                                            class="burgerSlashes"> <span class="burgerSlash"></span> <span
+                                                class="burgerSlash"></span> <span class="burgerSlash"></span> <span
+                                                class="burgerSlash"></span> </span> <span class="burgerText"> <span
+                                                class="textOpen">Menu</span> <span class="textClose">Close</span>
+                                        </span> </button>
+                                </div>
+
+                                <!-- Header -->
+                                <div class="mobileMenuHeader"></div>
+
+                                <!-- Body -->
+                                <div class="mobileMenuBody">
+
+                                    <!-- Navigation -->
+                                    <div class="mobileMenuNav">
+                                        <div class="accordion">
+                                            <div class="accordionWrap">
+                                                <div class="accordionBtn">
+                                                    <p>About BFC</p>
+                                                    <div class="accordionIcon"><i class="fa fa-chevron-right"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="accordionContent">
+                                                    <div id="wUDXDT26OV7LW5QL" class="mwPageBlock Menu"
+                                                        style="">
+                                                        <div class="blockContents">
+                                                            <ul id="mqq57lyxg">
+                                                                <li class="no-children"><a href="about-bfc.html"><span
+                                                                            class="Title">About BFC</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="The-Foley-Family.html"><span
+                                                                            class="Title">The Foley Family</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a href="Calendar.html"><span
+                                                                            class="Title">BFC Calendar</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Mission-Belief.html"><span
+                                                                            class="Title">Mission & Belief</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="Fundraising-and-Events.html"><span
+                                                                            class="Title">Community Events</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="Board-of-Directors.html"><span
+                                                                            class="Title">Board of
+                                                                            Directors</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Social-Media.html"><span
+                                                                            class="Title">Social Media</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Staff-directory.html"><span
+                                                                            class="Title">Staff Directory</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="Visual-Guidelines.html"><span
+                                                                            class="Title">Visual Guidelines</span></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion">
+                                            <div class="accordionWrap">
+                                                <div class="accordionBtn">
+                                                    <p>Admissions</p>
+                                                    <div class="accordionIcon"><i class="fa fa-chevron-right"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="accordionContent">
+                                                    <div id="wKM8JYECBPXC4BOF" class="mwPageBlock Menu"
+                                                        style="">
+                                                        <div class="blockContents">
+                                                            <ul id="mjtJnVpPh">
+                                                                <li class="no-children"><a href="Why-BFC.html"><span
+                                                                            class="Title">Why BFC</span></a></li>
+                                                                <li class="no-children"><a href="Visit-BFC.html"><span
+                                                                            class="Title">Visit BFC</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Future-Ventures.html"><span
+                                                                            class="Title">Future Ventures</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="Affording-BFC.html"><span
+                                                                            class="Title">Affording BFC</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="International-students.html"><span
+                                                                            class="Title">International
+                                                                            Students</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Transfer-Students.html"><span
+                                                                            class="Title">Transfer Students</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a href="HSPT.html"><span
+                                                                            class="Title">HSPT</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Events-Documents.html"><span
+                                                                            class="Title">Events &
+                                                                            Documents</span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion">
+                                            <div class="accordionWrap">
+                                                <div class="accordionBtn">
+                                                    <p>Academics & Arts</p>
+                                                    <div class="accordionIcon"><i class="fa fa-chevron-right"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="accordionContent">
+                                                    <div id="wB1X3D90QFRXIGQG" class="mwPageBlock Menu"
+                                                        style="">
+                                                        <div class="blockContents">
+                                                            <ul id="m9Sw0CDYL">
+                                                                <li class="no-children"><a
+                                                                        href="Academics-departments.html"><span
+                                                                            class="Title">Academic
+                                                                            Departments</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Graduation-and-Grading.html"><span
+                                                                            class="Title">Graduation and
+                                                                            Grading</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Technology.html"><span
+                                                                            class="Title">Technology</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Counseling.html"><span
+                                                                            class="Title">Counseling</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="The-BFC-Media-Center.html"><span
+                                                                            class="Title">Media Center</span></a></li>
+                                                                <li class="no-children"><a href="PASS.html"><span
+                                                                            class="Title">PASS</span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion">
+                                            <div class="accordionWrap">
+                                                <div class="accordionBtn">
+                                                    <p>Student Life</p>
+                                                    <div class="accordionIcon"><i class="fa fa-chevron-right"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="accordionContent">
+                                                    <div id="w6QR26A8MP3V5CJ6" class="mwPageBlock Menu"
+                                                        style="">
+                                                        <div class="blockContents">
+                                                            <ul id="m45RJiOXi">
+                                                                <li class="no-children"><a
+                                                                        href="Extracurricular-Activities.html"><span
+                                                                            class="Title">Extracurricular
+                                                                            Activities</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Student-Parent-Handbook.html"><span
+                                                                            class="Title">Student & Parent
+                                                                            Handbook</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Honor-Code.html"><span
+                                                                            class="Title">Honor Code</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Performing-Visual-Arts.html"><span
+                                                                            class="Title">Performing & Visual
+                                                                            Arts</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="VentureNation.html"><span
+                                                                            class="Title">VentureNation</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="Spirit-Shop.html"><span
+                                                                            class="Title">Spirit Shop</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Photo-Albums.html"><span
+                                                                            class="Title">Photo Albums</span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion">
+                                            <div class="accordionWrap">
+                                                <div class="accordionBtn">
+                                                    <p>Athletics</p>
+                                                    <div class="accordionIcon"><i class="fa fa-chevron-right"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="accordionContent">
+                                                    <div id="wU02EPO2W5K6IT8F" class="mwPageBlock Menu"
+                                                        style="">
+                                                        <div class="blockContents">
+                                                            <ul id="mij7aLsYS">
+                                                                <li class="no-children"><a href="Athletics.html"><span
+                                                                            class="Title">Venture Athletics</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="https://www.bfcathletics.com/"
+                                                                        target="_blank"><span class="Title">BFC
+                                                                            Athletics - Big Teams</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Athletics-Calendar.html"><span
+                                                                            class="Title">Athletics
+                                                                            Calendar</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Alumni-Athletes.html"><span
+                                                                            class="Title">Alumni Athletes</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="Facility-Rentals.html"><span
+                                                                            class="Title">Facility Rentals</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="Spirit-Wear.html"><span
+                                                                            class="Title">Spirit Wear</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Championships-and-Honors.html"><span
+                                                                            class="Title">Championships and
+                                                                            Honors</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Athletic-Summer-Camps.html"><span
+                                                                            class="Title">Athletic Summer
+                                                                            Camps</span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion">
+                                            <div class="accordionWrap">
+                                                <div class="accordionBtn">
+                                                    <p>Faith</p>
+                                                    <div class="accordionIcon"><i class="fa fa-chevron-right"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="accordionContent">
+                                                    <div id="w8PT9U1Q1G7M0K4J" class="mwPageBlock Menu"
+                                                        style="">
+                                                        <div class="blockContents">
+                                                            <ul id="mRTUIwgsy">
+                                                                <li class="no-children"><a
+                                                                        href="Foley-Faith.html"><span
+                                                                            class="Title">Foley Faith</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Grandparents-Day.html"><span
+                                                                            class="Title">Grandparents Day
+                                                                            2023</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Christian-Service.html"><span
+                                                                            class="Title">Christian Service</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="Prayer-and-Event-Opportunities.html"><span
+                                                                            class="Title">Prayer and Event
+                                                                            Opportunities</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Catholic-Corner.html"><span
+                                                                            class="Title">Catholic Corner
+                                                                            Monthly</span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion">
+                                            <div class="accordionWrap">
+                                                <div class="accordionBtn">
+                                                    <p>Alumni</p>
+                                                    <div class="accordionIcon"><i class="fa fa-chevron-right"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="accordionContent">
+                                                    <div id="wZENTAA7COFASR09" class="mwPageBlock Menu"
+                                                        style="">
+                                                        <div class="blockContents">
+                                                            <ul id="mZ0HjWTC4">
+                                                                <li class="no-children"><a href="Alumni.html"><span
+                                                                            class="Title">Alumni Actions</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="Alumni-Board.html"><span
+                                                                            class="Title">Alumni Board</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Alumni-Spotlights.html"><span
+                                                                            class="Title">Alumni Spotlights</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="Reunion-and-Events.html"><span
+                                                                            class="Title">Reunion and
+                                                                            Events</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Voice-of-the-Ventures.html"><span
+                                                                            class="Title">Voice of the
+                                                                            Ventures</span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion">
+                                            <div class="accordionWrap">
+                                                <div class="accordionBtn">
+                                                    <p>Current Families</p>
+                                                    <div class="accordionIcon"><i class="fa fa-chevron-right"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="accordionContent">
+                                                    <div id="wVET4FUBRSPS3JLN" class="mwPageBlock Menu"
+                                                        style="">
+                                                        <div class="blockContents">
+                                                            <ul id="mRrasXGRt">
+                                                                <li class="no-children"><a
+                                                                        href="Daily-Announcements.html"><span
+                                                                            class="Title">Daily
+                                                                            Announcements</span></a></li>
+                                                                <li class="no-children"><a href="Menu.html"><span
+                                                                            class="Title">Lunch Menu</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Parent-Portal.html"><span
+                                                                            class="Title">Parent Portal</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="https://www.signupgenius.com/"
+                                                                        target="_blank"><span class="Title">SignUp
+                                                                            Genius</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Attendance.html"><span
+                                                                            class="Title">Attendance</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Student-Parent-Handbook.html"><span
+                                                                            class="Title">Student & Parent
+                                                                            Handbook</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="School-Year-Calendar.html"><span
+                                                                            class="Title">School Year
+                                                                            Calendar</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Emergency-Preparedness.html"><span
+                                                                            class="Title">Emergency
+                                                                            Preparedness</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Counseling.html"><span
+                                                                            class="Title">Counseling</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Parent-Teacher-Conferences.html"><span
+                                                                            class="Title">Parent Teacher
+                                                                            Conferences</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Media-Center.html"><span
+                                                                            class="Title">Media Center</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Parent-Groups-and-Involvement.html"><span
+                                                                            class="Title">Parent Groups and
+                                                                            Involvement</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Grandparents-Club.html"><span
+                                                                            class="Title">Grandparents Club</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="Graduation-Requirements.html"><span
+                                                                            class="Title">Graduation
+                                                                            Requirements</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="files/galleries/2023-24_SummerReading.pdf"
+                                                                        target="_blank"><span class="Title">Summer
+                                                                            Reading</span></a></li>
+                                                                <li class="no-children"><a
+                                                                        href="Athletic-Forms.html"><span
+                                                                            class="Title">Athletic Forms</span></a>
+                                                                </li>
+                                                                <li class="no-children"><a
+                                                                        href="All-School-Raffle.html"><span
+                                                                            class="Title">All School Raffle</span></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr />
+                                        <div id="wYOQZBX967CE1MTO" class="mwPageBlock Menu" style="">
+                                            <div class="blockContents">
+                                                <ul id="mL6eQ2k2Z">
+                                                    <li class="no-children"><a href="index.html"><span
+                                                                class="Title"><span class="fa fa-home"></span>
+                                                                Home</span></a></li>
+                                                    <li class="no-children"><a
+                                                            href="https://bfchs-mi.client.renweb.com/pwr/"
+                                                            target="_blank"><span class="Title"><span
+                                                                    class="fas fa-globe"></span> FACTS Login</span></a>
+                                                    </li>
+                                                    <li class="no-children"><a href="Calendar.html"><span
+                                                                class="Title"><span class="fas fa-calendar"></span>
+                                                                Calendar</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div id="wE4ZD8PJX9CI6DQU" class="mwPageBlock Menu" style="">
+                                            <div class="blockContents">
+                                                <ul id="mQF2k3y3u">
+                                                    <li class="no-children"><a
+                                                            href="https://1stplacespiritwear.com/schools/MI/Madison+Heights/Bishop+Foley+Catholic+High+School"
+                                                            target="_blank"><span class="Title">Online
+                                                                Store</span></a></li>
+                                                    <li class="no-children"><a href="contact-us.html"><span
+                                                                class="Title">Contact Us</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div id="w6RDJ883KSIWKPTI" class="mwPageBlock Button" style="">
+                                            <div class="blockContents">
+                                                <div class="mwBtnCenter">
+                                                    <div class="btn btnHalfRoundYellow">
+                                                        <a href="https://bfchs-mi.client.renweb.com/oa/"
+                                                            template="default" class="medium" target="_blank">Apply
+                                                            Now</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="wSDYR0YT1T0L8OGD" class="mwPageBlock Button" style="">
+                                            <div class="blockContents">
+                                                <div class="mwBtnCenter">
+                                                    <div class="btn btnHalfRoundBlack">
+                                                        <a href="Support-Us.html" template="default" class="medium"
+                                                            target="_self">Support Us</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+
+                            //-----------------------------------------------------------
+                            //
+                            // Mobile Menu
+                            //
+                            //-----------------------------------------------------------
+                            //
+                            (function() {
+
+                                //--------------------------------
+                                // Selectors
+                                //--------------------------------
+                                //
+                                var $body = $('body');
+                                var $header = $('.headerTwo');
+                                var $burger = $('.burger', $header);
+                                var $menu = $('.mobileMenuOne');
+                                var $nav = $('.mobileMenuNav', $menu);
+                                var $menuClose = $('.mobileMenuClose, .mobileMenuBackdrop', $menu);
+                                var $menuBackdrop = $('.mobileMenuBackdrop', $menu);
+                                var $navChildrenUl = $('ul ul', $nav);
+                                var $navHasChildrenLi = $('li.has-children', $nav);
+                                var $navHasChildrenAnchor = $('li.has-children > a', $nav);
+
+                                //--------------------------------
+                                // Initialization
+                                //--------------------------------
+                                //
+                                // Append a plus symbol to <a class="has-children">
+                                //
+                                $navHasChildrenAnchor.append('<i class="fa fa-chevron-right"></i>');
+
+                                //--------------------------------
+                                // Toggle Mobile Menu
+                                //--------------------------------
+                                //
+                                // Open
+                                //
+                                $burger.on('click', function() {
+                                    $body.addClass('_overflow-hidden');
+                                    $menu.addClass('active').attr('aria-hidden', 'false');
+                                    $menuBackdrop.fadeIn(400);
+                                });
+
+                                // Close
+                                //
+                                $menuClose.on('click', function() {
+                                    $body.removeClass('_overflow-hidden');
+                                    $menu.removeClass('active').attr('aria-hidden', 'true');
+                                    $menuBackdrop.fadeOut(400, function() {
+                                        $navHasChildrenLi.removeClass('active');
+                                        $navChildrenUl.hide().removeClass('expanded');
+                                    });
+                                });
+
+                                //--------------------------------
+                                // Toggle Children
+                                //--------------------------------
+                                //
+                                $navHasChildrenAnchor.on('click', function(e) {
+                                    e.preventDefault();
+
+                                    // This Selectors
+                                    //
+                                    var $this = $(this);
+                                    var $thisLi = $this.closest('li.has-children');
+
+                                    // Child Selectors
+                                    //
+                                    var $childUl = $this.next('ul');
+
+                                    // Children Selectors
+                                    //
+                                    var $childrenUl = $('ul', $childUl);
+                                    var $childrenLi = $('li.has-children', $childUl);
+
+                                    // Sibling Selectors
+                                    //
+                                    var $siblingLi = $thisLi.siblings('li.has-children');
+                                    var $siblingChildrenUl = $('ul', $siblingLi);
+                                    var $siblingChildrenLi = $('li.has-children', $siblingLi);
+
+                                    // Toggle This
+                                    //
+                                    $thisLi.toggleClass('active');
+
+                                    // Toggle Child
+                                    //
+                                    $childUl.slideToggle().toggleClass('expanded');
+
+                                    // Collapse Grandchildren
+                                    //
+                                    $childrenLi.removeClass('active');
+                                    $childrenUl.slideUp().removeClass('expanded');
+
+                                    // Collapse Siblings
+                                    //
+                                    $siblingLi.removeClass('active');
+                                    $siblingChildrenLi.removeClass('active');
+                                    $siblingChildrenUl.slideUp().removeClass('expanded');
+                                });
+                            })();
+
+                            //-----------------------------------------------------------
+                            //
+                            // Toggle Search
+                            //
+                            //-----------------------------------------------------------
+                            //
+                            (function() {
+                                var $searchBtn = $('.headerTwo .searchBtn');
+                                var $searchBar = $('.headerTwo .searchBar');
+                                var $searchBarInput = $('.headerTwo .searchBar input[name="q"]');
+
+                                $searchBtn.on('click', function(e) {
+                                    e.preventDefault();
+
+                                    $('.headerTwo').toggleClass('searchBar-active');
+                                    6
+                                    if ($searchBar.hasClass('active')) {
+                                        $searchBtn.removeClass("active");
+                                        $searchBar.removeClass("active");
+                                        $searchBarInput.blur();
+                                    } else {
+                                        $searchBtn.addClass("active");
+                                        $searchBar.addClass("active");
+                                        $searchBarInput.focus();
+                                    }
+                                });
+                            })();
+                        });
+                    </script>
+                </div>
+            </div>
+        </header>
+        <div id="accessibility" class="_shadow-6 _shadow-hover"> <a id="accessibilityBtn"
+                class="_shadow-6 _shadow-hover"><span class="fa fa-universal-access"></span></a>
+            <ul>
+                <li><a class="increase"><span class="fa fa-plus"></span>Increase Font</a> </li>
+                <li><a class="decrease"><span class="fa fa-minus"></span> Decrease Font</a> </li>
+                <!--  <li><a id="grayscale" class="accessability-effect"><span class="fa fa-circle"></span> Greyscale</a> </li> -->
+                <li><a id="allLinks"><span class="fa fa-link"></span> Highlight Links</a> </li>
+                <li><a class="reset"><span class="fa fa-font"></span> Regular Font</a> </li>
+                <li><a href="javascript:window.location.reload(true)"><span class="fa fa-refresh"></span> Reset</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main -->
+        <main id="mainArea">
+            <div class="mwPageArea">
+                <div id="wRSD92DWWGR1YRP6" class="mwPageBlock Include" style="">
+                    <div class="blockContents">
+
+                        <div class="videoBanner videoBannerOne videoBannerLarge content-style">
+                            <div class="videoBannerWrap"
+                                style="background-image: url('{{ asset('frontend/files/galleries/BFC_Video_Placeholder.jpg') }}')"
+                                data-fit-img>
+                                <video autoplay="autoplay" loop="loop" muted="muted"
+                                    poster="{{ asset('frontend/files/galleries/BFC_Video_Placeholder.jpg') }}"
+                                    data-fit-img-child>
+                                    <source src="{{ asset('frontend/files/galleries/Sequence_01.webm') }}"
+                                        type="video/mp4" />
+                                    <img class="_img-fluid" alt=""
+                                        src="{{ asset('frontend/files/galleries/BFC_Video_Placeholder.jpg') }}" />
+                                </video>
+                                <div class="videoBannerInner">
+                                    <div class="container">
+                                        <h1 class="videoBannerTitle">
+
+                                            Ready to start your next
+                                        </h1>
+                                        <p class="videoBannerParagraph">Adventure?</p>
+
+                                        <div class="decoration">
+                                            <div class="decoLine _mx-auto _mb-30 _bg-secondary"
+                                                style="width: 2px; height: 128.5px;"></div>
+                                        </div>
+
+                                        <div class="videoBannerBtns">
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="playbutton"><a href="%7bvideoBanner_fulllength%7d.html"
+                                        class="video-popup"><img
+                                            src="{{ asset('frontend/images/play-button.png') }}"> Play Full Video</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="wYUZENJ1BLR5EODN" class="mwPageBlock Include" style="">
+                    <div class="blockContents">
+
+                        <div class="homeFourColumnWrap">
+                            <div class="homeFourColumn">
+                                <div class="homeFourCol"> Where will you venture to? </div>
+                                <div class="homeFourCol trans">
+                                    <a href="Academics-departments.html"><img
+                                            src="{{ asset('frontend/images/Academics.png') }}" />
+                                        <h4>Academics</h4>
+                                        <div class="plus trans">+</div>
+                                    </a>
+                                </div>
+                                <div class="homeFourCol trans">
+                                    <a href="Athletics.html"><img
+                                            src="{{ asset('frontend/images/Athletics.png') }}" />
+                                        <h4>Athletics</h4>
+                                        <div class="plus trans">+</div>
+                                    </a>
+                                </div>
+                                <div class="homeFourCol trans">
+                                    <a href="Extracurricular-Activities.html"><img
+                                            src="{{ asset('frontend/images/Extracurricular.png') }}" />
+                                        <h4>Extracurricular</h4>
+                                        <div class="plus trans">+</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="wBMACIZ39FDJHUY3" class="mwPageBlock Include" style="">
+                    <div class="blockContents">
+                        <script type="text/javascript">
+                            jQuery(document).ready(function($) { // When jQuery is ready
+
+                                function check_from_top_de() { // Create our function
+                                    var scroll = $(window).scrollTop(); // Check scroll distance
+                                    if (scroll >= 300) { // If it is equal or more than 300 - you can change this to what you want
+                                        $(".animated-bars").addClass("start_animation"); // Add custom class to body
+                                    } else {
+                                        $(".animated-bars").removeClass(
+                                            "start_animation"); // When scrolled to the top, remove the class
+                                    }
+                                }
+
+                                check_from_top_de(); // On load, run the function
+
+                                $(window).scroll(function() { // When scroll - run function
+                                    check_from_top_de();
+                                });
+
+                            });
+                        </script>
+
+                        <div class="animated-bars">
+                            <div class="aba"> <span class="bar-1"></span></div>
+                            <div class="abb"><span class="bar-2"></span></div>
+                            <span class="bar-3"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="wOKSYUAG7X1W89N2" class="mwPageBlock Include" style="">
+                    <div class="blockContents">
+
+
+
+
+
+                        <style type="text/css">
+                            #contentArea-ZO95MN {
+                                background-image: url("");
+                                background-position: center;
+                                background-size: auto;
+                                background-repeat: no-repeat;
+                            }
+                        </style>
+
+                        <div id="contentArea-ZO95MN" class="contentArea contentAreaSmall _bg-white content-style">
+                            <div class="contentAreaWrap">
+                                <div class="container">
+                                    <div class="mwPageArea">
+                                        <div id="wO4OIZR2O4E42PDX" class="mwPageBlock Include" style="">
+                                            <div class="blockContents">
+
+                                                <div class="twoCol row _align-items-center">
+                                                    <div class="twoColLeft col-lg-4">
+                                                        <div class="mwPageArea">
+                                                            <div id="wSWTQ1LWH2T6VHNI" class="mwPageBlock Include"
+                                                                style="">
+                                                                <div class="blockContents">
+                                                                    <div id="animate-11W1SBHLBI" class="animate"
+                                                                        data-aos="fade-right"
+                                                                        data-aos-duration="1000"
+                                                                        data-aos-delay="300">
+                                                                        <div class="mwPageArea">
+                                                                            <div id="wZA8QIEOOQIVQVIC"
+                                                                                class="mwPageBlock File"
+                                                                                style="">
+                                                                                <div class="blockContents">
+                                                                                    <div class="hideonemobile">
+                                                                                        <img
+                                                                                            src="{{ asset('frontend/files/_cache/9fddc407ceb11c26f2a043d998d51b9e.png') }}" />
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="Clear"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <style>
+                                                                        .animate .liveEdArea {
+                                                                            padding: 10px;
+                                                                        }
+
+                                                                        .animate .liveEdArea:before {
+                                                                            content: "Animate";
+                                                                            border: 1px solid #ccc;
+                                                                            float: right;
+                                                                            background: #00a99d;
+                                                                            color: #fff;
+                                                                            font-size: 10px;
+                                                                            padding: 6px;
+                                                                        }
+                                                                    </style>
+                                                                </div>
+                                                            </div>
+                                                            <div class="Clear"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="twoColRight col-lg-8">
+                                                        <div class="mwPageArea">
+                                                            <div id="w76JKNXSBZ265M5T" class="mwPageBlock Include"
+                                                                style="">
+                                                                <div class="blockContents">
+                                                                    <div id="animate-P189X17EB4" class="animate"
+                                                                        data-aos="fade-left"
+                                                                        data-aos-duration="1000"
+                                                                        data-aos-delay="300">
+                                                                        <div class="mwPageArea">
+                                                                            <div id="wC0U3HYAGY6YWT5P"
+                                                                                class="mwPageBlock Include"
+                                                                                style="">
+                                                                                <div class="blockContents">
+                                                                                    <div
+                                                                                        class="twoCol row _align-items-center">
+                                                                                        <div
+                                                                                            class="twoColLeft col-lg-2 col-md-3">
+                                                                                            <div class="mwPageArea">
+                                                                                                <div id="w335PC3YJ1Z6SIG2"
+                                                                                                    class="mwPageBlock Content"
+                                                                                                    style="">
+                                                                                                    <div
+                                                                                                        class="blockContents">
+                                                                                                        <h6>
+                                                                                                            Welcome to
+                                                                                                        </h6>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="Clear">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="twoColRight col-lg-10 col-md-9">
+                                                                                            <div class="mwPageArea">
+                                                                                                <div id="wI5I0X60GOTEZ23C"
+                                                                                                    class="mwPageBlock Include"
+                                                                                                    style="">
+                                                                                                    <div
+                                                                                                        class="blockContents">
+                                                                                                        <div
+                                                                                                            class="decoration">
+                                                                                                            <div class="decoLine _mx-auto _mb-30 lightgrey "
+                                                                                                                style="width: 100%; height: 1px;">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="Clear">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div id="wZ5Y7N0UP7HQQRDI"
+                                                                                class="mwPageBlock Spacer"
+                                                                                style="">
+                                                                                <div class="blockContents">
+                                                                                    <div class="mwSpacer small hor">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div id="wDVI0ENV5XRP19UH"
+                                                                                class="mwPageBlock Include"
+                                                                                style="">
+                                                                                <div class="blockContents">
+
+                                                                                    <div class="twoCol row ">
+
+                                                                                        <div
+                                                                                            class="twoColLeft col-md-6">
+                                                                                            <div class="mwPageArea">
+                                                                                                <div id="w31MFTWX6X76Z5EB"
+                                                                                                    class="mwPageBlock Content"
+                                                                                                    style="">
+                                                                                                    <div
+                                                                                                        class="blockContents">
+                                                                                                        <h2>
+                                                                                                            Bishop Foley
+                                                                                                            Catholic
+                                                                                                            High School
+                                                                                                        </h2>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="Clear">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="twoColRight col-md-6">
+                                                                                            <div class="mwPageArea">
+                                                                                                <div id="w26YWH3JYO0ZN53M"
+                                                                                                    class="mwPageBlock Content"
+                                                                                                    style="">
+                                                                                                    <div
+                                                                                                        class="blockContents">
+                                                                                                        <p>
+                                                                                                            We are
+                                                                                                            pleased you
+                                                                                                            are
+                                                                                                            considering
+                                                                                                            our school
+                                                                                                            as your
+                                                                                                            child&rsquo;s
+                                                                                                            home for the
+                                                                                                            next four
+                                                                                                            years.
+                                                                                                            Bishop Foley
+                                                                                                            Catholic is
+                                                                                                            a four-year
+                                                                                                            co-educational,
+                                                                                                            college
+                                                                                                            preparatory
+                                                                                                            high school
+                                                                                                            within
+                                                                                                            the
+                                                                                                            Archdiocese
+                                                                                                            of Detroit,
+                                                                                                            located in
+                                                                                                            the
+                                                                                                            Metro-Detroit
+                                                                                                            suburb of
+                                                                                                            Madison
+                                                                                                            Heights.
+                                                                                                            Because of
+                                                                                                            our central
+                                                                                                            location,
+                                                                                                            BFC students
+                                                                                                            come from
+                                                                                                            over 60
+                                                                                                            different
+                                                                                                            schools
+                                                                                                            &mdash; both
+                                                                                                            private and
+                                                                                                            public.
+                                                                                                        </p>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div id="wNSGGWNHY7BJF4VS"
+                                                                                                    class="mwPageBlock Button Float rowHost"
+                                                                                                    style="width: 39.27% clear: both;">
+                                                                                                    <div
+                                                                                                        class="blockContents rowStart">
+                                                                                                        <div
+                                                                                                            class="mwBtnLeft">
+                                                                                                            <div
+                                                                                                                class="btn btnYellow btnRounded">
+                                                                                                                <a href="about-bfc.html"
+                                                                                                                    template="default"
+                                                                                                                    class="medium"
+                                                                                                                    target="_self">About
+                                                                                                                    Us</a>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div id="wAH9AWZWT2UYVTLC"
+                                                                                                    class="mwPageBlock Button Float"
+                                                                                                    style="width: 60.73%">
+                                                                                                    <div
+                                                                                                        class="blockContents rowEnd">
+                                                                                                        <div
+                                                                                                            class="mwBtnLeft">
+                                                                                                            <div
+                                                                                                                class="btn btnYellow btnOutline btnRounded">
+                                                                                                                <a href="https://bfchs-mi.client.renweb.com/oa/"
+                                                                                                                    template="default"
+                                                                                                                    class="medium"
+                                                                                                                    target="_blank">Apply
+                                                                                                                    to
+                                                                                                                    BFC</a>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="Clear">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="Clear"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <style>
+                                                                        .animate .liveEdArea {
+                                                                            padding: 10px;
+                                                                        }
+
+                                                                        .animate .liveEdArea:before {
+                                                                            content: "Animate";
+                                                                            border: 1px solid #ccc;
+                                                                            float: right;
+                                                                            background: #00a99d;
+                                                                            color: #fff;
+                                                                            font-size: 10px;
+                                                                            padding: 6px;
+                                                                        }
+                                                                    </style>
+                                                                </div>
+                                                            </div>
+                                                            <div class="Clear"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="wNED63BNGTT0UL4W" class="mwPageBlock Spacer" style="">
+                                            <div class="blockContents">
+                                                <div class="mwSpacer medium hor"></div>
+                                            </div>
+                                        </div>
+                                        <div class="Clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="w4PLTTMKB0EBNC61" class="mwPageBlock Include" style="">
+                    <div class="blockContents">
+                        <div class="homeTabsWrap">
+                            <div class="tabsLeft">
+                                <div class="tabsLeftTop">Select a tab <span class="fa fa-arrow-right"></span>
+
+                                </div>
+                                <div class="tabsLeftBottom">
+                                    <h4>Stats that set us apart</h4>
+                                </div>
+                            </div>
+                            <div class="tabsRight">
+                                <div class="tabsRightMenu">
+                                    <div class="tabBtnAcademics">Academics</div>
+                                    <div class="tabBtnAthletics">Athletics</div>
+                                    <div class="tabBtnExtracurricular">Extracurricular</div>
+                                </div>
+                                <div class="tabcontentWrap">
+                                    <div class="tabAcademics">
+                                        <div class="mwPageArea">
+                                            <div id="wTGHEJ2REFTINPEN" class="mwPageBlock Include" style="">
+                                                <div class="blockContents">
+                                                    <div class="threeCol row">
+                                                        <div class="threeColItem col-lg-4 col-md-6">
+                                                            <div class="mwPageArea">
+                                                                <div id="wJI1696MYJCKLHAG"
+                                                                    class="mwPageBlock Include" style="">
+                                                                    <div class="blockContents">
+
+                                                                        <div class="countUp countUpOne">
+                                                                            <div class="countUpWrap">
+
+                                                                                <p>
+                                                                                    <span class="countUpTop">
+                                                                                        <span
+                                                                                            class="countUpNum">99</span><span
+                                                                                            class="countUpSymbol">%</span></span>
+                                                                                    <span class="countUpBottom">
+                                                                                        <span class="countUpText">99%
+                                                                                            of Foley graduates go on to
+                                                                                            attend college, at nearly
+                                                                                            150 institutions.</span>
+                                                                                    </span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="Clear"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="threeColItem col-lg-4 col-md-6">
+                                                            <div class="mwPageArea">
+                                                                <div id="wIQWOVS6R23N7XUK"
+                                                                    class="mwPageBlock Include" style="">
+                                                                    <div class="blockContents">
+                                                                        <div class="countUp countUpOne">
+                                                                            <div class="countUpWrap">
+                                                                                <p>
+                                                                                    <span class="countUpTop">
+
+                                                                                        <span
+                                                                                            class="countUpSymbol"></span>
+                                                                                        <span class="countUpNum"><span
+                                                                                                class="numbercomma">17</span></span>
+
+                                                                                        <span class="countUpSymbol">:
+                                                                                            1</span>
+
+                                                                                    </span>
+                                                                                    <span class="countUpBottom">
+                                                                                        <span class="countUpText">The
+                                                                                            average student-to-teacher
+                                                                                            ratio is 17:1 with an
+                                                                                            average class size of
+                                                                                            18.</span>
+                                                                                    </span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="Clear"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="threeColItem col-lg-4">
+                                                            <div class="mwPageArea">
+                                                                <div id="w4BPTPO0SR98Q4L7"
+                                                                    class="mwPageBlock Include" style="">
+                                                                    <div class="blockContents">
+
+                                                                        <div class="countUp countUpOne">
+                                                                            <div class="countUpWrap">
+
+                                                                                <p>
+                                                                                    <span class="countUpTop">
+                                                                                        <span
+                                                                                            class="countUpNum">110</span><span
+                                                                                            class="countUpSymbol">+</span></span>
+                                                                                    <span class="countUpBottom">
+                                                                                        <span class="countUpText">Over
+                                                                                            110 unique courses — plus 12
+                                                                                            Advanced Placement and 8
+                                                                                            Honors courses.</span>
+                                                                                    </span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="Clear"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="Clear"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tabAthletics">
+                                        <div class="mwPageArea">
+                                            <div id="wIH1JHHCFHX4QT3M" class="mwPageBlock Include" style="">
+                                                <div class="blockContents">
+                                                    <div class="threeCol row">
+                                                        <div class="threeColItem col-lg-4 col-md-6">
+                                                            <div class="mwPageArea">
+                                                                <div id="wL6X04L32GZE8U64"
+                                                                    class="mwPageBlock Include" style="">
+                                                                    <div class="blockContents">
+
+                                                                        <div class="countUp countUpOne">
+                                                                            <div class="countUpWrap">
+
+                                                                                <p>
+                                                                                    <span class="countUpTop">
+
+                                                                                        <span class="countUpSymbol">
+                                                                                        </span>
+                                                                                        <span class="countUpNum"><span
+                                                                                                class="numbercomma">21</span></span>
+
+                                                                                    </span>
+                                                                                    <span class="countUpBottom">
+                                                                                        <span class="countUpText">BFC
+                                                                                            offers 21 athletic teams,
+                                                                                            including 6 co-op programs
+                                                                                            to include sports like
+                                                                                            skiing and girls ice
+                                                                                            hockey.</span>
+                                                                                    </span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="Clear"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="threeColItem col-lg-4 col-md-6">
+                                                            <div class="mwPageArea">
+                                                                <div id="wXO0ZX16FDC5WIYT"
+                                                                    class="mwPageBlock Include" style="">
+                                                                    <div class="blockContents">
+                                                                        <div class="countUp countUpOne">
+                                                                            <div class="countUpWrap">
+                                                                                <p>
+                                                                                    <span class="countUpTop">
+
+                                                                                        <span class="countUpSymbol">
+                                                                                        </span>
+                                                                                        <span class="countUpNum"><span
+                                                                                                class="numbercomma">12</span></span>
+
+                                                                                    </span>
+                                                                                    <span class="countUpBottom">
+                                                                                        <span class="countUpText">BFC
+                                                                                            is home to many 12-season
+                                                                                            athletes who excel in
+                                                                                            balancing academics and
+                                                                                            athletics, preparing them
+                                                                                            for collegiate level
+                                                                                            play.</span>
+                                                                                    </span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="Clear"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="threeColItem col-lg-4">
+                                                            <div class="mwPageArea">
+                                                                <div id="wRK2VY79G4VB8SX5"
+                                                                    class="mwPageBlock Include" style="">
+                                                                    <div class="blockContents">
+                                                                        <div class="countUp countUpOne">
+                                                                            <div class="countUpWrap">
+                                                                                <p>
+                                                                                    <span class="countUpTop">
+
+                                                                                        <span class="countUpSymbol">
+                                                                                        </span>
+                                                                                        <span class="countUpNum"><span
+                                                                                                class="numbercomma">27</span></span>
+
+                                                                                        <span
+                                                                                            class="countUpSymbol">+</span>
+
+                                                                                    </span>
+                                                                                    <span class="countUpBottom">
+                                                                                        <span
+                                                                                            class="countUpText">Bishop
+                                                                                            Foley Catholic athletes have
+                                                                                            obtained over 27 MHSAA
+                                                                                            District Championships since
+                                                                                            2013, including 3 State
+                                                                                            Championships!</span>
+                                                                                    </span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="Clear"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="Clear"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tabExtracurricular">
+                                        <div class="mwPageArea">
+                                            <div id="wAZ078TXYY2U91IF" class="mwPageBlock Include" style="">
+                                                <div class="blockContents">
+                                                    <div class="threeCol row">
+                                                        <div class="threeColItem col-lg-4 col-md-6">
+                                                            <div class="mwPageArea">
+                                                                <div id="wN5UL6MY7BPR8IT2"
+                                                                    class="mwPageBlock Include" style="">
+                                                                    <div class="blockContents">
+
+                                                                        <div class="countUp countUpOne">
+                                                                            <div class="countUpWrap">
+
+                                                                                <p>
+                                                                                    <span class="countUpTop">
+
+                                                                                        <span class="countUpSymbol">
+                                                                                        </span>
+                                                                                        <span class="countUpNum"><span
+                                                                                                class="numbercomma">90</span></span>
+
+                                                                                        <span
+                                                                                            class="countUpSymbol">%</span>
+
+                                                                                    </span>
+                                                                                    <span class="countUpBottom">
+                                                                                        <span class="countUpText">Over
+                                                                                            90% of our students are
+                                                                                            involved in at least one
+                                                                                            extracurricular activity or
+                                                                                            club.</span>
+                                                                                    </span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="Clear"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="threeColItem col-lg-4 col-md-6">
+                                                            <div class="mwPageArea">
+                                                                <div id="wCXLLMYVPDPN72N7"
+                                                                    class="mwPageBlock Include" style="">
+                                                                    <div class="blockContents">
+                                                                        <div class="countUp countUpOne">
+                                                                            <div class="countUpWrap">
+
+                                                                                <p>
+                                                                                    <span class="countUpTop">
+
+                                                                                        <span class="countUpSymbol">
+                                                                                        </span>
+                                                                                        <span class="countUpNum"><span
+                                                                                                class="numbercomma">18</span></span>
+
+                                                                                    </span>
+                                                                                    <span class="countUpBottom">
+                                                                                        <span
+                                                                                            class="countUpText">Students
+                                                                                            have the opportunity to join
+                                                                                            18 clubs, ranging from
+                                                                                            robotics to arts, and
+                                                                                            culinary to medical
+                                                                                            science.</span>
+                                                                                    </span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="Clear"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="threeColItem col-lg-4">
+                                                            <div class="mwPageArea">
+                                                                <div id="w68TBPHN892IAPML"
+                                                                    class="mwPageBlock Include" style="">
+                                                                    <div class="blockContents">
+
+                                                                        <div class="countUp countUpOne">
+                                                                            <div class="countUpWrap">
+
+                                                                                <p>
+                                                                                    <span class="countUpTop">
+
+                                                                                        <span class="countUpSymbol">
+                                                                                        </span>
+                                                                                        <span class="countUpNum"><span
+                                                                                                class="numbercomma">6000</span></span>
+
+                                                                                        <span
+                                                                                            class="countUpSymbol">+</span>
+
+                                                                                    </span>
+                                                                                    <span class="countUpBottom">
+                                                                                        <span class="countUpText">BFC
+                                                                                            students dedicate 6,000+
+                                                                                            hours of service to our
+                                                                                            community, with added
+                                                                                            opportunities through Key
+                                                                                            Club and the National Honor
+                                                                                            Society.</span>
+                                                                                    </span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="Clear"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="Clear"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <script>
+                            jQuery('.tabAcademics').show();
+                            jQuery('.tabAthletics').hide();
+                            jQuery('.tabExtracurricular').hide();
+                            jQuery('.tabBtnAcademics').addClass('active');
+
+
+                            jQuery('.tabBtnAcademics').click(function() {
+                                jQuery('.tabAcademics').show();
+                                jQuery('.tabAthletics').hide();
+                                jQuery('.tabExtracurricular').hide();
+
+                                jQuery('.tabBtnAcademics').addClass('active');
+                                jQuery('.tabBtnAthletics').removeClass('active');
+                                jQuery('.tabBtnExtracurricular').removeClass('active');
+
+
+                                jQuery('.tabsLeft').removeClass('Athletics');
+                                jQuery('.tabsLeft').removeClass('Extracurricular');
+                                jQuery('.tabsLeft').addClass('Academics');
+
+
+                            });
+
+                            jQuery('.tabBtnAthletics').click(function() {
+                                jQuery('.tabAcademics').hide();
+                                jQuery('.tabAthletics').show();
+                                jQuery('.tabExtracurricular').hide();
+
+                                jQuery('.tabBtnAcademics').removeClass('active');
+                                jQuery('.tabBtnAthletics').addClass('active');
+                                jQuery('.tabBtnExtracurricular').removeClass('active');
+
+                                jQuery('.tabsLeft').addClass('Athletics');
+                                jQuery('.tabsLeft').removeClass('Academics');
+
+                                jQuery('.tabsLeft').removeClass('Extracurricular');
+                            });
+
+                            jQuery('.tabBtnExtracurricular').click(function() {
+                                jQuery('.tabAcademics').hide();
+                                jQuery('.tabAthletics').hide();
+                                jQuery('.tabExtracurricular').show();
+
+                                jQuery('.tabBtnAcademics').removeClass('active');
+                                jQuery('.tabBtnAthletics').removeClass('active');
+                                jQuery('.tabBtnExtracurricular').addClass('active');
+
+                                jQuery('.tabsLeft').addClass('Extracurricular');
+                                jQuery('.tabsLeft').removeClass('Academics');
+                                jQuery('.tabsLeft').removeClass('Athletics');
+
+                            });
+                        </script>
+
+                        <style>
+
+                        </style>
+                    </div>
+                </div>
+                <div id="w99PTKHYQEAOXJ97" class="mwPageBlock Include" style="">
+                    <div class="blockContents">
+                        <div class="homeCTAWrap contentArea content-style">
+                            <div class="homeCTAInner">
+                                <div class="homeCTAContent">
+                                    <div id="wGPIUM4UY81L2SSI" class="mwPageBlock Content" style="">
+                                        <div class="blockContents">
+                                            <h2>
+                                                Experience
+                                                <br />
+                                                Bishop Foley Catholic
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="mwPageArea">
+                                        <div id="w7XVF7MGITG393VR" class="mwPageBlock Include" style="">
+                                            <div class="blockContents">
+
+                                                <div class="twoCol row ">
+
+                                                    <div class="twoColLeft col-md-6">
+                                                        <div class="mwPageArea">
+                                                            <div id="wKWBZJ8STT3PZKD1" class="mwPageBlock Button"
+                                                                style="">
+                                                                <div class="blockContents">
+                                                                    <div class="mwBtnCenter">
+                                                                        <div class="btn btnYellow btnRounded">
+                                                                            <a href="Visit-BFC.html"
+                                                                                template="default" class="medium"
+                                                                                target="_self">Plan a Visit</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="Clear"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="twoColRight col-md-6">
+                                                        <div class="mwPageArea">
+                                                            <div id="w065ICIUTB5D8D50" class="mwPageBlock Button"
+                                                                style="">
+                                                                <div class="blockContents">
+                                                                    <div class="mwBtnCenter">
+                                                                        <div
+                                                                            class="btn btnYellow btnOutline btnRounded">
+                                                                            <a href="Foley-Faith.html"
+                                                                                template="default" class="medium"
+                                                                                target="_self">Foley Faith</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="Clear"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="decoration">
+                                <div class="decoLine _mx-auto _mb-30 _bg-secondary"
+                                    style="width: 2px; height: 128.5px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="wMA498HSWPK1URG2" class="mwPageBlock Include" style="">
+                    <div class="blockContents">
+                        <style type="text/css">
+                            #contentArea-N4R6GE {
+                                background-image: url("");
+                                background-position: center;
+                                background-size: auto;
+                                background-repeat: no-repeat;
+                            }
+                        </style>
+
+                        <div id="contentArea-N4R6GE" class="contentArea contentAreaLarge _bg-white content-style">
+                            <div class="contentAreaWrap">
+                                <div class="container">
+                                    <div class="mwPageArea">
+                                        <div id="wU7P3KNO34SWZHQD" class="mwPageBlock Content" style="">
+                                            <div class="blockContents">
+                                                <h2 style="text-align: center;">
+                                                    Student Perspectives
+                                                </h2>
+                                            </div>
+                                        </div>
+                                        <div id="w5UCUAE7P5A255RH" class="mwPageBlock Include" style="">
+                                            <div class="blockContents">
+                                                <div class="threeCol row">
+                                                    <div class="threeColItem col-lg-4 col-md-6">
+                                                        <div class="mwPageArea">
+                                                            <div id="wZST6ROVRK1WFB8K" class="mwPageBlock Include"
+                                                                style="">
+                                                                <div class="blockContents">
+
+                                                                    <div id="animate-1IYFCZZ8F6" class="animate"
+                                                                        data-aos="fade-up" data-aos-duration="500"
+                                                                        data-aos-delay="0">
+                                                                        <div class="mwPageArea">
+                                                                            <div id="wSRHTY0ONKPZGF50"
+                                                                                class="mwPageBlock Include"
+                                                                                style="">
+                                                                                <div class="blockContents">
+                                                                                    <div class="PerspectivesWrap"
+                                                                                        style="background: url('{{ asset('frontend/files/galleries/Charlie_Burks_1433.gif') }}') center center no-repeat; background-size:cover !important;">
+                                                                                        <div class="PerspectivesShadow trans"
+                                                                                            style="background: url('{{ asset('frontend/files/galleries/Charlie_Burks-0001.png') }}') center center no-repeat; background-size:cover">
+                                                                                            <div
+                                                                                                class="PerspectivesInner trans">
+                                                                                                <div
+                                                                                                    class="PerspectivesBtn trans">
+                                                                                                    <a href="{{ asset('frontend/files/galleries/CB_Choose.mp4') }}"
+                                                                                                        class="video-popup"><img
+                                                                                                            src="{{ asset('frontend/images/play-button-large.png') }}" /></a>
+                                                                                                </div>
+                                                                                                <h3>Ask Charlie</h3>
+                                                                                                <h6>Class of 2025</h6>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/CB_Choose.mp4') }}"
+                                                                                                        class="video-popup">Why
+                                                                                                        Foley</a></p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/CB_FoleyFamily.mp4') }}"
+                                                                                                        class="video-popup">Foley
+                                                                                                        Family Means...
+                                                                                                    </a></p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/CB_Prepare.mp4') }}"
+                                                                                                        class="video-popup">Foley
+                                                                                                        Prepares me
+                                                                                                        For... </a></p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/CB_Program.mp4') }}"
+                                                                                                        class="video-popup">Favorite
+                                                                                                        BFC Programs</a>
+                                                                                                </p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/CB_Memory.mp4') }}"
+                                                                                                        class="video-popup">Favorite
+                                                                                                        Memory</a></p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/CB_Advice.mp4') }}"
+                                                                                                        class="video-popup">My
+                                                                                                        Advice</a></p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="Clear"></div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <style>
+                                                                        .animate .liveEdArea {
+                                                                            padding: 10px;
+                                                                        }
+
+                                                                        .animate .liveEdArea:before {
+                                                                            content: "Animate";
+                                                                            border: 1px solid #ccc;
+                                                                            float: right;
+                                                                            background: #00a99d;
+                                                                            color: #fff;
+                                                                            font-size: 10px;
+                                                                            padding: 6px;
+                                                                        }
+                                                                    </style>
+                                                                </div>
+                                                            </div>
+                                                            <div id="w5CKM4FW2T6DCJJS" class="mwPageBlock Spacer"
+                                                                style="">
+                                                                <div class="blockContents">
+                                                                    <div class="mwSpacer small hor"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="Clear"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="threeColItem col-lg-4 col-md-6">
+                                                        <div class="mwPageArea">
+                                                            <div id="wQ1W3EI7MN778HP9" class="mwPageBlock Include"
+                                                                style="">
+                                                                <div class="blockContents">
+
+
+
+
+
+                                                                    <div id="animate-Q3KLTEW7C1" class="animate"
+                                                                        data-aos="fade-up" data-aos-duration="500"
+                                                                        data-aos-delay="300">
+                                                                        <div class="mwPageArea">
+                                                                            <div id="w7K07US9HB0VY9ZU"
+                                                                                class="mwPageBlock Include"
+                                                                                style="">
+                                                                                <div class="blockContents">
+                                                                                    <div class="PerspectivesWrap"
+                                                                                        style="background: url('{{ asset('frontend/files/galleries/Olivia_Clark_1369.gif') }}') center center no-repeat; background-size:cover !important;">
+                                                                                        <div class="PerspectivesShadow trans"
+                                                                                            style="background: url('{{ asset('frontend/files/galleries/Olivia_Clark-0001.png') }}') center center no-repeat; background-size:cover">
+                                                                                            <div
+                                                                                                class="PerspectivesInner trans">
+                                                                                                <div
+                                                                                                    class="PerspectivesBtn trans">
+                                                                                                    <a href="{{ asset('frontend/files/galleries/OC_Choose.mp4') }}"
+                                                                                                        class="video-popup"><img
+                                                                                                            src="{{ asset('frontend/images/play-button-large.png') }}" /></a>
+                                                                                                </div>
+                                                                                                <h3>Ask Olivia</h3>
+                                                                                                <h6>Class of 2023</h6>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/OC_Choose.mp4') }}"
+                                                                                                        class="video-popup">Why
+                                                                                                        Foley</a></p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/OC_FoleyFamily.mp4') }}"
+                                                                                                        class="video-popup">Foley
+                                                                                                        Family
+                                                                                                        Means...</a></p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/OC_Prepare.mp4') }}"
+                                                                                                        class="video-popup">Foley
+                                                                                                        Prepares me
+                                                                                                        For...</a></p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/OC_Programs.mp4') }}"
+                                                                                                        class="video-popup">Favorite
+                                                                                                        BFC Programs</a>
+                                                                                                </p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/OC_Memory.mp4') }}"
+                                                                                                        class="video-popup">Favorite
+                                                                                                        Memory</a></p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/OC_Advice.mp4') }}"
+                                                                                                        class="video-popup">My
+                                                                                                        Advice</a></p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="Clear"></div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <style>
+                                                                        .animate .liveEdArea {
+                                                                            padding: 10px;
+                                                                        }
+
+                                                                        .animate .liveEdArea:before {
+                                                                            content: "Animate";
+                                                                            border: 1px solid #ccc;
+                                                                            float: right;
+                                                                            background: #00a99d;
+                                                                            color: #fff;
+                                                                            font-size: 10px;
+                                                                            padding: 6px;
+                                                                        }
+                                                                    </style>
+                                                                </div>
+                                                            </div>
+                                                            <div class="Clear"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="threeColItem col-lg-4">
+                                                        <div class="mwPageArea">
+                                                            <div id="w3DN1B1N39NRL6YN" class="mwPageBlock Include"
+                                                                style="">
+                                                                <div class="blockContents">
+
+                                                                    <div id="animate-433W30ZVCT" class="animate"
+                                                                        data-aos="fade-up" data-aos-duration="500"
+                                                                        data-aos-delay="500">
+                                                                        <div class="mwPageArea">
+                                                                            <div id="wD28D574L4PDVXBR"
+                                                                                class="mwPageBlock Include"
+                                                                                style="">
+                                                                                <div class="blockContents">
+                                                                                    <div class="PerspectivesWrap"
+                                                                                        style="background: url('{{ asset('frontend/files/galleries/Barnes_986.gif') }}) center center no-repeat; background-size:cover !important;">
+                                                                                        <div class="PerspectivesShadow trans"
+                                                                                            style="background: url('{{ asset('frontend/files/galleries/bb.jpg') }}) center center no-repeat; background-size:cover">
+                                                                                            <div
+                                                                                                class="PerspectivesInner trans">
+                                                                                                <div
+                                                                                                    class="PerspectivesBtn trans">
+                                                                                                    <a href="{{ asset('frontend/files/galleries/BB_Choose.mp4') }}"
+                                                                                                        class="video-popup"><img
+                                                                                                            src="{{ asset('frontend/images/play-button-large.png') }}" /></a>
+                                                                                                </div>
+                                                                                                <h3>Ask Brian</h3>
+                                                                                                <h6>Coach, Teacher,
+                                                                                                    Parent</h6>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/BB_Choose.mp4') }}"
+                                                                                                        class="video-popup">Why
+                                                                                                        Foley</a></p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/BB_FoleyFamily.mp4') }}"
+                                                                                                        class="video-popup">Foley
+                                                                                                        Family Means...
+                                                                                                    </a></p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/BB_Prepare.mp4') }}"
+                                                                                                        class="video-popup">Foley
+                                                                                                        Prepares me
+                                                                                                        For...</a></p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/BB_Program.mp4') }}"
+                                                                                                        class="video-popup">Favorite
+                                                                                                        BFC Programs</a>
+                                                                                                </p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/BB_Memory.mp4') }}"
+                                                                                                        class="video-popup">Favorite
+                                                                                                        Memory</a></p>
+                                                                                                <p><a href="{{ asset('frontend/files/galleries/BB_Advice.mp4') }}"
+                                                                                                        class="video-popup">My
+                                                                                                        Advice</a></p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="Clear"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <style>
+                                                                        .animate .liveEdArea {
+                                                                            padding: 10px;
+                                                                        }
+
+                                                                        .animate .liveEdArea:before {
+                                                                            content: "Animate";
+                                                                            border: 1px solid #ccc;
+                                                                            float: right;
+                                                                            background: #00a99d;
+                                                                            color: #fff;
+                                                                            font-size: 10px;
+                                                                            padding: 6px;
+                                                                        }
+                                                                    </style>
+                                                                </div>
+                                                            </div>
+                                                            <div id="wMFNQIF1FSM041NL" class="mwPageBlock Spacer"
+                                                                style="">
+                                                                <div class="blockContents">
+                                                                    <div class="mwSpacer small hor"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="Clear"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="w0KB2HBX0EW5PEX2" class="mwPageBlock Include" style="">
+                    <div class="blockContents">
+                        <style type="text/css">
+                            #contentArea-1174C2 {
+                                background-image: url("");
+                                background-position: center;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                            }
+                        </style>
+
+                        <div id="contentArea-1174C2"
+                            class="contentArea contentAreaLarge _bg-gray-darkest content-style">
+                            <div class="contentAreaWrap">
+                                <div class="container">
+                                    <div class="mwPageArea">
+                                        <div id="wQU43693BG3XEZ7T" class="mwPageBlock Gallery" style="">
+                                            <div class="blockContents">
+                                                <div id="carousel-PIRX5A"
+                                                    class="carousel carouselOne content-style studentCarousel">
+                                                    <div class="carouselWrap">
+
+                                                        <div class="carouselItem">
+                                                            <div class="twoColLeft"
+                                                                style="background: url({{ asset('frontend/files/_cache/a946c6347da00090be73508cf79b5725.jpg') }}) center center no-repeat; background-size: cover;">
+                                                                <div class="studentOverlay"></div>
+                                                            </div>
+                                                            <div class="twoColRight">
+                                                                <div class="studentInfo">
+                                                                    <p>When I first shadowed BFC, I enjoyed the feel of
+                                                                        the school &hellip; They had all the clubs and
+                                                                        activities I wanted. Since attending Foley, I've
+                                                                        made many friends and have done activities I
+                                                                        didn't think I would do.</p>
+                                                                    <p class="studentTitle">- Maddy Kubacki, Class of
+                                                                        &#039;24</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="carouselItem">
+                                                            <div class="twoColLeft"
+                                                                style="background: url({{ asset('frontend/files/_cache/68731c2374714249ba54471696a1188c.jpg') }}) center center no-repeat; background-size: cover;">
+                                                                <div class="studentOverlay"></div>
+                                                            </div>
+                                                            <div class="twoColRight">
+                                                                <div class="studentInfo">
+                                                                    <p>I love attending Bishop Foley because of the
+                                                                        family-like environment. The teacher to student
+                                                                        ratio is low, so you can build a strong
+                                                                        relationship with the teachers and other staff.
+                                                                    </p>
+                                                                    <p class="studentTitle">- Michael Drozdowicz,
+                                                                        Class of &#039;24</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="carouselItem">
+                                                            <div class="twoColLeft"
+                                                                style="background: url({{ asset('frontend/files/_cache/a0e2f72299f8edb04095455c5d677fd2.jpg') }}) center center no-repeat; background-size: cover;">
+                                                                <div class="studentOverlay"></div>
+                                                            </div>
+                                                            <div class="twoColRight">
+                                                                <div class="studentInfo">
+                                                                    <p>Bishop Foley gives each student the opportunity
+                                                                        to thrive in and out of the classrooms. Both the
+                                                                        staff and students are very goal oriented and
+                                                                        are driven to aspire to greatness all while
+                                                                        being authentically Catholic. The curriculum is
+                                                                        challenging and the teachers know just how to
+                                                                        help students due to the smaller class sizes.
+                                                                    </p>
+                                                                    <p>&nbsp;</p>
+                                                                    <p class="studentTitle">- Violet Potempski, Class
+                                                                        of &#039;23</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="carouselItem">
+                                                            <div class="twoColLeft"
+                                                                style="background: url({{ asset('frontend/files/_cache/e0a7ca12f05dbe74a9de07b1e0d9b912.jpg') }}) center center no-repeat; background-size: cover;">
+                                                                <div class="studentOverlay"></div>
+                                                            </div>
+                                                            <div class="twoColRight">
+                                                                <div class="studentInfo">
+                                                                    <p>At Foley I can find support from my teachers,
+                                                                        counselors or anyone in administration. I feel
+                                                                        comfortable asking teachers for help or advice
+                                                                        when I need it. Foley has really set me up for
+                                                                        an excellent future and has helped me prepare
+                                                                        for my future.</p>
+                                                                    <p class="studentTitle">- Gabriella Irvin, Class
+                                                                        of &#039;23</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="carouselItem">
+                                                            <div class="twoColLeft"
+                                                                style="background: url({{ asset('frontend/files/_cache/247cdf16e70c584f2434156a89613352.jpg') }}) center center no-repeat; background-size: cover;">
+                                                                <div class="studentOverlay"></div>
+                                                            </div>
+                                                            <div class="twoColRight">
+                                                                <div class="studentInfo">
+                                                                    <p>I enjoy attending Bishop Foley because of many
+                                                                        reasons, the most important being the faith
+                                                                        environment and the amazing friends I've made.
+                                                                        The school puts a huge emphasis on both areas of
+                                                                        life, while also providing academically rigorous
+                                                                        courses and brilliant teachers to convey the
+                                                                        information, making it the best high school for
+                                                                        anyone interested.</p>
+                                                                    <p class="studentTitle">- Eleanor Takach, Class of
+                                                                        &#039;24</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="carouselItem">
+                                                            <div class="twoColLeft"
+                                                                style="background: url({{ asset('frontend/files/_cache/4887079e6c9f4a42f5509c7b57b14f57.jpg') }}) center center no-repeat; background-size: cover;">
+                                                                <div class="studentOverlay"></div>
+                                                            </div>
+                                                            <div class="twoColRight">
+                                                                <div class="studentInfo">
+                                                                    <p>&ldquo;Bishop Foley is a school that supports you
+                                                                        not as a student, but as a person. They put in
+                                                                        their time and work for you and the school is
+                                                                        filled with welcoming students. It is a warm
+                                                                        environment, and any student would feel welcome
+                                                                        walking through the doors for the first
+                                                                        time.&rdquo;</p>
+                                                                    <p class="studentTitle">- Rosalyn Lass, Class of
+                                                                        &#039;26</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <script type="text/javascript">
+                                                    $(document).ready(function() {
+                                                        (function() {
+                                                            $('#carousel-PIRX5A .carouselWrap').slick({
+                                                                prevArrow: '<button class="slick-prev" aria-label="Previous" type="button">' + SVG[
+                                                                    "arrow-left-1"] + '</button>',
+                                                                nextArrow: '<button class="slick-next" aria-label="Next" type="button">' + SVG[
+                                                                    "arrow-right-1"] + '</button>',
+                                                                dots: true,
+                                                                arrows: true,
+                                                                autoplay: true,
+                                                                infinite: true,
+                                                                accessibility: false,
+                                                                speed: 1000,
+                                                                autoplaySpeed: 6000,
+                                                                slidesToShow: 1,
+                                                                slidesToScroll: 1,
+                                                                responsive: [{
+                                                                        breakpoint: 991,
+                                                                        settings: {
+                                                                            slidesToShow: 1,
+                                                                            slidesToScroll: 1,
+                                                                            arrows: false
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        breakpoint: 575,
+                                                                        settings: {
+                                                                            slidesToShow: 1,
+                                                                            slidesToScroll: 1,
+                                                                            arrows: false
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            });
+                                                        })();
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    jQuery(function() {
+                                                        mwInitMedia('#wQU43693BG3XEZ7T')
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                        <div class="Clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div id="wG2G3BSEACUTZ77A" class="mwPageBlock Spacer" style="">
+                    <div class="blockContents">
+                        <div class="mwSpacer hor" style="height:15px;"></div>
+                    </div>
+                </div>
+                <div id="wH8PX13VN0QHT67A" class="mwPageBlock Include" style="">
+                    <div class="blockContents">
+                        <style type="text/css">
+                            #contentArea-R0TC3K {
+                                background-image: url("");
+                                background-position: center;
+                                background-size: auto;
+                                background-repeat: no-repeat;
+                            }
+                        </style>
+
+                        <div id="contentArea-R0TC3K" class="contentArea contentAreaSmall _bg-primary content-style">
+                            <div class="contentAreaWrap">
+                                <div class="container">
+                                    <div class="mwPageArea">
+                                        <div id="w5UI1RIBVM2D3ORL" class="mwPageBlock Content" style="">
+                                            <div class="blockContents">
+                                                <h6 style="text-align: center;">
+                                                    <span style="font-size: 14pt;">&mdash; OUR&nbsp;MISSION&nbsp;
+                                                        &mdash;
+                                                        <br />
+                                                        <br /></span>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div id="w04TXFR8D5M6USQK" class="mwPageBlock Content" style="">
+                                            <div class="blockContents">
+                                                <h5 style="text-align: center;">
+                                                    <span style="color: #000000; font-size: 18pt;">Bishop Foley
+                                                        Catholic High School is a Christ-centered, co-educational
+                                                        Catholic community that accompanies students on their individual
+                                                        spiritual and academic journey to become servant leaders in an
+                                                        environment that fosters growth, opportunity, and success in
+                                                        preparation for college and beyond.</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="Clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div id="w8HBY58C1P10PG5B" class="mwPageBlock Include" style="">
+                    <div class="blockContents">
+                        <style type="text/css">
+                            #contentArea-XYKH74 {
+                                background-image: url("");
+                                background-position: center;
+                                background-size: auto;
+                                background-repeat: no-repeat;
+                            }
+                        </style>
+
+                        <div id="contentArea-XYKH74" class="contentArea contentAreaLarge _bg-white content-style">
+                            <div class="contentAreaWrap">
+                                <div class="container">
+                                    <div class="mwPageArea">
+                                        <div id="wVZIAG8U1CZRFYYM" class="mwPageBlock Content Float rowHost"
+                                            style="width: 82.25% clear: both;">
+                                            <div class="blockContents rowStart">
+                                                <h2>
+                                                    Calendar
+                                                </h2>
+                                            </div>
+                                        </div>
+                                        <div id="w06JJE6C48XKSE62" class="mwPageBlock Button Float"
+                                            style="width: 17.75%">
+                                            <div class="blockContents rowEnd">
+                                                <div class="mwBtnLeft">
+                                                    <div class="btn btnYellow btnRounded">
+                                                        <a href="Calendar.html" template="default" class="medium"
+                                                            target="_self">View Full Calendar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="wS2DUZAFL1O3FYGR" class="mwPageBlock Include" style="">
+                                            <div class="blockContents">
+                                                <div class="twoCol row ">
+                                                    <div class="twoColLeft col-md-6">
+                                                        <div class="mwPageArea">
+                                                            <div id="wA3YCSJWQMPVOKFK" class="mwPageBlock Include"
+                                                                style="">
+                                                                <div class="blockContents">
+                                                                    <div class="titleButtonWrap">
+                                                                        <div class="titleButtonLeft">
+                                                                            <div class="mwPageArea">
+                                                                                <div id="w48DXF4GCCH689O0"
+                                                                                    class="mwPageBlock Content"
+                                                                                    style="">
+                                                                                    <div class="blockContents">
+                                                                                        <h3>
+                                                                                            School
+                                                                                        </h3>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="Clear"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="titleButtonRight">
+                                                                            <div class="mwPageArea">
+                                                                                <div class="Clear"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div id="wFT0P5NOB4LMQGH4" class="mwPageBlock Embed"
+                                                                style="">
+                                                                <div class="blockContents">
+                                                                    <div class="Container"><iframe
+                                                                            src="https://embed.styledcalendar.com/#B1ktwrbTyBoUdb8HllEq"
+                                                                            title="BFC Calendar"
+                                                                            class="styled-calendar-container"
+                                                                            style="width: 100%; Height: 600px; border: none;"
+                                                                            data-cy="calendar-embed-iframe"></iframe>
+                                                                        <script async type="module" src="{{ asset('frontend/embed.styledcalendar.com/assets/parent-window.js') }}"></script>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div id="wDWTTLRH6Z5USEM5" class="mwPageBlock eShop"
+                                                                style="">
+                                                                <div class="blockContents">
+                                                                    <div id="wRT9N2SUKBGTLBF7"
+                                                                        class="mwPageBlock Content" style="">
+                                                                        <div class="blockContents"></div>
+                                                                    </div>
+                                                                    <div class="eShop-list"><!-- Wrong Cart -->
+
+
+                                                                        <!-- No Stock -->
+
+
+                                                                        <!-- Wrong Stock Message -->
+
+
+                                                                        <!-- eShop Events One -->
+                                                                        <div
+                                                                            class="eShopEvents eShopEventsOne content-style">
+                                                                            <div class="eShopEventsWrap">
+
+
+                                                                                <!-- No Item Message -->
+
+
+
+                                                                                <!-- Items -->
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="Clear"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="twoColRight col-md-6">
+                                                        <div class="mwPageArea">
+                                                            <div id="wR9AEKT6PTSSL7S3" class="mwPageBlock Include"
+                                                                style="">
+                                                                <div class="blockContents">
+                                                                    <div class="titleButtonWrap">
+                                                                        <div class="titleButtonLeft">
+                                                                            <div class="mwPageArea">
+                                                                                <div id="wWZEOUX6LOVSD0BN"
+                                                                                    class="mwPageBlock Content"
+                                                                                    style="">
+                                                                                    <div class="blockContents">
+                                                                                        <h3>
+                                                                                            Athletics
+                                                                                        </h3>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="Clear"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="titleButtonRight">
+                                                                            <div class="mwPageArea">
+                                                                                <div class="Clear"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div id="w103LC5V9M3Y4SH6" class="mwPageBlock Embed"
+                                                                style="">
+                                                                <div class="blockContents">
+                                                                    <div class="Container"><iframe
+                                                                            src="https://embed.styledcalendar.com/#wGKwGMS9WYi1W9v4bkia"
+                                                                            title="Styled Calendar"
+                                                                            class="styled-calendar-container"
+                                                                            style="width: 100%; height: 600px; border: none;"
+                                                                            data-cy="calendar-embed-iframe"></iframe>
+                                                                        <script async type="module" src="../embed.styledcalendar.com/assets/parent-window.js"></script>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="Clear"></div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="wQAQETA1RPVUNC2C" class="mwPageBlock Spacer" style="">
+                                            <div class="blockContents">
+                                                <div class="mwSpacer medium hor"></div>
+                                            </div>
+                                        </div>
+                                        <div id="wI4KKBOMQT32FO47" class="mwPageBlock Spacer" style="">
+                                            <div class="blockContents">
+                                                <div class="mwSpacer small hor"></div>
+                                            </div>
+                                        </div>
+                                        <div class="Clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="w2P4Q4TY20TH9NF3" class="mwPageBlock Include" style="">
+                    <div class="blockContents">
+                        <div class="newsletterHolderWrap content-style">
+                            <div class="newsletterHolder">
+                                <div class="mwPageArea">
+                                    <div id="wNZPFEJXKEGLBU9G" class="mwPageBlock Include" style="">
+                                        <div class="blockContents">
+
+
+                                            <div class="contentWidth content-style">
+                                                <div class="contentWidthWrap _mx-lg-auto _mx-auto"
+                                                    style="max-width: 1170px;">
+                                                    <div class="mwPageArea">
+                                                        <div id="wZJV2PM4C8VIZZ5M" class="mwPageBlock Include"
+                                                            style="">
+                                                            <div class="blockContents">
+                                                                <div class="newsletterForm newsletterFormTwo">
+                                                                    <div class="newsletterFormWrap">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4">
+                                                                                <div class="newsletterFormContent">
+                                                                                    <div id="w1BNCHPIDBKCBHRO"
+                                                                                        class="mwPageBlock Content"
+                                                                                        style="">
+                                                                                        <div class="blockContents">
+                                                                                            <h3>
+                                                                                                STAY UPDATED
+                                                                                            </h3>
+                                                                                            <p>
+                                                                                                Sign-up for our
+                                                                                                newsletter to stay
+                                                                                                updated on the latest
+                                                                                                news and events.
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div id="w0A8DFACR9UDD2QC"
+                                                                                        class="mwPageBlock Gensoclinks"
+                                                                                        style="">
+                                                                                        <div class="blockContents">
+                                                                                            <div
+                                                                                                class="snsLink snsLinkDefault left">
+
+                                                                                                <a href="#"
+                                                                                                    class="small"
+                                                                                                    target="_blank"
+                                                                                                    aria-label="small"
+                                                                                                    title="instagram">
+                                                                                                    <i
+                                                                                                        class="fab fa-instagram"></i>
+                                                                                                </a>
+
+                                                                                                <a href="#"
+                                                                                                    class="small"
+                                                                                                    target="_blank"
+                                                                                                    aria-label="small"
+                                                                                                    title="facebook">
+                                                                                                    <i
+                                                                                                        class="fab fa-facebook"></i>
+                                                                                                </a>
+
+                                                                                                <a href="#"
+                                                                                                    class="small"
+                                                                                                    target="_blank"
+                                                                                                    aria-label="small"
+                                                                                                    title="twitter">
+                                                                                                    <i
+                                                                                                        class="fab fa-twitter"></i>
+                                                                                                </a>
+
+                                                                                                <a href="#"
+                                                                                                    class="small"
+                                                                                                    target="_blank"
+                                                                                                    aria-label="small"
+                                                                                                    title="linkedin">
+                                                                                                    <i
+                                                                                                        class="fab fa-linkedin"></i>
+                                                                                                </a>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="offset-lg-1 col-lg-7">
+                                                                                <div class="newsletterFormInput">
+
+
+
+                                                                                    <div class="mwPageArea">
+                                                                                        <div id="w0O5L4T6DPTLWC6D"
+                                                                                            class="mwPageBlock Contact"
+                                                                                            style="">
+                                                                                            <div
+                                                                                                class="blockContents">
+                                                                                                <script type="text/javascript">
+                                                                                                    jQuery(function() {
+                                                                                                        styleDialog('#FD5A908RCXJUORL3 .Dialog');
+                                                                                                        jQuery('#FD5A908RCXJUORL3').submit(function() {
+                                                                                                            mwListForm(this).submit();
+                                                                                                        });
+                                                                                                    }); // jQuery.onLoad
+                                                                                                </script>
+                                                                                                <a
+                                                                                                    name="AFD5A908RCXJUORL3"></a>
+                                                                                                <form
+                                                                                                    id="FD5A908RCXJUORL3"
+                                                                                                    method="post"
+                                                                                                    enctype="multipart/form-data"
+                                                                                                    onsubmit="return false;">
+                                                                                                    <div
+                                                                                                        class="mwFormStatus">
+                                                                                                    </div>
+                                                                                                    <input
+                                                                                                        type="hidden"
+                                                                                                        name="relation"
+                                                                                                        value="28606" />
+                                                                                                    <input
+                                                                                                        type="hidden"
+                                                                                                        name="list"
+                                                                                                        value="29" />
+                                                                                                    <input
+                                                                                                        type="hidden"
+                                                                                                        name="sn"
+                                                                                                        value="FD5A908RCXJUORL3" />
+                                                                                                    <table
+                                                                                                        class="Dialog tall">
+                                                                                                        <tbody>
+                                                                                                            <tr>
+                                                                                                                <td>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        name="email"
+                                                                                                                        value=""
+                                                                                                                        title="Name"
+                                                                                                                        placeholder="First Name and Last Name *" />
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                                <td>
+                                                                                                                    <div
+                                                                                                                        class="inputGroup">
+                                                                                                                        <input
+                                                                                                                            type="text"
+                                                                                                                            name="email"
+                                                                                                                            value=""
+                                                                                                                            title="Email"
+                                                                                                                            validations="isEmail|"
+                                                                                                                            placeholder="Email Address *" />
+                                                                                                                        <input
+                                                                                                                            type="submit"
+                                                                                                                            value="Submit"
+                                                                                                                            class=
+                                        "mwFormSubmit" />
+                                                                                                                    </div>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                    <div
+                                                                                                        class="Clear">
+                                                                                                    </div>
+                                                                                                </form>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="Clear"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="Clear"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="Clear"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="wV9N30UFCRROS4XL" class="mwPageBlock Include" style="">
+                    <div class="blockContents">
+                        <div class="subfooter contentArea content-style">
+                            <div class="container">
+                                <div class="mwPageArea">
+                                    <div id="w9FLM8OB97SZK56E" class="mwPageBlock Include" style="">
+                                        <div class="blockContents">
+
+
+                                            <div class="contentWidth content-style">
+                                                <div class="contentWidthWrap _mx-lg-auto _mx-auto"
+                                                    style="max-width: 870px;">
+                                                    <div class="mwPageArea">
+                                                        <div id="wY94W8GW4XSL87JV" class="mwPageBlock Include"
+                                                            style="">
+                                                            <div class="blockContents">
+                                                                <div class="decoration">
+                                                                    <div class="decoLine _mx-auto _mb-30 _bg-secondary"
+                                                                        style="width: 2px; height: 128.5px;"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="wTZ0TFV3DS74BMI2" class="mwPageBlock Spacer"
+                                                            style="">
+                                                            <div class="blockContents">
+                                                                <div class="mwSpacer medium hor"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="wENM2OMYAFB84V9A" class="mwPageBlock Content"
+                                                            style="">
+                                                            <div class="blockContents">
+                                                                <h2 style="text-align: center;">
+                                                                    Your future is bright
+                                                                    <br />
+                                                                    with Bishop Foley Catholic
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                        <div id="wL5GY5LYEETHV364" class="mwPageBlock Include"
+                                                            style="">
+                                                            <div class="blockContents">
+                                                                <div class="threeCol row">
+                                                                    <div class="threeColItem col-lg-4 col-md-6">
+                                                                        <div class="mwPageArea">
+                                                                            <div id="w8QW1J6HZYSXNXPE"
+                                                                                class="mwPageBlock Button"
+                                                                                style="">
+                                                                                <div class="blockContents">
+                                                                                    <div class="mwBtnCenter">
+                                                                                        <div
+                                                                                            class="btn btnYellow btnRounded">
+                                                                                            <a href="https://bfchs-mi.client.renweb.com/oa/"
+                                                                                                template="default"
+                                                                                                class="medium"
+                                                                                                target="_blank">Apply
+                                                                                                Now</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="Clear"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="threeColItem col-lg-4 col-md-6">
+                                                                        <div class="mwPageArea">
+                                                                            <div id="wVFSN7E7SZ0SMIYN"
+                                                                                class="mwPageBlock Button"
+                                                                                style="">
+                                                                                <div class="blockContents">
+                                                                                    <div class="mwBtnCenter">
+                                                                                        <div
+                                                                                            class="btn btnYellow btnOutline btnRounded">
+                                                                                            <a href="Visit-BFC.html"
+                                                                                                template="default"
+                                                                                                class="medium"
+                                                                                                target="_self">Plan a
+                                                                                                Visit</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="Clear"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="threeColItem col-lg-4">
+                                                                        <div class="mwPageArea">
+                                                                            <div id="wG8QMDVZ2EZ6Z6OD"
+                                                                                class="mwPageBlock Button"
+                                                                                style="">
+                                                                                <div class="blockContents">
+                                                                                    <div class="mwBtnCenter">
+                                                                                        <div
+                                                                                            class="btn btnYellow btnOutline btnRounded">
+                                                                                            <a href="Academics-departments.html"
+                                                                                                template="default"
+                                                                                                class="medium"
+                                                                                                target="_blank">EXPLORE
+                                                                                                ACADEMICS</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="Clear"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="Clear"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="Clear"></div>
+                                </div>
+                            </div>
+
+                            <img src="{{ asset('frontend/images/subfooter.png') }}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="Clear"></div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer id="footerArea">
+            <div id="wYF781MUV8L1PH55" class="mwPageBlock Include" style="">
+                <div class="blockContents">
+                    <div class="footer footerThree content-style _bg-footergrey">
+                        <div class="footerWrap">
+                            <div class="container">
+
+                                <!-- Main -->
+                                <div class="footerMain">
+                                    <div class="row">
+
+                                        <!-- Col 1 -->
+                                        <div class="footerCol footerCol1">
+                                            <div class="footerColInner">
+
+                                                <!-- Logo -->
+                                                <div class="footerLogo"> <img
+                                                        src="{{ asset('frontend/images/logoFooter.svg') }}"
+                                                        title="Bishop Foley Catholic High School" /> </div>
+
+                                                <!-- Description -->
+                                                <div class="footerDescription">
+                                                    <div id="w6CF2DQLXI7N7SY6" class="mwPageBlock Content"
+                                                        style="">
+                                                        <div class="blockContents">
+                                                            <p>
+                                                                Bishop Foley Catholic High School is a Christ-centered,
+                                                                co-educational Catholic community that accompanies
+                                                                students on their individual spiritual and academic
+                                                                journey to become servant
+                                                                leaders in an environment that fosters growth,
+                                                                opportunity, and success in preparation for college and
+                                                                beyond.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Col 2 -->
+                                        <div class="footerCol footerCol2 ">
+                                            <div class="footerColInner">
+                                                <div id="w502CG9QUTUGJ7YD" class="mwPageBlock Content"
+                                                    style="">
+                                                    <div class="blockContents">
+                                                        <p>
+                                                            32000 Campbell Rd
+                                                            <br />
+                                                            Madison Heights, MI 48071
+                                                        </p>
+                                                        <p>
+                                                            Phone: (248) 585-1210
+                                                            <br />
+                                                            Fax: (248) 585-3667
+                                                        </p>
+                                                        <hr />
+                                                        <h6>
+                                                            An Accredited School
+                                                        </h6>
+                                                        <p>
+                                                            <a href="https://www.ncea.org/" target="_blank"><img
+                                                                    src="files/_cache/372099805e9119a65e96fe8da9ef2321.png?207x134"
+                                                                    alt="NCEA_logo2.png" width="207"
+                                                                    height="134" /></a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Col 3 -->
+                                        <div class="footerCol footerCol3 ">
+                                            <div class="footerColInner">
+                                                <div id="wKEIGN455TC66GJA" class="mwPageBlock Content"
+                                                    style="">
+                                                    <div class="blockContents">
+                                                        <ul>
+                                                            <li>
+                                                                <a title="Contact Us" href="about-bfc.html">About
+                                                                    BFC</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="Future-Ventures.html">Admissions</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="Academics-departments.html">Academics &amp;
+                                                                    Arts</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="Athletics.html">Athletics</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="Foley-Faith.html">Faith</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="Alumni-actions.html">Alumni</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Col 4 -->
+                                        <div class="footerCol footerCol4 ">
+                                            <div class="footerColInner">
+
+                                                <!-- Newsletter -->
+                                                <div class="footerNewsletter">
+                                                    <div id="wCSP4JPP4NSWF874" class="mwPageBlock Contact"
+                                                        style="">
+                                                        <div class="blockContents">
+                                                            <script type="text/javascript">
+                                                                jQuery(function() {
+                                                                    styleDialog('#F7NHUGN131MHEV21 .Dialog');
+                                                                    jQuery('#F7NHUGN131MHEV21').submit(function() {
+                                                                        mwListForm(this).submit();
+                                                                    });
+                                                                }); // jQuery.onLoad
+                                                            </script>
+                                                            <a name="AF7NHUGN131MHEV21"></a>
+                                                            <form id="F7NHUGN131MHEV21" method="post"
+                                                                enctype="multipart/form-data"
+                                                                onsubmit="return false;">
+                                                                <div class="mwFormStatus"></div>
+                                                                <input type="hidden" name="relation"
+                                                                    value="14337" />
+                                                                <input type="hidden" name="list"
+                                                                    value="25" />
+                                                                <input type="hidden" name="sn"
+                                                                    value="F7NHUGN131MHEV21" />
+                                                                <table class="Dialog Tall">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="formGroup">
+                                                                                <div class="Caption">
+                                                                                    <h6>
+                                                                                        Newsletter Sign-up
+                                                                                    </h6>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input type="text" name="name"
+                                                                                    value=""
+                                                                                    placeholder="First/Last Name" />
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input type="text" name="email"
+                                                                                    value=""
+                                                                                    placeholder="Email Address" />
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td style="text-align: center;">
+                                                                                <input type="submit" value="Submit"
+                                                                                    class="mwFormSubmit"
+                                                                                    style="float: right;" />
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <div class="Clear"></div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Social Media Services -->
+                                                <div class="footerSns">
+                                                    <div id="w7VZKC1M85BXBEU1" class="mwPageBlock Gensoclinks"
+                                                        style="">
+                                                        <div class="blockContents">
+                                                            <div class="snsLink snsLinkDefault left">
+
+                                                                <a href="https://www.facebook.com/BishopFoleyCatholic/"
+                                                                    class="small" target="_blank"
+                                                                    aria-label="small" title="facebook">
+                                                                    <i class="fab fa-facebook"></i>
+                                                                </a>
+
+                                                                <a href="https://twitter.com/BishopFoley"
+                                                                    class="small" target="_blank"
+                                                                    aria-label="small" title="twitter">
+                                                                    <i class="fab fa-twitter"></i>
+                                                                </a>
+
+                                                                <a href="https://www.youtube.com/channel/UCuRnn8vD1O0ugDRlv8mldIA"
+                                                                    class="small" target="_blank"
+                                                                    aria-label="small" title="youtube">
+                                                                    <i class="fab fa-youtube"></i>
+                                                                </a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div> <!-- Secondary -->
+                        <div class="footerSecondary">
+
+                            <!-- Footer Copyright -->
+                            <div class="footerCopyright">
+                                <div class="copyrightAutoYear">© Copyright
+                                    2025 </div>
+                                <div id="w70YSIR18T5HQD20" class="mwPageBlock Embed" style="">
+                                    <div class="blockContents">
+                                        <div class="Container">Bishop Foley Catholic High School. All Rights Reserved.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <div class="mdPopupWrapB" id="request_thankyou">
+            <div class="mdPopup">
+                <div class="memWrap">
+                    <div class="mdCloseB"><span class="fa fa-times"></span></div>
+
+                    <div class="thank-you">
+                        <h3>Message Successfully Sent!</h3>
+                        <br /><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <style>
+            /*** Acount Popup Form ***/
+            .mdPopupWrapB {}
+
+            .mdPopupWrapB {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(0, 0, 0, .95);
+                z-index: 500;
+            }
+
+            .mdPopup {
+                background: #fff;
+                width: 300px;
+                position: absolute;
+                top: 20%;
+                left: calc(50% - 150px);
+                padding: 30px 20px 0;
+                border-radius: 20px;
+                text-align: center;
+            }
+
+            .mdCloseB {
+                color: #000;
+                position: absolute;
+                top: 3px;
+                right: 14px;
+                font-size: 26px;
+                cursor: pointer;
+            }
+
+            .textRight {
+                text-align: right;
+            }
+
+            .isEmpty {
+                font-size: 10px;
+            }
+
+            .btnbtnbtn {
+                text-align: center
+            }
+
+            option:checked {
+                background-color: -internal-light-dark(rgb(206, 206, 206), rgb(84, 84, 84));
+                color: -internal-light-dark(rgb(16, 16, 16), rgb(255, 255, 255));
+                background: var(--color-orange-1) !important;
+                color: #000;
+            }
+
+            .mwInput.multiple.focus {
+                color: #ff0000 !important;
+            }
+        </style>
+
+        <script>
+            $(".mdCloseB").click(function() {
+                jQuery("#request_thankyou").hide();
+            });
+
+            jQuery("#request_thankyou").hide();
+        </script>
+    </div>
+
+    <!-- Javascript -->
+    <div id="javascript">
+        <script src="{{ asset('frontend/js/vendors/isjs/0.9.0/is.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/vendors/slick/1.8.1/slick.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/vendors/magnific-popup/1.1.0/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/vendors/gsap/3.1.1/gsap.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/vendors/scrollmagic/2.0.7/ScrollMagic.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/vendors/scrollmagic/2.0.7/plugins/jquery.ScrollMagic.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/vendors/scrollmagic/2.0.7/plugins/animation.gsap.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/vendors/scrollmagic/2.0.7/plugins/debug.addIndicators.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/vendors/inputmask/5.0.0/jquery.inputmask.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/vendors/matchHeight/0.7.2/jquery.matchHeight-min.js') }}"></script>
+
+        <!-- Scripts -->
+        <script src="{{ asset('frontend/js/globalf3ee.js?v=3.2') }}"></script>
+        <script src="{{ asset('frontend/js/scriptf3ee.js?v=3.2') }}"></script>
+
+        <script src="../unpkg.com/aos%402.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+    </div>
+</body>
+
+</html>

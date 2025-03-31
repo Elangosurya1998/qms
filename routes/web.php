@@ -11,5 +11,5 @@ include_once(FRONTEND_ROUTES_PATH . 'post.php');
 include_once(FRONTEND_ROUTES_PATH . 'page.php');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.layouts.home');
 });
