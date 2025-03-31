@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\FloatingMenusResource\Pages;
-use App\Filament\Resources\FloatingMenusResource\RelationManagers;
-use App\Models\FloatingMenus;
+use App\Filament\Resources\MenusResource\Pages;
+use App\Filament\Resources\MenusResource\RelationManagers;
+use App\Models\Menus;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,38 +13,35 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class FloatingMenusResource extends Resource
+class MenusResource extends Resource
 {
-  protected static ?string $model = FloatingMenus::class;
+    protected static ?string $model = Menus::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Menus';
-   
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
+                Forms\Components\TextInput::make('type')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('link')
-                    
+                Forms\Components\TextInput::make('name')
+                    ->required()
                     ->maxLength(255),
-                Forms\Components\Select::make('target')
-                    ->label('Link Target')
-                    ->live()
-                    ->options([
-                        '_self' => 'Same Tab',
-                        '_blank' => 'New Tab',
-                    ])
-                    ->native(false),
                 Forms\Components\Toggle::make('status')
                     ->required(),
                 Forms\Components\TextInput::make('order_by')
                     ->numeric(),
-                Forms\Components\DatePicker::make('publish_date')
-                ->default(now()),
+                Forms\Components\Select::make('parent_id')
+                    ->relationship('parent', 'name'),
+                Forms\Components\Toggle::make('is_url')
+                    ->required(),
+                Forms\Components\Textarea::make('url')
+                    ->columnSpanFull(),
+                Forms\Components\TextInput::make('target')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -52,22 +49,22 @@ class FloatingMenusResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('type')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('link')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('target')
+                Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('status')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('order_by')
                     ->numeric()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('publish_date')
-                    ->date()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('parent.name')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\IconColumn::make('is_url')
+                    ->boolean(),
+                Tables\Columns\TextColumn::make('target')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -81,11 +78,7 @@ class FloatingMenusResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ActionGroup::make([
-                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -93,6 +86,7 @@ class FloatingMenusResource extends Resource
                 ]),
             ]);
     }
+
     public static function getRelations(): array
     {
         return [
@@ -103,9 +97,9 @@ class FloatingMenusResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListFloatingMenuses::route('/'),
-            'create' => Pages\CreateFloatingMenus::route('/create'),
-            'edit' => Pages\EditFloatingMenus::route('/{record}/edit'),
+            'index' => Pages\ListMenuses::route('/'),
+            'create' => Pages\CreateMenus::route('/create'),
+            'edit' => Pages\EditMenus::route('/{record}/edit'),
         ];
     }
 }
