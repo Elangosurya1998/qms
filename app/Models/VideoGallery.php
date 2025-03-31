@@ -3,10 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class VideoGallery extends Model
+class VideoGallery extends Pivot
 {
-    /** @use HasFactory<\Database\Factories\VideoGalleryFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'link',
+    ];
+
+    protected $casts = [
+    'link' => 'array',
+];
 }

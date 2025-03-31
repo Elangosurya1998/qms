@@ -7,6 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class FloatingMenus extends Model
 {
-    /** @use HasFactory<\Database\Factories\FloatingMenusFactory> */
     use HasFactory;
+
+    protected $table = 'floating_menus';
+
+    protected $fillable = [
+        'title',
+        'link',
+        'target',
+        'status',
+        'order_by',
+        'publish_date',
+    ];
 }
