@@ -131,6 +131,8 @@
     <!-- Default Page -->
     <div class="defaultPage">
 
+        @dd(\App\Helpers\Common::getMenus());
+
         <!-- Header -->
 
         @include('frontend.includes.header')

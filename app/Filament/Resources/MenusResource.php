@@ -164,6 +164,7 @@ class MenusResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
+
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([

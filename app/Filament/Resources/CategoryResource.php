@@ -24,16 +24,22 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->columnSpanFull(),
-                Forms\Components\Select::make('parent_id')
-                    ->relationship('parent', 'name'),
+                Forms\Components\Tabs::make('Category Details')
+                    ->columnSpanFull()
+                    ->columns(2)
+                    ->tabs([
+                        Forms\Components\Tabs\Tab::make('General')
+                            ->schema([
+                                Forms\Components\TextInput::make('name')
+                                    ->required()
+                                    ->maxLength(255),
+                                Forms\Components\Select::make('parent_id')
+                                    ->relationship('parent', 'name'),
+                                Forms\Components\Textarea::make('description')
+                                    ->columnSpanFull(),
+                            ]),
+                    ]),
+
             ]);
     }
 

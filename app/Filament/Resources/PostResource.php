@@ -3,20 +3,14 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
-use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
 use Filament\Forms;
-use Filament\Forms\Components\Builder\Block;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
 class PostResource extends Resource
@@ -26,99 +20,113 @@ class PostResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = 'CMS';
 
-   public static function form(Form $form): Form
+    public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->unique(ignoreRecord: true)
-                    ->required()
-                    ->live(onBlur: true)
-                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->readOnly(),
-                Forms\Components\Textarea::make('excerpt')
-                    ->columnSpanFull(),
-                Forms\Components\FileUpload::make('feature_image')
-                    ->image()
-                    ->directory('file-manager/post/feature_image')
-                    ->preserveFilenames()
-                    ->maxSize(1024 * 2),
-                Forms\Components\Select::make('categories')
-                    ->relationship('categories', 'name')
-                    ->required()
-                    ->preload()
-                    ->multiple()
-                    ->columns(2),
+                Forms\Components\Tabs::make('Post Details')
+                    ->columnSpanFull()
+                    ->tabs([
+                        Forms\Components\Tabs\Tab::make('Basic Information')
+                            ->schema([
+                                Forms\Components\TextInput::make('title')
+                                    ->unique(ignoreRecord: true)
+                                    ->required()
+                                    ->live(onBlur: true)
+                                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
 
-                Forms\Components\TextInput::make('author')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\Builder::make('content')
-                    ->blocks([
-                        Block::make('heading')
+                                    ->maxLength(255),
+                                Forms\Components\FileUpload::make('feature_image')
+                                    ->image()
+                                    ->directory('file-manager/post/feature_image')
+                                    ->preserveFilenames()
+                                    ->maxSize(1024 * 2),
+                                Forms\Components\Textarea::make('excerpt')
+                                    ->columnSpanFull(),
+                            ]),
+
+                        Forms\Components\Tabs\Tab::make('Hero')
                             ->schema([
-                                TextInput::make('content')
-                                    ->label('Heading')
-                                    ->required(),
-                                Select::make('level')
-                                    ->options([
-                                        'h1' => 'Heading 1',
-                                        'h2' => 'Heading 2',
-                                        'h3' => 'Heading 3',
-                                        'h4' => 'Heading 4',
-                                        'h5' => 'Heading 5',
-                                        'h6' => 'Heading 6',
+                                Forms\Components\FileUpload::make('content.hero')
+                                    ->disk(config('media-library.disk_name'))
+                                    ->directory('pages')
+                                    ->acceptedFileTypes(['image/*', 'video/*'])
+                                    ->preserveFilenames()
+                                    ->columnSpanFull(),
+
+                                Forms\Components\Textarea::make('content.hero_caption')
+                                    ->label('Hero Caption')
+                                    ->placeholder('Enter hero caption text here...'),
+                            ]),
+
+                        Forms\Components\Tabs\Tab::make('Categories')
+                            ->columns(2)
+                            ->schema([
+                                Forms\Components\Select::make('categories')
+                                    ->relationship('categories', 'name')
+                                    ->required()
+                                    ->preload()
+                                    ->multiple(),
+                            ]),
+
+                        Forms\Components\Tabs\Tab::make('Content')
+                            ->schema([
+                                Forms\Components\Builder::make('content.modules')
+                                    ->label('Modules')
+                                    ->blocks([
+                                        Forms\Components\Builder\Block::make('tagline')
+                                            ->label('Tagline')
+                                            ->schema([
+                                                Forms\Components\Tabs::make('ModuleTabs')
+                                                    ->tabs([
+                                                        Forms\Components\Tabs\Tab::make('Content')
+                                                            ->schema([
+                                                                Forms\Components\Textarea::make('content')
+                                                                    ->label('Tagline Content')
+                                                                    ->required()
+                                                                    ->columnSpanFull(),
+                                                            ]),
+                                                    ]),
+                                            ]),
                                     ])
-                                    ->required(),
-                            ])
-                            ->columns(2),
-                        Block::make('Rich Editor')
-                            ->schema([
-                                Forms\Components\RichEditor::make('content')
-                                    ->label('Paragraph')
-                                    ->fileAttachmentsDirectory('file-manager/post/content')
-                                    ->required(),
+                                    ->columnSpanFull(),
                             ]),
-                        
-                        Block::make('image')
+
+                        Forms\Components\Tabs\Tab::make('Settings')
+                            ->columns(2)
                             ->schema([
-                                FileUpload::make('url')
-                                    ->label('Image')
-                                    ->imageEditor()
-                                    ->image()
-                                    ->openable()
+                                Forms\Components\TextInput::make('author')
+                                    ->maxLength(255),
+
+                                Forms\Components\TextInput::make('order_by')
+                                    ->numeric(),
+
+                                Forms\Components\Toggle::make('is_published')
+                                    ->label('Publish')
+                                    ->live()
+                                    ->inline(false)
+                                    ->default(true),
+
+                                Forms\Components\Toggle::make('status')
+                                    ->inline(false)
+                                    ->required(),
+
+                                Forms\Components\DatePicker::make('publish_date')
+                                    ->label('Publish Date')
+                                    ->visible(fn (callable $get) => $get('is_published'))
                                     ->required()
-                                    ->directory('file-manager/post/image'),
-                                TextInput::make('alt')
-                                    ->label('Alt text')
-                                    ->required(),
-                            ]),
-                        Block::make('Multiple Images')
-                            ->schema([
-                                FileUpload::make('url')
-                                    ->multiple()
-                                    ->label('Image')
-                                    ->imageEditor()
-                                    ->image()
-                                    ->openable()
+                                    ->default(now())
+                                    ->helperText('Select the date when the menu will be published.'),
+
+                                Forms\Components\TimePicker::make('publish_time')
+                                    ->label('Publish Time')
+                                    ->visible(fn (callable $get) => $get('is_published'))
                                     ->required()
-                                    ->directory('file-manager/post/images'),
-                                TextInput::make('alt')
-                                    ->label('Alt text')
-                                    ->required(),
+                                    ->default(now())
+                                    ->helperText('Select the time when the menu will be published.'),
+
                             ]),
-                    ])
-                    ->columnSpanFull(),
-                Forms\Components\Toggle::make('status')
-                    ->required(),
-                Forms\Components\TextInput::make('order_by')
-                    ->numeric()
-                    ->default(null),
-                Forms\Components\DatePicker::make('publish_date')
-                    ->required()
-                    ->default(now()),
+                ]),
             ]);
     }
 
@@ -173,7 +181,7 @@ class PostResource extends Resource
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\DeleteAction::make(),
                 ])
-                
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

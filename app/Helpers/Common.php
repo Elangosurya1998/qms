@@ -21,7 +21,10 @@ class Common
 
     public static function getMenus()
     {
-        $menus = Menus::where('type', 'main_menu')->where('status', 1)->orderBy('order_by', 'asc')->get();
+        $menus = Menus::where('type', 'main_menu')
+            ->where('status', 1)
+            ->whereJsonContains('locations', 'header')
+            ->orderBy('order_by', 'asc')->get();
 
         $menus->load('children');
 
