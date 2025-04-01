@@ -1,7 +1,7 @@
 <x-main-layout>
 
-    <x-hero-image title="{{$page->title}}" description="{{$page->excerpt}}" />
+    <x-hero-image title="{{$page->title}}" description="{{$page->excerpt}}" image="{{$page->heroImage}}"/>
 
-    <x-progress />
+    <x-quick-menu />
 
 </x-main-layout>

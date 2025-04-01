@@ -219,8 +219,7 @@
 <div class="defaultPage">
 
     <!-- Header -->
-
-    @include('includes.header')
+    <x-header />
 
     <!-- Main -->
     <main id="mainArea">
@@ -233,11 +232,7 @@
     </main>
 
     <!-- Footer -->
-
     @include('includes.footer')
-
-
-
 
     <style>
         /*** Acount Popup Form ***/

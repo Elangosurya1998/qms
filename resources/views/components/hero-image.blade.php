@@ -1,6 +1,7 @@
 @props([
     'id' => '',
     'class' => '',
+    'image' => '',
     'backgroundImage' =>'frontend/files/_cache/22af7f7acf114d23f1b578e2264590e2.jpg',
     'title' => 'Not Found',
     'description' => 'No Description',
