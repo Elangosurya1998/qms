@@ -28,11 +28,11 @@ class PageResource extends Resource
                     ->tabs([
                         Forms\Components\Tabs\Tab::make('Basic Information')
                             ->schema([
-                                Forms\Components\Select::make('menu_id')
-                                    ->relationship('menu', 'name'),
                                 Forms\Components\TextInput::make('title')
                                     ->required()
                                     ->maxLength(255),
+                                Forms\Components\Select::make('menu_id')
+                                    ->relationship('menu', 'name'),
                                 Forms\Components\FileUpload::make('feature_image')
                                     ->directory('file-manager/page/feature_image')
                                     ->preserveFilenames()
@@ -47,15 +47,27 @@ class PageResource extends Resource
                         Forms\Components\Tabs\Tab::make('Hero')
                             ->columnSpanFull()
                             ->schema([
-                                Forms\Components\FileUpload::make('content.hero')
-                                    ->disk(config('media-library.disk_name'))
-                                    ->directory('pages')
-                                    ->acceptedFileTypes(['image/*', 'video/*'])
-                                    ->preserveFilenames(),
+                                Forms\Components\Select::make('hero_type')
+                                    ->label('Hero Type')
+                                    ->options([
+                                        'image' => 'Image',
+                                        'video' => 'Video',
+                                    ])
+                                    ->reactive()
+                                    ->columnSpanFull(),
 
-                                Forms\Components\Textarea::make('content.hero_caption')
+                                Forms\Components\FileUpload::make('hero_file')
+                                    ->directory('uploads/pages/hero')
+                                    ->preserveFilenames()
+                                    ->acceptedFileTypes(['image/*', 'video/*'])
+                                    ->label('Hero File')
+                                    ->required()
+                                    ->hidden(fn (callable $get) => $get('hero_type') === null),
+
+                                Forms\Components\Textarea::make('hero_caption')
                                     ->label('Hero Caption')
-                                    ->placeholder('Enter hero caption text here...'),
+                                    ->placeholder('Enter hero caption text...')
+                                    ->hidden(fn (callable $get) => $get('hero_type') === null),
                             ]),
 
                         Forms\Components\Tabs\Tab::make('Content')
@@ -122,21 +134,24 @@ class PageResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('menu.name')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('feature_image'),
+                Tables\Columns\TextColumn::make('menu.name')
+                    ->sortable()
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\ImageColumn::make('feature_image')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('author')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('status')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('order_by')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('publish_date')
                     ->date()
                     ->sortable(),

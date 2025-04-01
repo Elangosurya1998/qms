@@ -14,7 +14,6 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Get;
-use Notification;
 
 class MenusResource extends Resource
 {
@@ -22,7 +21,7 @@ class MenusResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Menus';
+    protected static ?string $navigationGroup = 'Settings';
 
     public static function form(Form $form): Form
     {
