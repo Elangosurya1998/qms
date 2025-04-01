@@ -24,6 +24,7 @@ class Menus extends Model
         'url',
         'target',
         'locations',
+        'excerpt',
         'image',
         'status',
         'order_by',
