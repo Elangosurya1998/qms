@@ -3,7 +3,7 @@
 <div id="wNBIR6V68CUWNAU6" class="mwPageBlock File" style="">
     <div class="blockContents">
         <div class="pageBanner pageBannerSimple"
-            style="background: url('files/_cache/22af7f7acf114d23f1b578e2264590e2.jpg') center center no-repeat; background-size:cover !important;">
+            style="background: url('frontend/files/_cache/22af7f7acf114d23f1b578e2264590e2.jpg') center center no-repeat; background-size:cover !important;">
             <div class="pageBannerWrap">
                 <div class="pageBannerContent">
                     <div class="container">
