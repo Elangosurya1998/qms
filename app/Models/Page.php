@@ -21,6 +21,7 @@ class Page extends Model
         'feature_image',
         'excerpt',
         'author',
+        'hero',
         'content',
         'status',
         'order_by',
@@ -30,6 +31,7 @@ class Page extends Model
     ];
 
     protected $casts = [
+        'hero' => 'json',
         'content' => 'json',
         'publish_date' => 'date',
     ];

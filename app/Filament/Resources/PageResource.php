@@ -47,7 +47,7 @@ class PageResource extends Resource
                         Forms\Components\Tabs\Tab::make('Hero')
                             ->columnSpanFull()
                             ->schema([
-                                Forms\Components\Select::make('hero_type')
+                                Forms\Components\Select::make('hero.type')
                                     ->label('Hero Type')
                                     ->options([
                                         'image' => 'Image',
@@ -56,18 +56,18 @@ class PageResource extends Resource
                                     ->reactive()
                                     ->columnSpanFull(),
 
-                                Forms\Components\FileUpload::make('hero_file')
+                                Forms\Components\FileUpload::make('hero.file')
                                     ->directory('uploads/pages/hero')
                                     ->preserveFilenames()
                                     ->acceptedFileTypes(['image/*', 'video/*'])
                                     ->label('Hero File')
                                     ->required()
-                                    ->hidden(fn (callable $get) => $get('hero_type') === null),
+                                    ->hidden(fn (callable $get) => $get('hero.type') === null),
 
-                                Forms\Components\Textarea::make('hero_caption')
+                                Forms\Components\Textarea::make('hero.caption')
                                     ->label('Hero Caption')
                                     ->placeholder('Enter hero caption text...')
-                                    ->hidden(fn (callable $get) => $get('hero_type') === null),
+                                    ->hidden(fn (callable $get) => $get('hero.type') === null),
                             ]),
 
                         Forms\Components\Tabs\Tab::make('Content')

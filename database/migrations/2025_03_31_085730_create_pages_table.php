@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('excerpt')->nullable();
             $table->string('feature_image')->nullable();
             $table->string('author')->nullable();
+            $table->string('hero')->nullable();
             $table->json('content')->nullable();
             $table->boolean('status')->default(true);
             $table->integer('order_by')->nullable();
