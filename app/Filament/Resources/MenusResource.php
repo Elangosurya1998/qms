@@ -55,15 +55,45 @@ class MenusResource extends Resource
 
                         Forms\Components\Tabs\Tab::make('Locations')
                             ->schema([
+
                                 Forms\Components\CheckboxList::make('locations')
                                     ->options([
                                         'header' => 'Header Menu',
-                                        'topbar' => 'Top bar Menu',
                                         'footer' => 'Footer Menu',
+                                        'topbar' => 'Top bar Menu',
                                         'floating' => 'Floating Menu',
                                     ])
+                                    ->descriptions([
+                                        'header' => 'Will appear in the main navigation located in the header section of the website.',
+                                        'footer' => 'Will appear in the footer menu, typically located at the bottom of the website.',
+                                        'topbar' => 'Will be displayed in the topmost bar, often used for quick links or announcements.',
+                                        'floating' => 'Will appear as a dynamic floating menu, commonly shown as an overlay or popup.',
+                                    ])
+                                    ->helperText('Note:
+                                        • If "Topbar" is selected, the other options will be disabled.
+                                        • If "Header" or "Footer" is selected, "Topbar" and "Floating" will be disabled.
+                                        • Selecting "Floating" will disable all other options.')
+                                    ->required()
+                                    ->reactive(),
+
+                                Forms\Components\Group::make()
                                     ->columns(2)
-                                    ->required(),
+                                    ->schema([
+                                        Forms\Components\DatePicker::make('publish_date')
+                                            ->label('Publish Date')
+                                            ->visible(fn (callable $get) => in_array('topbar', $get('locations')) || in_array('floating', $get('locations')))
+                                            ->required(fn (callable $get) => in_array('topbar', $get('locations')) || in_array('floating', $get('locations')))
+                                            ->default(now())
+                                            ->helperText('Select the date when the menu will be published.'),
+                                        Forms\Components\TimePicker::make('publish_time')
+                                            ->label('Publish Time')
+                                            ->visible(fn (callable $get) => in_array('topbar', $get('locations')) || in_array('floating', $get('locations')))
+                                            ->required(fn (callable $get) => in_array('topbar', $get('locations')) || in_array('floating', $get('locations')))
+                                            ->default(now())
+                                            ->helperText('Select the time when the menu will be published.'),
+                                    ])
+                                    ->visible(fn (callable $get) => in_array('topbar', $get('locations')) || in_array('floating', $get('locations'))),
+
                             ]),
 
                         Forms\Components\Tabs\Tab::make('URL Options')

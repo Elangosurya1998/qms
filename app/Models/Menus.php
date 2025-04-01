@@ -29,12 +29,15 @@ class Menus extends Model
         'status',
         'order_by',
         'parent_id',
+        'publish_date',
+        'publish_time',
         'created_at',
         'updated_at'
     ];
 
     protected $casts = [
         'locations' => 'array',
+        'publish_date' => 'date',
     ];
 
     public function getSlugOptions(): SlugOptions
