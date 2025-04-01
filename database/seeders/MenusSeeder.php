@@ -12,6 +12,8 @@ class MenusSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $menus = [
+
+        ];
     }
 }

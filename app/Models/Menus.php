@@ -4,19 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Menus extends Model
 {
-    use HasFactory;
+    use HasFactory,HasSlug;
 
-    protected $appends = ['type'];
+    protected $table = 'menus';
 
     protected $fillable = [
         'type',
         'name',
+        'slug',
         'is_url',
         'url',
         'target',
+        'locations',
+        'image',
         'status',
         'order_by',
         'parent_id',
@@ -24,40 +32,31 @@ class Menus extends Model
         'updated_at'
     ];
 
-    public function getTypeAttribute(): string
+    protected $casts = [
+        'locations' => 'array',
+    ];
+
+    public function getSlugOptions(): SlugOptions
     {
-        return $this->attributes['type'] == 'main_menu' ? 'Main Menu' : 'Sub Menu';
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
     }
 
-    public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function parent(): BelongsTo
     {
         return $this->belongsTo(Menus::class, 'parent_id');
     }
 
-    public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function children(): HasMany
     {
-        return $this->hasMany(Menus::class, 'parent_id')->where('status', 1)->orderBy('order_by', 'asc');
+        return $this->hasMany(Menus::class, 'parent_id')
+            ->orderBy('order_by', 'asc');
     }
 
-    public function page(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function page(): HasOne
     {
         return $this->hasOne(Page::class, 'menu_id');
     }
 
-    // protected static function boot()
-    // {
-    //     parent::boot();
-
-    //     static::deleting(function ($menu) {
-    //         // Check if the menu has child menus
-    //         if ($menu->children()->count() > 0) {
-    //             throw new \Exception("This menu has submenus and cannot be deleted.");
-    //         }
-
-    //         // Check if the menu is referred to by a page
-    //         if ($menu->page()->exists()) {
-    //             throw new \Exception("This menu is referenced by a page and cannot be deleted.");
-    //         }
-    //     });
-    // }
 }

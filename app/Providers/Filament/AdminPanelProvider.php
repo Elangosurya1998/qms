@@ -18,16 +18,15 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-class AdminPanelPanelProvider extends PanelProvider
+class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
             ->default()
-            ->id('admin-panel')
-            ->path('admin-panel')
+            ->id('admin')
+            ->path('admin')
             ->login()
-            ->font('poppins')
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -39,7 +38,7 @@ class AdminPanelPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                // Widgets\FilamentInfoWidget::class,
+                Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -52,11 +51,8 @@ class AdminPanelPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
-
-            ->plugins([
-                    \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
+            ->authMiddleware([
+                Authenticate::class,
             ]);
     }
 }
-  
-        

@@ -11,18 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menuses', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->string('type');
             $table->string('name');
+            $table->string('slug')->unique();
             $table->boolean('status')->default(true);
             $table->integer('order_by')->nullable();
-            $table->foreignId('parent_id')->nullable()->constrained('menuses')->onDelete('cascade');
+            $table->foreignId('parent_id')->nullable()->constrained('menus')->onDelete('cascade');
             $table->boolean('is_url')->default(false);
             $table->longText('url')->nullable();
+            $table->json('locations')->nullable();
             $table->string('target')->nullable();
-            $table->string('title')->nullable();
-            $table->string( 'content')->nullable();
+            $table->longText( 'excerpt')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menuses');
+        Schema::dropIfExists('menus');
     }
 };

@@ -5,9 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\MenusResource\Pages;
 use App\Filament\Resources\MenusResource\RelationManagers;
 use App\Models\Menus;
-use Filament\Actions\DeleteAction;
 use Filament\Forms;
-use Filament\Tables\Grouping\Group;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -25,67 +23,89 @@ class MenusResource extends Resource
 
     protected static ?string $navigationGroup = 'Menus';
 
-     public static function form(Form $form): Form
+    public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                    
-                Forms\Components\Select::make('type')
-                    ->options([
-                        'main_menu' => 'Main Menu',
-                        'sub_menu' => 'Sub Menu'
-                    ])
-                    ->native(false)
-                    ->required(),
+                Forms\Components\Tabs::make('Menu Details') // Name of the Tabs container
+                    ->tabs([
+                        Forms\Components\Tabs\Tab::make('General')
+                            ->schema([
+                                Forms\Components\TextInput::make('name')
+                                    ->unique(ignoreRecord: true)
+                                    ->required()
+                                    ->maxLength(255),
 
-                Forms\Components\Checkbox::make('is_url')
-                    ->live(),
-                        
-                Forms\Components\TextInput::make('url')
-                    ->hidden(fn(Get $get): bool => !$get('is_url'))
-                    ->required(),
-                Forms\Components\Select::make('target')
-                    ->hidden(fn(Get $get): bool => !$get('is_url'))
-                    ->label('Link Target')
-                    ->live()
-                    ->options([
-                        '_self' => 'Same Tab',
-                        '_blank' => 'New Tab',
-                    ])
-                    ->native(false),        
-                Forms\Components\Select::make('parent_id')
-                    ->relationship('parent', 'name')
-                    ->native(false),
+                                Forms\Components\Textarea::make('excerpt')
+                                    ->label('Excerpt'),
 
-                Forms\Components\Toggle::make('status')
-                    ->required(),
+                                Forms\Components\Hidden::make('type')
+                                    ->default('main_menu')
+                                    ->required(),
+
+                                Forms\Components\FileUpload::make('image')
+                                    ->image()
+                                    ->directory('file-manager/menu/image')
+                                    ->preserveFilenames()
+                                    ->maxSize(1024 * 2)
+                                    ->openable(),
+                                Forms\Components\Toggle::make('status')
+                                    ->required(),
+                            ]),
+
+                        Forms\Components\Tabs\Tab::make('Locations')
+                            ->schema([
+                                Forms\Components\CheckboxList::make('locations')
+                                    ->options([
+                                        'header' => 'Header Menu',
+                                        'topbar' => 'Top bar Menu',
+                                        'footer' => 'Footer Menu',
+                                        'floating' => 'Floating Menu',
+                                    ])
+                                    ->columns(2)
+                                    ->required(),
+                            ]),
+
+                        Forms\Components\Tabs\Tab::make('URL Options')
+                            ->schema([
+                                Forms\Components\Checkbox::make('is_url')
+                                    ->inline(false)
+                                    ->columnSpanFull()
+                                    ->live(),
+                                Forms\Components\TextInput::make('url')
+                                    ->hidden(fn(Get $get): bool => !$get('is_url'))
+                                    ->required(),
+                                Forms\Components\Select::make('target')
+                                    ->hidden(fn(Get $get): bool => !$get('is_url'))
+                                    ->label('Link Target')
+                                    ->live()
+                                    ->options([
+                                        '_self' => 'Same Tab',
+                                        '_blank' => 'New Tab',
+                                    ])
+                                    ->native(false),
+                            ])
+                            ->columns(2),
+                    ])
+                    ->columnSpanFull(),
             ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
-            ->groups([
-                Group::make('parent.name')
-                    ->collapsible(),
-            ])
-            ->reorderable('order_by')
-            ->defaultGroup('parent.name')
+            ->modifyQueryUsing(fn (Builder $query): Builder => $query->whereNull('parent_id'))
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('type')
+                Tables\Columns\TextColumn::make('locations')
+                    ->badge()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('parent.name')
-                    ->sortable(),
-                Tables\Columns\IconColumn::make('status')
-                    ->boolean(),
+                Tables\Columns\BooleanColumn::make('status'),
                 Tables\Columns\TextColumn::make('order_by')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -102,31 +122,7 @@ class MenusResource extends Resource
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),
-                    DeleteAction::make()
-                    ->before(function ($action, $record) {
-                        try {
-                            // Check if the menu has submenus
-                            if ($record->children()->count() > 0) {
-                                throw new \Exception("This menu has submenus and cannot be deleted.");
-                            }
-
-                            // Check if the menu is referenced by a page
-                            if ($record->page()->exists()) {
-                                throw new \Exception("This menu is referenced by a page and cannot be deleted.");
-                            }
-
-                        } catch (\Exception $e) {
-                            // Show error notification and prevent deletion
-                            Notification::make()
-                                ->title('Error')
-                                ->body($e->getMessage())
-                                ->danger()
-                                ->send();
-
-                            // Prevent the deletion from proceeding
-                            $action->cancel();
-                        }
-                    }),
+                    Tables\Actions\DeleteAction::make(),
 
                 ]),
             ])
@@ -140,7 +136,7 @@ class MenusResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\ChildrenRelationManager::class,
         ];
     }
 
