@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Menus;
-use App\Models\Pages;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -14,7 +14,7 @@ class PageController extends Controller
         $segments = $request->segments();
         $lastSegment = end($segments);
 
-        $page = Pages::where('slug', $lastSegment)->first();
+        $page = Page::where('slug', $lastSegment)->first();
        
         if (!$page) {
             abort(404);
