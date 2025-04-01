@@ -9,16 +9,19 @@ class MenuComposer
 {
     public function compose(View $view)
     {
-        $menus = Menus::where('type', 'main_menu')
+        $headerMenus = Menus::where('type', 'main_menu')
             ->where('status', 1)
             ->whereJsonContains('locations', 'header')
             ->orderBy('order_by', 'asc')->get();
 
-        $menus->load('children');
+        $footerMenus = Menus::where('type', 'main_menu')
+            ->where('status', 1)
+            ->whereJsonContains('locations', 'footer')
+            ->orderBy('order_by', 'asc')->get();
 
         $view->with([
-            'menus' => $menus,
-            'menu' => $menus->first(),
+            'headerMenus' => $headerMenus,
+            'footerMenus' => $footerMenus,
         ]);
     }
 

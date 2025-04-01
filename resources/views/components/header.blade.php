@@ -602,8 +602,8 @@
                                 <div class="Menu">
                                     <div class="blockContents ">
                                         <ul>
-                                            @foreach ($menus as $menu)
-                                                <li><a href="#" class="mmbb">{{ $menu->name }}</a></li>
+                                            @foreach ($headerMenus as $headerMenu)
+                                                <li><a href="#" class="mmbb">{{ $headerMenu->name }}</a></li>
                                             @endforeach
                                             <li><a href="#" class="mmcc">Academics</a></li>
                                             <li><a href="#" class="mmdd">Student Life</a></li>

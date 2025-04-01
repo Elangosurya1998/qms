@@ -1,6 +1,6 @@
 @props([
     'title' => 'Quick Menu',
-    'backgroundImage' => 'frontend/files/_cache/22af7f7acf114d23f1b578e2264590e2.jpg',
+    'backgroundImage' => '', // 'frontend/files/_cache/22af7f7acf114d23f1b578e2264590e2.jpg'
     'menuItems' => [
         [ 'title' => 'Fundraising & Events', 'link' => '/Fundraising-and-Events' ],
         [ 'title' => 'Ways to Give', 'link' => '/Ways-to-Give' ],

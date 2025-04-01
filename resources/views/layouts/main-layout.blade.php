@@ -232,7 +232,7 @@
     </main>
 
     <!-- Footer -->
-    @include('includes.footer')
+    <x-footer />
 
     <style>
         /*** Acount Popup Form ***/
