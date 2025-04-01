@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\Sluggable\HasSlug;
@@ -63,4 +64,11 @@ class Menus extends Model
         return $this->hasOne(Page::class, 'menu_id');
     }
 
+//    /**
+//     * Locations that this menu belongs to.
+//     */
+//    public function locations(): BelongsToMany
+//    {
+//        return $this->belongsToMany(MenuLocation::class, 'menu_menu_location', 'menu_id', 'menu_location_id');
+//    }
 }

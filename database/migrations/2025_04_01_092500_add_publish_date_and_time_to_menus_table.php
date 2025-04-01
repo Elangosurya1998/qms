@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('menus', function (Blueprint $table) {
-            $table->date('publish_date')->nullable()->after('locations');
+            $table->boolean('is_published')->default(false)->after('locations');
+            $table->date('publish_date')->nullable()->after('is_published');
             $table->time('publish_time')->nullable()->after('publish_date');
         });
     }
@@ -23,7 +24,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('menus', function (Blueprint $table) {
-            $table->dropColumn(['publish_date', 'publish_time']);
+            $table->dropColumn(['is_published','publish_date', 'publish_time']);
         });
     }
 };
