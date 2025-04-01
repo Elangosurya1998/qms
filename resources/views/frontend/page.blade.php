@@ -2,8 +2,4 @@
 @section('title', $page->title)
 @section('content')
 
-
-
-
-
 @endsection

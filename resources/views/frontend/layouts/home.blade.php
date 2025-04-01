@@ -130,11 +130,7 @@
 
     <!-- Default Page -->
     <div class="defaultPage">
-
-        @dd(\App\Helpers\Common::getMenus());
-
         <!-- Header -->
-
         @include('frontend.includes.header')
 
         <div id="accessibility" class="_shadow-6 _shadow-hover"> <a id="accessibilityBtn"

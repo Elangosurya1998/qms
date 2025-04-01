@@ -46,13 +46,13 @@ class PostResource extends Resource
                             ]),
 
                         Forms\Components\Tabs\Tab::make('Hero')
+                            ->columnSpanFull()
                             ->schema([
                                 Forms\Components\FileUpload::make('content.hero')
                                     ->disk(config('media-library.disk_name'))
                                     ->directory('pages')
                                     ->acceptedFileTypes(['image/*', 'video/*'])
-                                    ->preserveFilenames()
-                                    ->columnSpanFull(),
+                                    ->preserveFilenames(),
 
                                 Forms\Components\Textarea::make('content.hero_caption')
                                     ->label('Hero Caption')

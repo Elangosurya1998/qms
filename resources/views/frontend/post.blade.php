@@ -61,22 +61,6 @@
                                         {!! tiptap_converter()->asHTML($content) !!}
                                     @break
 
-                                    {{-- @case('image')
-                                    @if ($post->mediaImage)
-                                        <img src="{{ asset("storage/{$post->mediaImage->path}") }}" alt="{{ $alt }}">
-                                    @endif
-                                @break
-
-                                @case('Multiple Images')
-                                    @if ($images && count($images) > 0)
-                                        @foreach ($images as $image)
-                                            @php 
-                                                $imagePath = \App\Helpers\Common::getImage($image);
-                                            @endphp
-                                             <img src="{{ asset("storage/{$imagePath}") }}" alt="{{ $alt }}">
-                                        @endforeach
-                                    @endif
-                                @break --}}
                                     @case('image')
                                         @if ($url)
                                             <img src="{{ asset("storage/$url") }}" alt="{{ $alt }}">
