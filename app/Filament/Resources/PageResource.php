@@ -56,12 +56,21 @@ class PageResource extends Resource
                                     ->reactive()
                                     ->columnSpanFull(),
 
+                                Forms\Components\FileUpload::make('hero.backgroundImage')
+                                    ->label('Background Image')
+                                    ->directory('uploads/pages/hero')
+                                    ->required()
+                                    ->openable()
+                                    ->acceptedFileTypes(['image/*'])
+                                    ->preserveFilenames(),
+
                                 Forms\Components\FileUpload::make('hero.file')
                                     ->directory('uploads/pages/hero')
                                     ->preserveFilenames()
                                     ->acceptedFileTypes(['image/*', 'video/*'])
                                     ->label('Hero File')
                                     ->required()
+                                    ->openable()
                                     ->hidden(fn (callable $get) => $get('hero.type') === null),
 
                                 Forms\Components\Textarea::make('hero.caption')

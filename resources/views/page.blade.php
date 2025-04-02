@@ -3,8 +3,8 @@
 ])
 <x-main-layout>
 
-    <x-hero  />
+    <x-hero :hero="$page->hero" :page="$page" />
 
-    <x-quick-menu />
+    <x-quick-menu :page="$page" />
 
 </x-main-layout>

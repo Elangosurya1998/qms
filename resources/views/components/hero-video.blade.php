@@ -1,12 +1,8 @@
 @props([
-    'id' => 'default-id',
-    'class' => '',
-    'videoPoster' => asset('frontend/files/galleries/BFC_Video_Placeholder.jpg'),
-    'videoSource' => asset('frontend/files/galleries/Sequence_01.webm'),
-    'title' => 'Ready to start your next',
-    'subtitle' => 'Adventure?',
-    'playButtonUrl' => '#',
-    'playButtonImg' => asset('frontend/images/play-button.png'),
+    'videoPoster' => null,
+    'videoSource' => null,
+    'title' => null,
+    'subtitle' => null,
 ])
 
 <div id="{{ $id }}" class="mwPageBlock Include {{ $class }}" style="">

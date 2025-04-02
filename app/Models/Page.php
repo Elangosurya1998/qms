@@ -20,7 +20,6 @@ class Page extends Model
         'feature_image',
         'excerpt',
         'author',
-        'hero_type',
         'hero',
         'content',
         'status',

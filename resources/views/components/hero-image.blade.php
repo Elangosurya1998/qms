@@ -1,16 +1,12 @@
 @props([
-    'id' => '',
-    'class' => '',
-    'image' => '',
-    'backgroundImage' =>'frontend/files/_cache/22af7f7acf114d23f1b578e2264590e2.jpg',
-    'title' => 'Not Found',
-    'description' => 'No Description',
+    'backgroundImage' => null,
+    'title' => null,
+    'description' => null,
 ])
 
 <div
-    id="{{ $id }}"
-    class="mwPageBlock File {{ $class }}"
-    style="background: url('{{ $backgroundImage }}') center center no-repeat; background-size:cover !important;"
+    class="mwPageBlock File"
+    style="background: url('storage/{{ $backgroundImage }}') center center no-repeat; background-size:cover !important;"
 >
     <div class="blockContents">
         <div class="pageBanner pageBannerSimple"
