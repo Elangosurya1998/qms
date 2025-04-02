@@ -10,12 +10,12 @@
             :title="$page->title"
             :description="$page->excerpt"
         />
-    @elseif ($hero['type'] === 'video' && !empty($hero['file']))
+    @elseif ($hero['type'] === 'video' && !empty($hero['videoFile']))
         <x-hero-video
-            :videoPoster="data_get($hero, 'file')"
-            :videoSource="$hero['file']"
-            :title="$page->title"
-            :subtitle="data_get($hero, 'caption')"
+            :videoPoster="data_get($hero, 'videoPoster')"
+            :videoSource="data_get($hero, 'videoFile')"
+            :videoBannerTitle="data_get($hero, 'videoBannerTitle')"
+            :videoBannerParagraph="data_get($hero, 'videoBannerParagraph')"
         />
     @else
         <div  class="mwPageBlock Include">

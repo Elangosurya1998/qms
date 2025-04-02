@@ -1,4 +1,5 @@
 @props([
+    'blockContents' => null,
     'title' => 'Quick Menu',
     'backgroundImage' => '', // 'frontend/files/_cache/22af7f7acf114d23f1b578e2264590e2.jpg'
     'menuItems' => [
@@ -26,8 +27,9 @@
                 <div class="container">
                     <div class="mwPageArea">
                         <div id="w1CEIR83R8DOJGMV" class="mwPageBlock Content" style="">
-                            <div class="blockContents"><h3 style="text-align: center;">
-                                    Where will you venture to next?
+                            <div class="blockContents">
+                                <h3 style="text-align: center;">
+                                    {{ $blockContents }}
                                 </h3>
                             </div>
                         </div>

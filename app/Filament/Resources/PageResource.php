@@ -5,7 +5,10 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
 use Filament\Forms;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -48,35 +51,67 @@ class PageResource extends Resource
                             ->columnSpanFull()
                             ->schema([
                                 Forms\Components\Select::make('hero.type')
-                                    ->label('Hero Type')
+                                ->label('Type')
                                     ->options([
                                         'image' => 'Image',
                                         'video' => 'Video',
                                     ])
-                                    ->reactive()
-                                    ->columnSpanFull(),
+                                    ->columnSpanFull()
+                                    ->live()
+                                    ->afterStateUpdated(fn (Select $component) => $component
+                                        ->getContainer()
+                                        ->getComponent('dynamicTypeFields')
+                                        ->getChildComponentContainer()
+                                        ->fill()),
 
-                                Forms\Components\FileUpload::make('hero.backgroundImage')
-                                    ->label('Background Image')
-                                    ->directory('uploads/pages/hero')
-                                    ->required()
-                                    ->openable()
-                                    ->acceptedFileTypes(['image/*'])
-                                    ->preserveFilenames(),
+                                Grid::make(2)
+                                    ->schema(fn (Get $get): array => match ($get('hero.type')) {
+                                        'image' => [
+                                            Forms\Components\FileUpload::make('hero.file')
+                                                ->directory('uploads/pages/hero')
+                                                ->preserveFilenames()
+                                                ->acceptedFileTypes(['image/*'])
+                                                ->label('Hero File')
+                                                ->required()
+                                                ->openable(),
+                                            Forms\Components\Textarea::make('hero.caption')
+                                                ->label('Hero Caption')
+                                                ->placeholder('Enter hero caption text...')
+                                                ->hidden(fn (callable $get) => $get('hero.type') === null),
+                                        ],
+                                        'video' => [
+                                            Forms\Components\TextInput::make('hero.videoBannerTitle')
+                                                ->label('Banner Title')
+                                                ->required()
+                                                ->maxLength(55),
 
-                                Forms\Components\FileUpload::make('hero.file')
-                                    ->directory('uploads/pages/hero')
-                                    ->preserveFilenames()
-                                    ->acceptedFileTypes(['image/*', 'video/*'])
-                                    ->label('Hero File')
-                                    ->required()
-                                    ->openable()
-                                    ->hidden(fn (callable $get) => $get('hero.type') === null),
+                                            Forms\Components\TextInput::make('hero.videoBannerParagraph')
+                                                ->required()
+                                                ->maxLength(55)
+                                                ->label('Banner Paragraph'),
 
-                                Forms\Components\Textarea::make('hero.caption')
-                                    ->label('Hero Caption')
-                                    ->placeholder('Enter hero caption text...')
-                                    ->hidden(fn (callable $get) => $get('hero.type') === null),
+                                            Forms\Components\FileUpload::make('hero.videoPoster')
+                                                ->label('Poster')
+                                                ->directory('uploads/pages/hero')
+                                                ->required()
+                                                ->openable()
+                                                ->acceptedFileTypes(['image/*'])
+                                                ->preserveFilenames(),
+                                            Forms\Components\FileUpload::make('hero.videoFile')
+                                                ->directory('uploads/pages/hero')
+                                                ->preserveFilenames()
+                                                ->acceptedFileTypes(['image/*', 'video/*'])
+                                                ->label('Video')
+                                                ->required()
+                                                ->openable(),
+                                            Forms\Components\Textarea::make('hero.caption')
+                                                ->label('Caption')
+                                                ->placeholder('Enter hero caption text...')
+                                                ->columnSpanFull(),
+                                        ],
+                                        default => [],
+                                    })
+                                    ->key('dynamicTypeFields')
                             ]),
 
                         Forms\Components\Tabs\Tab::make('Content')

@@ -1,30 +1,32 @@
 @props([
     'videoPoster' => null,
     'videoSource' => null,
-    'title' => null,
-    'subtitle' => null,
+    'videoBannerTitle' => null,
+    'videoBannerParagraph' => null,
 ])
 
-<div id="{{ $id }}" class="mwPageBlock Include {{ $class }}" style="">
+<div class="mwPageBlock Include">
     <div class="blockContents">
         <div class="videoBanner videoBannerOne videoBannerLarge content-style">
             <div class="videoBannerWrap"
-                 style="background-image: url('{{ $videoPoster }}')"
+                 style="background-image: url('storage/{{ $videoPoster }}');background-size: cover;"
                  data-fit-img>
                 <video autoplay="autoplay" loop="loop" muted="muted"
-                       poster="{{ $videoPoster }}" data-fit-img-child>
-                    <source src="{{ $videoSource }}" type="video/mp4" />
-                    <img class="_img-fluid" alt="" src="{{ $videoPoster }}" />
+                       poster="{{ asset('storage/'.$videoPoster) }}" data-fit-img-child>
+                    <source src="{{ asset('storage/'.$videoSource) }}" type="video/mp4" />
+                    <img class="_img-fluid" alt="" src="{{ asset('storage/'.$videoPoster) }}" />
                 </video>
                 <div class="videoBannerInner">
                     <div class="container">
                         {{-- Banner Title --}}
                         <h1 class="videoBannerTitle">
-                            {{ $title }}
+                            {{ $videoBannerTitle }}
                         </h1>
 
                         {{-- Banner Subtitle --}}
-                        <p class="videoBannerParagraph">{{ $subtitle }}</p>
+                        <p class="videoBannerParagraph">
+                            {{ $videoBannerParagraph }}
+                        </p>
 
                         {{-- Decoration Line --}}
                         <div class="decoration">
@@ -41,8 +43,8 @@
 
                 {{-- Play Button --}}
                 <div class="playbutton">
-                    <a href="{{ $playButtonUrl }}" class="video-popup">
-                        <img src="{{ $playButtonImg }}"> Play Full Video
+                    <a href="#" class="video-popup">
+                        <img src=""> Play Full Video
                     </a>
                 </div>
             </div>
