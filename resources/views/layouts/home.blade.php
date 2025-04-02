@@ -3,6 +3,7 @@
         <main id="mainArea">
             <div class="mwPageArea">
 
+
                 <x-hero-image />
 
                 <x-hero-video />

@@ -1,6 +1,9 @@
+@props([
+    'page',
+])
 <x-main-layout>
 
-    <x-hero-image title="{{$page->title}}" description="{{$page->excerpt}}" image="{{$page->heroImage}}"/>
+    <x-hero  />
 
     <x-quick-menu />
 
