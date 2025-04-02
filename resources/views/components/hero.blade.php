@@ -1,5 +1,5 @@
 @props([
-    'hero_type' => 'video',
+    'hero_type' => 'image',
     'id' => '',
     'class' => '',
     'title' => 'Default Title',

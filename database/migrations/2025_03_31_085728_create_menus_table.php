@@ -25,9 +25,9 @@ return new class extends Migration
             $table->string('target')->nullable();
             $table->longText( 'excerpt')->nullable();
             $table->string('image')->nullable();
-            $table->boolean('is_published')->default(false)->after('locations');
-            $table->date('publish_date')->nullable()->after('is_published');
-            $table->time('publish_time')->nullable()->after('publish_date');
+            $table->boolean('is_published')->default(false);
+            $table->date('publish_date')->nullable();
+            $table->time('publish_time')->nullable();
             $table->timestamps();
         });
     }
