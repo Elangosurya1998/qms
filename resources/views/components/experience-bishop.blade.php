@@ -1,3 +1,12 @@
+@props([
+    'blockContent1' => null,
+    'blockContent2' => null,
+    'button1' => null,
+    'button2' => null,
+    'button1Link' => null,
+    'button2Link' => null,
+])
+
 <div id="w99PTKHYQEAOXJ97" class="mwPageBlock Include" style="">
     <div class="blockContents">
         <div class="homeCTAWrap contentArea content-style">
@@ -6,9 +15,10 @@
                     <div id="wGPIUM4UY81L2SSI" class="mwPageBlock Content" style="">
                         <div class="blockContents">
                             <h2>
-                                Experience
+                                {{ $blockContent1 }}
                                 <br />
-                                Bishop Foley Catholic
+                                {{ $blockContent2 }}
+
                             </h2>
                         </div>
                     </div>
@@ -24,8 +34,8 @@
                                                 <div class="blockContents">
                                                     <div class="mwBtnCenter">
                                                         <div class="btn btnYellow btnRounded">
-                                                            <a href="Visit-BFC.html" template="default" class="medium"
-                                                                target="_self">Plan a Visit</a>
+                                                            <a href="{{ $button1Link }}" template="default"
+                                                                class="medium" target="_self">{{ $button1 }}</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -39,8 +49,8 @@
                                                 <div class="blockContents">
                                                     <div class="mwBtnCenter">
                                                         <div class="btn btnYellow btnOutline btnRounded">
-                                                            <a href="Foley-Faith.html" template="default" class="medium"
-                                                                target="_self">Foley Faith</a>
+                                                            <a href="{{ $button2Link }}" template="default"
+                                                                class="medium" target="_self">{{ $button2 }}</a>
                                                         </div>
                                                     </div>
                                                 </div>
