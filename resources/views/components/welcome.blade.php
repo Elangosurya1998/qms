@@ -1,3 +1,14 @@
+@props([
+    'image' => null,
+    'welcomeTo' => null,
+    'title' => null,
+    'paragraph' => null,
+    'button1' => null,
+    'button1Link' => null,
+    'button2' => null,
+    'button2Link' => null,
+])
+
 <div id="wOKSYUAG7X1W89N2" class="mwPageBlock Include" style="">
     <div class="blockContents">
         <style type="text/css">
@@ -27,8 +38,7 @@
                                                                 style="">
                                                                 <div class="blockContents">
                                                                     <div class="hideonemobile">
-                                                                        <img
-                                                                            src="{{ asset('frontend/files/_cache/9fddc407ceb11c26f2a043d998d51b9e.png') }}" />
+                                                                        <img src="{{ $image }}" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -73,7 +83,7 @@
                                                                                     style="">
                                                                                     <div class="blockContents">
                                                                                         <h6>
-                                                                                            Welcome to
+                                                                                            {{ $welcomeTo }}
                                                                                         </h6>
                                                                                     </div>
                                                                                 </div>
@@ -121,9 +131,7 @@
                                                                                     style="">
                                                                                     <div class="blockContents">
                                                                                         <h2>
-                                                                                            Bishop Foley
-                                                                                            Catholic
-                                                                                            High School
+                                                                                            {{ $title }}
                                                                                         </h2>
                                                                                     </div>
                                                                                 </div>
@@ -138,44 +146,7 @@
                                                                                     style="">
                                                                                     <div class="blockContents">
                                                                                         <p>
-                                                                                            We are
-                                                                                            pleased you
-                                                                                            are
-                                                                                            considering
-                                                                                            our school
-                                                                                            as your
-                                                                                            child&rsquo;s
-                                                                                            home for the
-                                                                                            next four
-                                                                                            years.
-                                                                                            Bishop Foley
-                                                                                            Catholic is
-                                                                                            a four-year
-                                                                                            co-educational,
-                                                                                            college
-                                                                                            preparatory
-                                                                                            high school
-                                                                                            within
-                                                                                            the
-                                                                                            Archdiocese
-                                                                                            of Detroit,
-                                                                                            located in
-                                                                                            the
-                                                                                            Metro-Detroit
-                                                                                            suburb of
-                                                                                            Madison
-                                                                                            Heights.
-                                                                                            Because of
-                                                                                            our central
-                                                                                            location,
-                                                                                            BFC students
-                                                                                            come from
-                                                                                            over 60
-                                                                                            different
-                                                                                            schools
-                                                                                            &mdash; both
-                                                                                            private and
-                                                                                            public.
+                                                                                            {{ $paragraph }}
                                                                                         </p>
                                                                                     </div>
                                                                                 </div>
@@ -186,11 +157,10 @@
                                                                                         <div class="mwBtnLeft">
                                                                                             <div
                                                                                                 class="btn btnYellow btnRounded">
-                                                                                                <a href="about-bfc.html"
+                                                                                                <a href="{{ $button1Link }}"
                                                                                                     template="default"
                                                                                                     class="medium"
-                                                                                                    target="_self">About
-                                                                                                    Us</a>
+                                                                                                    target="_self">{{ $button1 }}</a>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -202,12 +172,10 @@
                                                                                         <div class="mwBtnLeft">
                                                                                             <div
                                                                                                 class="btn btnYellow btnOutline btnRounded">
-                                                                                                <a href="https://bfchs-mi.client.renweb.com/oa/"
+                                                                                                <a href="{{ $button2Link }}"
                                                                                                     template="default"
                                                                                                     class="medium"
-                                                                                                    target="_blank">Apply
-                                                                                                    to
-                                                                                                    BFC</a>
+                                                                                                    target="_blank">{{ $button2 }}</a>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>

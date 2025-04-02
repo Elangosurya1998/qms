@@ -1,8 +1,13 @@
+@props([
+    'backgroundImage' => null,
+    'title' => null,
+])
+
 <div id="wH8PX13VN0QHT67A" class="mwPageBlock Include" style="">
     <div class="blockContents">
         <style type="text/css">
             #contentArea-R0TC3K {
-                background-image: url("");
+                background-image: url("{{ $backgroundImage }}");
                 background-position: center;
                 background-size: auto;
                 background-repeat: no-repeat;
@@ -16,7 +21,7 @@
                         <div id="w5UI1RIBVM2D3ORL" class="mwPageBlock Content" style="">
                             <div class="blockContents">
                                 <h6 style="text-align: center;">
-                                    <span style="font-size: 14pt;">&mdash; OUR&nbsp;MISSION&nbsp;
+                                    <span style="font-size: 14pt;">&mdash;{{ $title }}&mdash;
                                         &mdash;
                                         <br />
                                         <br /></span>
@@ -26,12 +31,7 @@
                         <div id="w04TXFR8D5M6USQK" class="mwPageBlock Content" style="">
                             <div class="blockContents">
                                 <h5 style="text-align: center;">
-                                    <span style="color: #000000; font-size: 18pt;">Bishop Foley
-                                        Catholic High School is a Christ-centered, co-educational
-                                        Catholic community that accompanies students on their individual
-                                        spiritual and academic journey to become servant leaders in an
-                                        environment that fosters growth, opportunity, and success in
-                                        preparation for college and beyond.</span>
+                                    <span style="color: #000000; font-size: 18pt;">{{ $paragraph }}</span>
                                 </h5>
                             </div>
                         </div>

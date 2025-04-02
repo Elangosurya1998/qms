@@ -1,3 +1,8 @@
+@props([
+    'title' => null,
+    'paragraph' => null,
+])
+
 <div id="w2P4Q4TY20TH9NF3" class="mwPageBlock Include" style="">
     <div class="blockContents">
         <div class="newsletterHolderWrap content-style">
@@ -21,13 +26,10 @@
                                                                         class="mwPageBlock Content" style="">
                                                                         <div class="blockContents">
                                                                             <h3>
-                                                                                STAY UPDATED
+                                                                                {{ $title }}
                                                                             </h3>
                                                                             <p>
-                                                                                Sign-up for our
-                                                                                newsletter to stay
-                                                                                updated on the latest
-                                                                                news and events.
+                                                                                {{ $paragraph }}
                                                                             </p>
                                                                         </div>
                                                                     </div>

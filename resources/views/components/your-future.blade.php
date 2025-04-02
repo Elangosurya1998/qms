@@ -1,3 +1,15 @@
+ @props([
+     'blockContent1' => null,
+     'blockContent2' => null,
+     'button1' => null,
+     'button1Link' => null,
+     'button2' => null,
+     'button2Link' => null,
+     'button3' => null,
+     'button3Link' => null,
+     'backgroundImage' => null,
+ ])
+
  <div id="wV9N30UFCRROS4XL" class="mwPageBlock Include" style="">
      <div class="blockContents">
          <div class="subfooter contentArea content-style">
@@ -26,9 +38,9 @@
                                          <div id="wENM2OMYAFB84V9A" class="mwPageBlock Content" style="">
                                              <div class="blockContents">
                                                  <h2 style="text-align: center;">
-                                                     Your future is bright
+                                                     {{ $blockContent1 }}
                                                      <br />
-                                                     with Bishop Foley Catholic
+                                                     {{ $blockContent2 }}
                                                  </h2>
                                              </div>
                                          </div>
@@ -42,10 +54,9 @@
                                                                  <div class="blockContents">
                                                                      <div class="mwBtnCenter">
                                                                          <div class="btn btnYellow btnRounded">
-                                                                             <a href="https://bfchs-mi.client.renweb.com/oa/"
+                                                                             <a href="{{ $button1Link }}"
                                                                                  template="default" class="medium"
-                                                                                 target="_blank">Apply
-                                                                                 Now</a>
+                                                                                 target="_blank">{{ $button1 }}</a>
                                                                          </div>
                                                                      </div>
                                                                  </div>
@@ -61,9 +72,9 @@
                                                                      <div class="mwBtnCenter">
                                                                          <div
                                                                              class="btn btnYellow btnOutline btnRounded">
-                                                                             <a href="Visit-BFC.html" template="default"
-                                                                                 class="medium" target="_self">Plan a
-                                                                                 Visit</a>
+                                                                             <a href="{{ $button2Link }}"
+                                                                                 template="default" class="medium"
+                                                                                 target="_self">{{ $button2 }}</a>
                                                                          </div>
                                                                      </div>
                                                                  </div>
@@ -79,10 +90,9 @@
                                                                      <div class="mwBtnCenter">
                                                                          <div
                                                                              class="btn btnYellow btnOutline btnRounded">
-                                                                             <a href="Academics-departments.html"
+                                                                             <a href="{{ $button3Link }}"
                                                                                  template="default" class="medium"
-                                                                                 target="_blank">EXPLORE
-                                                                                 ACADEMICS</a>
+                                                                                 target="_blank">{{ $button3 }}</a>
                                                                          </div>
                                                                      </div>
                                                                  </div>
@@ -104,7 +114,7 @@
                  </div>
              </div>
 
-             <img src="{{ asset('frontend/images/subfooter.png') }}" />
+             <img src="{{ $backgroundImage }}" />
          </div>
      </div>
  </div>
