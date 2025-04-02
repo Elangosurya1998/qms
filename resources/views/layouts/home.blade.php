@@ -8,9 +8,7 @@
 
                 <x-hero-video />
 
-                <x-where-will-you />
-
-                @include('includes.welcome')
+{{--                @include('includes.welcome')--}}
 
                 @include('includes.selectTab')
 

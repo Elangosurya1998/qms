@@ -5,13 +5,17 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Forms\Components\Builder;
 
 class PageResource extends Resource
 {
@@ -118,21 +122,83 @@ class PageResource extends Resource
                             ->schema([
                                 Forms\Components\Builder::make('content.modules')
                                     ->label('Modules')
+                                    ->collapsible(true)
                                     ->blocks([
-                                        Forms\Components\Builder\Block::make('tagline')
-                                            ->label('Tagline')
+
+                                        Builder\Block::make('interactive_grid')
+                                            ->label('Interactive Grid')
                                             ->schema([
-                                                Forms\Components\Tabs::make('ModuleTabs')
-                                                    ->tabs([
-                                                        Forms\Components\Tabs\Tab::make('Content')
-                                                            ->schema([
-                                                                Forms\Components\Textarea::make('content')
-                                                                    ->label('Tagline Content')
-                                                                    ->required()
-                                                                    ->columnSpanFull(),
-                                                            ]),
-                                                    ]),
+                                                Forms\Components\TextInput::make('title')
+                                                    ->label('Section Title')
+                                                    ->default('Where will you venture to?')
+                                                    ->required(),
+                                                Forms\Components\Repeater::make('columns')
+                                                    ->label('Columns')
+                                                    ->columns(3)
+                                                    ->schema([
+                                                        Forms\Components\TextInput::make('title')
+                                                            ->label('Column Title')
+                                                            ->required(),
+                                                        Forms\Components\TextInput::make('link')
+                                                            ->label('Column Link')
+                                                            ->required(),
+                                                        Forms\Components\FileUpload::make('image')
+                                                            ->label('Column Image')
+                                                            ->directory('uploads/pages/columns')
+                                                            ->preserveFilenames()
+                                                            ->image()
+                                                            ->required(),
+                                                    ])
+                                                    ->minItems(1)
+                                                    ->maxItems(3),
                                             ]),
+
+                                        Builder\Block::make('split_content_section')
+                                            ->label('Split Content Section')
+                                            ->columns(2)
+                                            ->schema([
+
+                                                TextInput::make('head')
+                                                    ->label('Head')
+                                                    ->maxLength(255),
+
+                                                TextInput::make('title')
+                                                    ->label('Title')
+                                                    ->required(),
+
+                                                TextInput::make('button1')
+                                                    ->label('Button 1 Text')
+                                                    ->maxLength(255),
+
+                                                TextInput::make('button1Link')
+                                                    ->label('Button 1 Link')
+                                                    ->url()
+                                                    ->nullable(),
+
+                                                TextInput::make('button2')
+                                                    ->label('Button 2 Text')
+                                                    ->maxLength(255),
+
+                                                TextInput::make('button2Link')
+                                                    ->label('Button 2 Link')
+                                                    ->url()
+                                                    ->nullable(),
+
+                                                Textarea::make('paragraph')
+                                                    ->label('Paragraph')
+                                                    ->rows(4)
+                                                    ->required(),
+
+                                                FileUpload::make('image')
+                                                    ->label('Image')
+                                                    ->directory('uploads/pages/split-content')
+                                                    ->preserveFilenames()
+                                                    ->acceptedFileTypes(['image/*'])
+                                                    ->openable()
+                                                    ->required(),
+                                            ])
+
+
                                     ])
                                     ->columnSpanFull(),
                             ]),

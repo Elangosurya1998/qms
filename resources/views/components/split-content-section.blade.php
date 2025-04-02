@@ -1,6 +1,6 @@
 @props([
     'image' => null,
-    'welcomeTo' => null,
+    'head' => null,
     'title' => null,
     'paragraph' => null,
     'button1' => null,
@@ -38,7 +38,7 @@
                                                                 style="">
                                                                 <div class="blockContents">
                                                                     <div class="hideonemobile">
-                                                                        <img src="{{ $image }}" />
+                                                                        <img src="{{ asset('storage/'.$image) }}" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -83,7 +83,7 @@
                                                                                     style="">
                                                                                     <div class="blockContents">
                                                                                         <h6>
-                                                                                            {{ $welcomeTo }}
+                                                                                            {{ $head }}
                                                                                         </h6>
                                                                                     </div>
                                                                                 </div>
