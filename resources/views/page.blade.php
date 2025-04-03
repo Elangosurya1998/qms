@@ -86,10 +86,11 @@
             @endif
 
             @if(isset($module['type']) && $module['type'] === 'icon_text_grid_block')
-                <x-full-with-image
+                <x-icon-with-grid-block
                     :id="Str::random(5)"
                     :iconImage="data_get($module, 'data.icon_image')"
                     :backgroundColor="data_get($module, 'data.background_color')"
+                    :backgroundImage="data_get($module, 'data.backgroundImage')"
                     :columnTextOne="data_get($module, 'data.column_1_text')"
                     :columnTextTwo="data_get($module, 'data.column_2_text')"
                     :columnTextThree="data_get($module, 'data.column_3_text')"

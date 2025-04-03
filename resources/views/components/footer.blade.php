@@ -14,9 +14,10 @@
                                     <div class="footerColInner">
 
                                         <!-- Logo -->
-                                        <div class="footerLogo">
-                                            <img src="{{ asset('frontend/images/logoFooter.svg') }}" title="{{ $siteSetting->name }}" />
-                                        </div>
+{{--                                        <div class="footerLogo">--}}
+{{--                                            <img src="{{ asset('frontend/images/logoFooter.svg') }}" title="{{ $siteSetting->name }}" />--}}
+{{--                                        </div>--}}
+                                        <h1>{{ $siteSetting->name }}</h1>
 
                                         <!-- Description -->
                                         <div class="footerDescription">

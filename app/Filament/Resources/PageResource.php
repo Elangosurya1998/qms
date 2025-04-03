@@ -10,6 +10,7 @@ use Filament\Forms;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -391,7 +392,7 @@ class PageResource extends Resource
                                                     ->maxLength(255),
 
                                                 FileUpload::make('icon_image')
-                                                    ->label('Image')
+                                                    ->label('Icon Image')
                                                     ->directory('uploads/pages/full-with-image/image')
                                                     ->preserveFilenames()
                                                     ->acceptedFileTypes(['image/*'])
@@ -401,24 +402,28 @@ class PageResource extends Resource
                                                 ColorPicker::make('background_color')
                                                     ->label('Background Color'),
 
+                                                FileUpload::make('backgroundImage')
+                                                    ->label('Background Image')
+                                                    ->directory('uploads/pages/icon-text-grid-block/background-image')
+                                                    ->preserveFilenames()
+                                                    ->acceptedFileTypes(['image/*'])
+                                                    ->openable(),
+
                                                 Grid::make(3)
                                                     ->schema([
-                                                        Textarea::make('column_1_text')
+                                                        MarkdownEditor::make('column_1_text')
                                                             ->label('Column 1 Text')
                                                             ->required()
-                                                            ->rows(10)
                                                             ->maxLength(1000),
 
-                                                        Textarea::make('column_2_text')
+                                                        MarkdownEditor::make('column_2_text')
                                                             ->label('Column 2 Text')
                                                             ->required()
-                                                            ->rows(10)
                                                             ->maxLength(1000),
 
-                                                        Textarea::make('column_3_text')
+                                                        MarkdownEditor::make('column_3_text')
                                                             ->label('Column 3 Text')
                                                             ->required()
-                                                            ->rows(10)
                                                             ->maxLength(1000),
                                                     ]),
                                             ]),
