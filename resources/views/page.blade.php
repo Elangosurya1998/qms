@@ -3,7 +3,11 @@
 ])
 <x-main-layout>
 
-    <x-hero :hero="$page->hero" :page="$page" />
+    <x-hero
+        :hero="$page->hero"
+        :title="$page->title"
+        :description="$page->excerpt"
+    />
 
     {{-- Include at the top if position is 'top' --}}
     @if ($page->quick_menu_enabled && $page->quick_menu_position === 'top')
@@ -15,7 +19,8 @@
         />
     @endif
 
-    @isset($page->content['modules'])
+
+    @if (!empty($page->content['modules']))
         @foreach ($page->content['modules'] as $index => $module)
 
             @if (isset($module['type']) && $module['type'] === 'interactive_grid')

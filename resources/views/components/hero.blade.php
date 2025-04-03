@@ -1,13 +1,16 @@
 @props([
-    'page',
-    'hero' => [],
+    'title' => 'Oops!',
+    'description' => 'Looks like the page you are looking for is not here',
+    'hero' => [
+        'type' => 'image',
+    ],
 ])
 
-@if (data_get($hero, 'type') === 'image' && !empty(data_get($hero, 'file')))
+@if (data_get($hero, 'type') === 'image'))
     <x-hero-image
         :backgroundImage="data_get($hero, 'file')"
-        :title="$page->title"
-        :description="$page->excerpt"
+        :title="$title"
+        :description="$description"
     />
 @elseif (data_get($hero, 'type') === 'video' && !empty(data_get($hero, 'videoFile')))
     <x-hero-video

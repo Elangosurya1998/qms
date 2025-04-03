@@ -9,48 +9,28 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function common(Request $request)
+    public function index($slug, Request $request)
     {
-        $segments = $request->segments();
-        $lastSegment = end($segments);
-
-        $page = Page::where('slug', $lastSegment)->first();
+        $page = Page::where('slug', $slug)
+            ->where('status', 1)
+            ->first();
 
         if (!$page) {
             abort(404);
         }
 
-        // Get menu details
-        $menu = Menus::where('name', $page->title)->first();
+        return view('page', compact('page'));
+    }
 
-        // Breadcrumbs array
-        $breadcrumbs = [];
+    public function preview($slug)
+    {
 
-        // Fetch parent menus recursively
-        while ($menu && $menu->parent_id) {
-            $parentMenu = Menus::find($menu->parent_id);
+        $page = Page::where('slug', $slug)->first();
 
-            if ($parentMenu) {
-                $breadcrumbs[] = [
-                    'name' => $parentMenu->name,
-                    'url' => $parentMenu->slug,
-                ];
-                $menu = $parentMenu;
-
-            } else {
-                break;
-            }
+        if (!$page) {
+            abort(404);
         }
 
-        // Reverse to get correct order (parent first)
-        $breadcrumbs = array_reverse($breadcrumbs);
-
-        // Add the current page at the end
-        $breadcrumbs[] = [
-            'name' => $page->name,
-            'url' => (string) url($page->slug), // Ensure it's a string
-        ];
-
-        return view('page', compact('page', 'breadcrumbs'));
+        return view('page', compact('page'));
     }
 }

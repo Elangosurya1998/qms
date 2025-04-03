@@ -2,20 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Posts;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function common(Request $request)
+    public function index(Request $request, $slug)
     {
-        $segments = $request->segments();
+        $post = Post::where('slug', $slug)
+            ->where('status', 1)
+            ->first();
 
-        // Get the last segment of the URL
-        $lastSegment = end($segments);
-
-        $post = Posts::where('slug', $lastSegment)->first();
+        if (!$post) {
+            abort(404);
+        }
 
         return view('frontend.post', compact('post'));
     }
+
+    public function preview(Request $request, $slug)
+    {
+        $post = Post::where('slug', $slug)
+            ->first();
+
+        if (!$post) {
+            abort(404);
+        }
+
+        return view('frontend.post', compact('post'));
+    }
+
+
 }

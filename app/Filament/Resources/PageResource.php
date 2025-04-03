@@ -510,6 +510,13 @@ class PageResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+
+                Tables\Actions\Action::make('preview')
+                    ->icon('heroicon-o-globe-alt')
+                    ->label('Preview')
+                    ->url(fn($record) => url('preview/page/'.$record->slug))
+                    ->openUrlInNewTab(),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

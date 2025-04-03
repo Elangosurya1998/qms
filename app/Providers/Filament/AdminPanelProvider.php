@@ -53,6 +53,11 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->navigationGroups([
+                'CMS',
+                'Settings',
+                'Gallery',
             ]);
     }
 }
