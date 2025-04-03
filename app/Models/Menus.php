@@ -41,6 +41,8 @@ class Menus extends Model
         'publish_date' => 'date',
     ];
 
+    protected $appends = ['slug_url'];
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
@@ -62,6 +64,16 @@ class Menus extends Model
     public function page(): HasOne
     {
         return $this->hasOne(Page::class, 'menu_id');
+    }
+
+    public function isExternalUrl(): bool
+    {
+        return (bool) $this->is_url;
+    }
+
+    public function getSlugUrlAttribute(): string
+    {
+        return $this->isExternalUrl() ? $this->url : route('pages.index', ['slug' => $this->slug]);
     }
 
 //    /**

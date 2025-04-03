@@ -68,7 +68,7 @@
                                                 <ul>
                                                     @foreach ($footerMenus as $footerMenu)
                                                         <li>
-                                                            <a title="{{ $footerMenu->name }}" href="#" >{{ $footerMenu->name }}</a>
+                                                            <a title="{{ $footerMenu->name }}" href="{{ $footerMenu->slug_url }}" >{{ $footerMenu->name }}</a>
                                                         </li>
                                                     @endforeach
                                                 </ul>

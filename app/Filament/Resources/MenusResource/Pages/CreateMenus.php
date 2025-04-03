@@ -12,7 +12,7 @@ class CreateMenus extends CreateRecord
 {
     protected static string $resource = MenusResource::class;
 
-     protected function afterCreate(): void
+    protected function afterCreate(): void
     {
         $record = $this->record;
 

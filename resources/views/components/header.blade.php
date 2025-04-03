@@ -26,7 +26,7 @@
                                                 <ul id="mb697HaEX">
                                                     @foreach($headerMenu->children as $childMenu)
                                                         <li class="no-children">
-                                                            <a href="#">
+                                                            <a href="{{ $childMenu->slug_url }}">
                                                                 <span class="Title">{{ $childMenu->name }}</span>
                                                             </a>
                                                         </li>
@@ -45,7 +45,7 @@
                                                    {{ $headerMenu->excerpt }}
                                                 </p>
                                                 <p>
-                                                    <a href="#">Learn More</a>
+                                                    <a href="{{ $headerMenu->slug_url }}">Learn More</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -54,8 +54,10 @@
                                         <div id="wHKYMKO5Z21U1S82" class="mwPageBlock Content" style="">
                                             <div class="blockContents">
                                                 <p>
-                                                    <img src="{{ asset('frontend/files/_cache/9be1103f1b839067b38347e30d29d252.jpg?247x225') }}"
-                                                         alt="AboutBFC_MenuNav247.jpg" width="247" height="225" />
+                                                    <img src="{{ $headerMenu->image ? asset('storage/' . $headerMenu->image) : asset('frontend/files/_cache/default-fallback.jpg') }}"
+                                                         alt="{{ $headerMenu->title ?? 'Menu Image' }}"
+                                                         width="247"
+                                                         height="225" />
                                                 </p>
                                             </div>
                                         </div>

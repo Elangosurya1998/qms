@@ -2,14 +2,16 @@
 
 namespace App\Filament\Resources\MenusResource\RelationManagers;
 
+use App\Models\Page;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class ChildrenRelationManager extends RelationManager
 {
@@ -25,6 +27,7 @@ class ChildrenRelationManager extends RelationManager
                     Forms\Components\Tabs\Tab::make('General')
                         ->schema([
                             Forms\Components\TextInput::make('name')
+                                ->unique(ignoreRecord: true)
                                 ->required()
                                 ->maxLength(255),
                             Forms\Components\Hidden::make('type')
@@ -69,7 +72,27 @@ class ChildrenRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
+                Tables\Actions\CreateAction::make()
+                    ->after(function (Model $record) {
+                        if (!$record->is_url) {
+                            $slug = Str::slug($record->name);
+
+                            $existingPage = Page::where('menu_id', $record->id)
+                                ->orWhere('slug', $slug)
+                                ->first();
+
+                            if ($existingPage) {
+                                return;
+                            }
+
+                            $page = new Page();
+                            $page->menu_id = $record->id;
+                            $page->title = $record->name;
+                            $page->slug = $slug;
+                            $page->publish_date = now();
+                            $page->save();
+                        }
+                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
