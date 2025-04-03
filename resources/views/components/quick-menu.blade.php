@@ -1,13 +1,8 @@
 @props([
     'blockContents' => null,
-    'title' => 'Quick Menu',
-    'backgroundImage' => '', // 'frontend/files/_cache/22af7f7acf114d23f1b578e2264590e2.jpg'
-    'menuItems' => [
-        [ 'title' => 'Fundraising & Events', 'link' => '/Fundraising-and-Events' ],
-        [ 'title' => 'Ways to Give', 'link' => '/Ways-to-Give' ],
-        [ 'title' => 'Tuition Angels', 'link' => '/Tuition-Angels' ],
-        [ 'title' => 'Annual Fund', 'link' => '/Annual-Fund' ],
-    ],
+    'title' => null,
+    'backgroundImage' => null, // 'frontend/files/_cache/22af7f7acf114d23f1b578e2264590e2.jpg'
+    'quickMenus' => [],
 ])
 
 <div id="w0NYABIX221YCAFP" class="mwPageBlock Include" style="">
@@ -15,7 +10,7 @@
 
         <style type="text/css">
             #contentArea-QV63NR {
-                background-image: url('{{ $backgroundImage }}');
+                background-image: url('storage\'{{ $backgroundImage }}');
                 background-position: center;
                 background-size: auto;
                 background-repeat: no-repeat;
@@ -38,10 +33,14 @@
                                 <h5>{{ $title }}</h5>
                                 <div class="qmHolder">
                                     <ul>
-                                        @foreach ($menuItems as $item)
+                                        @foreach ($quickMenus as $quickMenu)
+                                            @php
+                                                [$slug, $title] = explode(':', $quickMenu);
+                                            @endphp
+
                                             <li class="no-children">
-                                                <a href="{{ $item['link'] }}">
-                                                    <span class="Title">{{ $item['title'] }}</span>
+                                                <a href="{{ $slug }}">
+                                                    <span class="Title">{{ $title }}</span>
                                                 </a>
                                             </li>
                                         @endforeach

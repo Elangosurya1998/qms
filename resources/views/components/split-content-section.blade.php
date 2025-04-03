@@ -3,10 +3,7 @@
     'head' => null,
     'title' => null,
     'paragraph' => null,
-    'button1' => null,
-    'button1Link' => null,
-    'button2' => null,
-    'button2Link' => null,
+    'buttons' => []
 ])
 
 <div id="wOKSYUAG7X1W89N2" class="mwPageBlock Include" style="">
@@ -150,36 +147,26 @@
                                                                                         </p>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div id="wNSGGWNHY7BJF4VS"
-                                                                                    class="mwPageBlock Button Float rowHost"
-                                                                                    style="width: 39.27% clear: both;">
-                                                                                    <div class="blockContents rowStart">
-                                                                                        <div class="mwBtnLeft">
-                                                                                            <div
-                                                                                                class="btn btnYellow btnRounded">
-                                                                                                <a href="{{ $button1Link }}"
-                                                                                                    template="default"
-                                                                                                    class="medium"
-                                                                                                    target="_self">{{ $button1 }}</a>
+
+                                                                                @foreach ($buttons as $button)
+                                                                                    <div id="wNSGGWNHY7BJF4VS"
+                                                                                         class="mwPageBlock Button Float {{ $loop->first ? 'rowHost' : '' }}">
+                                                                                        <div class="blockContents {{ $loop->first ? 'rowStart' : '' }}  {{ $loop->last ? 'rowEnd' : '' }}">
+                                                                                            <div class="mwBtnLeft">
+                                                                                                <div
+                                                                                                    class="btn btnYellow {{ $button['style'] == 'outline' ? 'btnOutline' : '' }} btnRounded">
+                                                                                                    <a href="{{ $button['url'] }}"
+                                                                                                       template="default"
+                                                                                                       class="medium"
+                                                                                                       target="_self">
+                                                                                                        {{ $button['label'] }}
+                                                                                                    </a>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div id="wAH9AWZWT2UYVTLC"
-                                                                                    class="mwPageBlock Button Float"
-                                                                                    style="width: 60.73%">
-                                                                                    <div class="blockContents rowEnd">
-                                                                                        <div class="mwBtnLeft">
-                                                                                            <div
-                                                                                                class="btn btnYellow btnOutline btnRounded">
-                                                                                                <a href="{{ $button2Link }}"
-                                                                                                    template="default"
-                                                                                                    class="medium"
-                                                                                                    target="_blank">{{ $button2 }}</a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
+                                                                                @endforeach
+
                                                                                 <div class="Clear">
                                                                                 </div>
                                                                             </div>

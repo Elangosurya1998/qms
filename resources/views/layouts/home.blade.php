@@ -12,7 +12,7 @@
 
 {{--                @include('includes.selectTab')--}}
 
-                @include('includes.experienceBishop')
+{{--                @include('includes.experienceBishop')--}}
 
                 @include('includes.studentsPerspective')
 

@@ -1,19 +1,21 @@
 @props([
-    'tesimonialItems' => [['backgroundImage' => null], ['paragraph' => null], ['author' => null]],
+    'id' => null,
+    'backgroundImage' => null,
+    'carousels' => []
 ])
 
 <div id="w0KB2HBX0EW5PEX2" class="mwPageBlock Include" style="">
     <div class="blockContents">
         <style type="text/css">
-            #contentArea-1174C2 {
-                background-image: url("");
+            #contentArea-{{$id}} {
+                background-image: url("{{asset('storage/'.$backgroundImage)}}");
                 background-position: center;
                 background-size: cover;
                 background-repeat: no-repeat;
             }
         </style>
 
-        <div id="contentArea-1174C2" class="contentArea contentAreaLarge _bg-gray-darkest content-style">
+        <div id="contentArea-{{$id}}" class="contentArea contentAreaLarge _bg-gray-darkest content-style">
             <div class="contentAreaWrap">
                 <div class="container">
                     <div class="mwPageArea">
@@ -21,16 +23,16 @@
                             <div class="blockContents">
                                 <div id="carousel-PIRX5A" class="carousel carouselOne content-style studentCarousel">
                                     <div class="carouselWrap">
-                                        @foreach ($tesimonialItems as $item)
+                                        @foreach ($carousels as $carousel)
                                             <div class="carouselItem">
                                                 <div class="twoColLeft"
-                                                    style="background: url({{ $item['backgroundImage'] }}) center center no-repeat; background-size: cover;">
+                                                    style="background: url({{ asset('storage/') }}) center center no-repeat; background-size: cover;">
                                                     <div class="studentOverlay"></div>
                                                 </div>
                                                 <div class="twoColRight">
                                                     <div class="studentInfo">
-                                                        <p>{{ $item['paragraph'] }}</p>
-                                                        <p class="studentTitle">- {{ $item['author'] }}</p>
+                                                        <p>{{ $carousel->content }}</p>
+                                                        <p class="studentTitle">- {{ $carousel->author }}</p>
                                                     </div>
                                                 </div>
                                             </div>
