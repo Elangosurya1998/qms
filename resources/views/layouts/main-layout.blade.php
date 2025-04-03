@@ -6,9 +6,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title> @yield('title') | BFC</title>
+    <title> @yield('title') | Queen Mary's School</title>
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="index.html" />
+    <meta property="og:url" content="/" />
     <meta property="og:title" content="Home" />
 
     <link type="text/css" href="{{ asset('frontend/res/css/common.css') }}" rel="stylesheet" />
@@ -79,7 +79,7 @@
     <link rel="stylesheet" href="../use.typekit.net/gsb3tcf.css">
 
     <!-- Vendor Stylesheets -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/vendors/fontawesome/5.15.4/all.min.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="{{ asset('frontend/css/vendors/animate/3.7.2/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/vendors/magnific-popup/1.1.0/magnific-popup.css') }}" />
     <link href="../unpkg.com/aos%402.3.1/dist/aos.css" rel="stylesheet" />
@@ -89,25 +89,6 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/globalf3ee.css?v=3.2') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/allf3ee.css?v=3.2') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/overridef3ee.css?v=3.2') }}" />
-
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YPYWBKNT8"></script>
-
-
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-
-        gtag('js', new Date());
-
-
-        gtag('config', 'G-2YPYWBKNT8');
-    </script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YPYWBKNT8"></script>

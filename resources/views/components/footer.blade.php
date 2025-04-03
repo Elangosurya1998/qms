@@ -14,23 +14,16 @@
                                     <div class="footerColInner">
 
                                         <!-- Logo -->
-                                        <div class="footerLogo"> <img
-                                                src="{{ asset('frontend/images/logoFooter.svg') }}"
-                                                title="Bishop Foley Catholic High School" /> </div>
+                                        <div class="footerLogo">
+                                            <img src="{{ asset('frontend/images/logoFooter.svg') }}" title="{{ $siteSetting->name }}" />
+                                        </div>
 
                                         <!-- Description -->
                                         <div class="footerDescription">
                                             <div id="w6CF2DQLXI7N7SY6" class="mwPageBlock Content" style="">
                                                 <div class="blockContents">
                                                     <p>
-                                                        Bishop Foley Catholic High School is a Christ-centered,
-                                                        co-educational Catholic
-                                                        community that accompanies students on their individual
-                                                        spiritual and academic journey
-                                                        to become servant
-                                                        leaders in an environment that fosters growth, opportunity, and
-                                                        success in preparation
-                                                        for college and beyond.
+                                                        {{ $siteSetting->description }}
                                                     </p>
                                                 </div>
                                             </div>
@@ -44,23 +37,22 @@
                                         <div id="w502CG9QUTUGJ7YD" class="mwPageBlock Content" style="">
                                             <div class="blockContents">
                                                 <p>
-                                                    32000 Campbell Rd
-                                                    <br />
-                                                    Madison Heights, MI 48071
+                                                    {{ $siteSetting->address }}
                                                 </p>
                                                 <p>
-                                                    Phone: (248) 585-1210
+                                                    Phone: {{ $siteSetting->phone }}
                                                     <br />
-                                                    Fax: (248) 585-3667
+                                                    Fax: {{ $siteSetting->fax }}
                                                 </p>
                                                 <hr />
                                                 <h6>
                                                     An Accredited School
                                                 </h6>
                                                 <p>
-                                                    <a href="https://www.ncea.org/" target="_blank"><img
-                                                            src="{{ asset('frontend/files/_cache/372099805e9119a65e96fe8da9ef2321.png?207x134') }}"
-                                                            alt="NCEA_logo2.png" width="207" height="134" /></a>
+                                                    <a href="https://www.ncea.org/" target="_blank">
+{{--                                                        <img  src="{{ asset('frontend/files/_cache/372099805e9119a65e96fe8da9ef2321.png?207x134') }}"--}}
+{{--                                                            alt="NCEA_logo2.png" width="207" height="134" />--}}
+                                                    </a>
                                                 </p>
                                             </div>
                                         </div>
@@ -198,11 +190,10 @@
 
                     <!-- Footer Copyright -->
                     <div class="footerCopyright">
-                        <div class="copyrightAutoYear">© Copyright
-                            2025 </div>
+                        <div class="copyrightAutoYear">© Copyright {{ date('Y')  }}</div>
                         <div id="w70YSIR18T5HQD20" class="mwPageBlock Embed" style="">
                             <div class="blockContents">
-                                <div class="Container">Bishop Foley Catholic High School. All Rights Reserved.</div>
+                                <div class="Container">{{ $siteSetting->name }}. All Rights Reserved.</div>
                             </div>
                         </div>
                     </div>
@@ -213,7 +204,6 @@
         </div>
     </div>
 </footer>
-
 
 <div class="mdPopupWrapB" id="request_thankyou">
     <div class="mdPopup">

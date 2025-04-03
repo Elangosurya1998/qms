@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\View\Composers\MenuComposer;
+use App\View\Composers\PageSettingComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,5 +23,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer(['components.header','components.footer'], MenuComposer::class);
+        View::composer(['layouts.main-layout', 'components.header','components.footer'], PageSettingComposer::class);
     }
 }

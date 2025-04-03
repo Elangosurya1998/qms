@@ -7,6 +7,7 @@ use App\Models\Menus;
 use App\Models\Page;
 use App\Models\Post;
 use Filament\Forms;
+use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Repeater;
@@ -364,6 +365,62 @@ class PageResource extends Resource
                                                     ->label('Content')
                                                     ->rows(4)
                                                     ->required(),
+                                            ]),
+
+                                        Builder\Block::make('full_with_image')
+                                            ->label('Full with Image')
+                                            ->schema([
+
+                                                FileUpload::make('image')
+                                                    ->label('Image')
+                                                    ->directory('uploads/pages/full-with-image/image')
+                                                    ->preserveFilenames()
+                                                    ->acceptedFileTypes(['image/*'])
+                                                    ->columnSpanFull()
+                                                    ->openable(),
+
+                                            ]),
+
+                                        Builder\Block::make('icon_text_grid_block')
+                                            ->label('Icon Text Grid Block')
+                                            ->schema([
+
+                                                TextInput::make('title')
+                                                    ->label('Title')
+                                                    ->required()
+                                                    ->maxLength(255),
+
+                                                FileUpload::make('icon_image')
+                                                    ->label('Image')
+                                                    ->directory('uploads/pages/full-with-image/image')
+                                                    ->preserveFilenames()
+                                                    ->acceptedFileTypes(['image/*'])
+                                                    ->columnSpanFull()
+                                                    ->openable(),
+
+                                                ColorPicker::make('background_color')
+                                                    ->label('Background Color'),
+
+                                                Grid::make(3)
+                                                    ->schema([
+                                                        Textarea::make('column_1_text')
+                                                            ->label('Column 1 Text')
+                                                            ->required()
+                                                            ->rows(10)
+                                                            ->maxLength(1000),
+
+                                                        Textarea::make('column_2_text')
+                                                            ->label('Column 2 Text')
+                                                            ->required()
+                                                            ->rows(10)
+                                                            ->maxLength(1000),
+
+                                                        Textarea::make('column_3_text')
+                                                            ->label('Column 3 Text')
+                                                            ->required()
+                                                            ->rows(10)
+                                                            ->maxLength(1000),
+                                                    ]),
                                             ]),
 
                                     ])

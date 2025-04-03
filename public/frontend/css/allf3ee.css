@@ -5312,27 +5312,9 @@ background: linear-gradient(to bottom,  rgba(0,0,0,0.99) 0%,rgba(0,0,0,0) 40%,rg
 .mmMenuWrap ul li ul li.has-children > a:after {  content: "\F0DA";}
 
 
+[class^="section-"] { width: 100%;display: none; }
 
-
-.mma {width: 100%; display:none; }
-.mmb { width:100%; display:none; }
-.mmc { width:100%; display:none;  }
-.mmd { width:100%; display:none;  }
-.mme { width:100%; display:none;  }
-.mmf { width:100%; display:none;  }
-.mmg { width:100%; display:none;  }
-.mmh { width:100%; display:none;  }
-
-.mma.active {display:block}
-.mmb.active {display:block}
-.mmc.active {display:block}
-.mmd.active {display:block}
-.mme.active {display:block}
-.mme.active {display:block}
-.mmf.active {display:block}
-.mmg.active {display:block}
-.mmh.active {display:block}
-
+[class^="section-"].active { display: block; }
 
 .megaMenu li:before { display:none;}
 .megaMenu h3 { color:var(--color-default); margin-bottom:30px; font-size:37px; }
@@ -5348,69 +5330,33 @@ background: linear-gradient(to bottom,  rgba(0,0,0,0.99) 0%,rgba(0,0,0,0) 40%,rg
 .mmContentWrap p a:hover { background:#000; border:1px solid #000;  }
 
 
+/* Base Styles for All mm Classes */
+[class^="section-"] .mmContentWrap,
+[class^="section-"] .mmContentImage {
+    background: var(--content-bg-color, #EDF5FC);
+}
 
+[class^="section-"] .mmMenuWrap {
+    border-right: 2px solid var(--menu-border-color, var(--color-gray-4));
+}
 
+[class^="section-"] h3 {
+    color: var(--color-default, var(--color-gray-8));
+}
 
+[class^="section-"] p a {
+    padding: 11px 33px;
+    font-size: 15px;
+    border: 1px solid var(--color-default, var(--color-dark));
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--color-default, var(--color-dark));
+}
 
-.mmb .mmContentWrap,
-.mmb .mmContentImage {background: #EDF5FC;}
-.mmb .mmMenuWrap {border-right: 2px solid var(--color-blue);}
-.mmb  h3 {color: var(--color-blue);}
-.mmb p a {    padding: 11px 33px;    font-size: 15px;    border: 1px solid var(--color-blue);    border-radius: 30px;    text-transform: uppercase;    font-weight: 900; color: var(--color-blue); }
-.mmb p a:hover {color:#fff; border:1px solid #000; }
-
-.mmc .mmContentWrap,
-.mmc .mmContentImage {background: #F5EEED;}
-.mmc .mmMenuWrap {border-right: 2px solid #653331;}
-.mmc  h3 {color: #653331;}
-.mmc p a {    padding: 11px 33px;    font-size: 15px;    border: 1px solid #653331;    border-radius: 30px;    text-transform: uppercase;    font-weight: 900; color: #653331; }
-.mmc p a:hover {color:#fff; border:1px solid #000; }
-
-
-
-
-.mme .mmContentWrap,
-.mme .mmContentImage {background: #F5EEED;}
-.mme .mmMenuWrap {border-right: 2px solid #653331;}
-.mme  h3 {color: #653331;}
-.mme p a {    padding: 11px 33px;    font-size: 15px;    border: 1px solid #653331;    border-radius: 30px;    text-transform: uppercase;    font-weight: 900; color: #653331; }
-.mme p a:hover {color:#fff; border:1px solid #000; }
-
-
-
-.mmf .mmContentWrap,
-.mmf .mmContentImage {background: #EDF5FC;}
-.mmf .mmMenuWrap {border-right: 2px solid var(--color-blue);}
-.mmf  h3 {color: var(--color-blue);}
-.mmf p a {    padding: 11px 33px;    font-size: 15px;    border: 1px solid var(--color-blue);    border-radius: 30px;    text-transform: uppercase;    font-weight: 900; color: var(--color-blue); }
-.mmf p a:hover {color:#fff; border:1px solid #000; }
-
-
-
-
-
-.mmg .mmContentWrap,
-.mmg .mmContentImage {background: #EDF5FC;}
-.mmg .mmMenuWrap {border-right: 2px solid var(--color-blue);}
-.mmg  h3 {color: var(--color-blue);}
-.mmg p a {    padding: 11px 33px;    font-size: 15px;    border: 1px solid var(--color-blue);    border-radius: 30px;    text-transform: uppercase;    font-weight: 900; color: var(--color-blue); }
-.mmg p a:hover {color:#fff; border:1px solid #000; }
-
-
-
-.mmh .mmContentWrap,
-.mmh .mmContentImage {background: #EDF5FC;}
-.mmh .mmMenuWrap {border-right: 2px solid var(--color-blue);}
-.mmh  h3 {color: var(--color-blue);}
-.mmh p a {    padding: 11px 33px;    font-size: 15px;    border: 1px solid var(--color-blue);    border-radius: 30px;    text-transform: uppercase;    font-weight: 900; color: var(--color-blue); }
-.mmh p a:hover {color:#fff; border:1px solid #000; }
-
-
-
-
-
-
-
+[class^="section-"] p a:hover{
+    color: var(--color-white, var(--color-dark));
+}
 
 
 

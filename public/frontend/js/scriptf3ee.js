@@ -19,109 +19,25 @@ window.addEventListener("scroll", illyal);
 
 
 
+// Handle mouseover on menu items dynamically
+jQuery('#m8K74y54S li a').mouseover(function() {
+    const targetSection = jQuery(this).data('target');
 
-jQuery('.mmaa').mouseover(function() {
-    jQuery('.mma').addClass("active");
-	jQuery('.mmb').removeClass("active");
-    jQuery('.mmc').removeClass("active");
-    jQuery('.mmd').removeClass("active");
-    jQuery('.mme').removeClass("active");
-    jQuery('.mmf').removeClass("active");
-    jQuery('.mmg').removeClass("active");
-    jQuery('.mmh').removeClass("active");
-});
-jQuery('.mmbb').mouseover(function() {
-    jQuery('.mmb').addClass("active");
-	jQuery('.mma').removeClass("active");
-    jQuery('.mmc').removeClass("active");
-    jQuery('.mmd').removeClass("active");
-    jQuery('.mme').removeClass("active");
-    jQuery('.mmf').removeClass("active");
-    jQuery('.mmg').removeClass("active");
-    jQuery('.mmh').removeClass("active");
-	
-});
-jQuery('.mmcc').mouseover(function() {
-    jQuery('.mmc').addClass("active");
-	jQuery('.mma').removeClass("active");
-    jQuery('.mmb').removeClass("active");
-    jQuery('.mmd').removeClass("active");
-    jQuery('.mme').removeClass("active");
-    jQuery('.mmf').removeClass("active");
-    jQuery('.mmg').removeClass("active");
-    jQuery('.mmh').removeClass("active");
-	
-});
-jQuery('.mmdd').mouseover(function() {
-    jQuery('.mmd').addClass("active");
-	jQuery('.mma').removeClass("active");
-    jQuery('.mmb').removeClass("active");
-    jQuery('.mmc').removeClass("active");
-    jQuery('.mme').removeClass("active");
-    jQuery('.mmf').removeClass("active");
-    jQuery('.mmg').removeClass("active");
-    jQuery('.mmh').removeClass("active");
-	
-});
-jQuery('.mmee').mouseover(function() {
-    jQuery('.mme').addClass("active");
-	jQuery('.mma').removeClass("active");
-    jQuery('.mmb').removeClass("active");
-    jQuery('.mmc').removeClass("active");
-    jQuery('.mmd').removeClass("active");
-    jQuery('.mmf').removeClass("active");
-    jQuery('.mmg').removeClass("active");
-    jQuery('.mmh').removeClass("active");
-});
-jQuery('.mmff').mouseover(function() {
-    jQuery('.mmf').addClass("active");
-	jQuery('.mma').removeClass("active");
-    jQuery('.mmb').removeClass("active");
-    jQuery('.mmc').removeClass("active");
-    jQuery('.mmd').removeClass("active");
-    jQuery('.mme').removeClass("active");
-    jQuery('.mmg').removeClass("active");
-    jQuery('.mmh').removeClass("active");
-});
-jQuery('.mmgg').mouseover(function() {
-    jQuery('.mmg').addClass("active");
-	jQuery('.mma').removeClass("active");
-    jQuery('.mmb').removeClass("active");
-    jQuery('.mmc').removeClass("active");
-    jQuery('.mmd').removeClass("active");
-    jQuery('.mme').removeClass("active");
-    jQuery('.mmf').removeClass("active");
-    jQuery('.mmh').removeClass("active");
-});
-jQuery('.mmhh').mouseover(function() {
-    jQuery('.mmh').addClass("active");
-	jQuery('.mma').removeClass("active");
-    jQuery('.mmb').removeClass("active");
-    jQuery('.mmc').removeClass("active");
-    jQuery('.mmd').removeClass("active");
-    jQuery('.mme').removeClass("active");
-    jQuery('.mmf').removeClass("active");
-    jQuery('.mmg').removeClass("active");
+    jQuery('[class^="section-"]').removeClass('active');
+
+    jQuery(`.${targetSection}`).addClass('active');
+
+    jQuery('#m8K74y54S li a').removeClass('active');
+    jQuery(this).addClass('active');
 });
 
-
-
+// Remove "active" state when mouse is over non-menu areas
 jQuery('.contentArea, .headerLogo, .subfooter, .footerWrap, .videoBannerWrap, .homeBannerWrap, .headerUtilityBar, .utilityBarSearch, .pageBannerSimple, .tabs').mouseover(function() {
-
-  jQuery('.mma').removeClass("active");
-    jQuery('.mmb').removeClass("active");
-    jQuery('.mmc').removeClass("active");
-    jQuery('.mmd').removeClass("active");
-    jQuery('.mme').removeClass("active");
-    jQuery('.mmf').removeClass("active");
-    jQuery('.mmg').removeClass("active");
-    jQuery('.mmh').removeClass("active");
-
-
+    jQuery('[class^="section-"]').removeClass('active');
+    jQuery('#m8K74y54S li a').removeClass('active');
 });
 
 
- 
 
 //-----------------------------------------------------------
 // Scroll Anchor
@@ -144,7 +60,7 @@ function scrollToAnchor(){
     const headerHeight = {
       "desktop": 142,
       "mobile": 80
-    }; 
+    };
 
     const mobileDesktopViewBreakPoint = 1300;
 
@@ -161,12 +77,12 @@ function scrollToAnchor(){
     }
   }
 
-  // if pathname contains anchor tag, then travel to that  
+  // if pathname contains anchor tag, then travel to that
   const url = new URL(window.location.href);
-  
+
   if (url.href.includes("#")) {
     const id = url.href.split("#")[1];
-    document.addEventListener('readystatechange', event => { 
+    document.addEventListener('readystatechange', event => {
       if (event.target.readyState === "complete") {
         travelToAnchorTag(id)
 ;
@@ -187,7 +103,7 @@ function scrollToAnchor(){
       travelToAnchorTag(id)
 ;
     }
-  }); 
+  });
 }
 
 $(document).ready(function() {
@@ -227,7 +143,7 @@ $(document).ready(function() {
                     slidesToScroll: 1
                 }
             }
-          
+
         ]
     });
 });

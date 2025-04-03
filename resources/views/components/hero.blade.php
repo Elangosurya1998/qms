@@ -1,12 +1,10 @@
 @props([
     'title' => 'Oops!',
     'description' => 'Looks like the page you are looking for is not here',
-    'hero' => [
-        'type' => 'image',
-    ],
+    'hero' => [],
 ])
 
-@if (data_get($hero, 'type') === 'image'))
+@if (data_get($hero, 'type') === 'image' && !empty(data_get($hero, 'file')))
     <x-hero-image
         :backgroundImage="data_get($hero, 'file')"
         :title="$title"

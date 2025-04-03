@@ -19,9 +19,15 @@ class MenuComposer
             ->whereJsonContains('locations', 'footer')
             ->orderBy('order_by', 'asc')->get();
 
+        $topBarMenus = Menus::where('type', 'main_menu')
+            ->where('status', 1)
+            ->whereJsonContains('locations', 'topbar')
+            ->orderBy('order_by', 'asc')->get();
+
         $view->with([
             'headerMenus' => $headerMenus,
             'footerMenus' => $footerMenus,
+            'topBarMenus' => $topBarMenus,
         ]);
     }
 

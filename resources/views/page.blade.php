@@ -1,8 +1,8 @@
 @props([
     'page',
 ])
+@section('title', $page->title)
 <x-main-layout>
-
     <x-hero
         :hero="$page->hero"
         :title="$page->title"
@@ -75,6 +75,24 @@
                     :backgroundImage="data_get($module, 'data.backgroundImage')"
                     :title="data_get($module, 'data.title')"
                     :content="data_get($module, 'data.content')"
+                />
+            @endif
+
+            @if(isset($module['type']) && $module['type'] === 'full_with_image')
+                <x-full-with-image
+                    :id="Str::random(5)"
+                    :image="data_get($module, 'data.image')"
+                />
+            @endif
+
+            @if(isset($module['type']) && $module['type'] === 'icon_text_grid_block')
+                <x-full-with-image
+                    :id="Str::random(5)"
+                    :iconImage="data_get($module, 'data.icon_image')"
+                    :backgroundColor="data_get($module, 'data.background_color')"
+                    :columnTextOne="data_get($module, 'data.column_1_text')"
+                    :columnTextTwo="data_get($module, 'data.column_2_text')"
+                    :columnTextThree="data_get($module, 'data.column_3_text')"
                 />
             @endif
 
