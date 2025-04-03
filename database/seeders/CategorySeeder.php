@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CategorySeeder extends Seeder
 {
@@ -12,6 +12,39 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DB::table('categories')->insert([
+            [
+                'name' => 'Flash News',
+                'slug' => 'flash-news',
+                'description' => 'Breaking and urgent news updates.',
+                'parent_id' => null, // No parent
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'News & Events',
+                'slug' => 'news-events',
+                'description' => 'General news and event updates.',
+                'parent_id' => null, // No parent
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Popup',
+                'slug' => 'popup',
+                'description' => 'Important notifications displayed as popups.',
+                'parent_id' => null, // No parent
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Upcoming Events',
+                'slug' => 'upcoming-events',
+                'description' => 'Details of upcoming events.',
+                'parent_id' => null, // No parent
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
     }
 }
