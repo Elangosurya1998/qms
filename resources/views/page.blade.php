@@ -91,9 +91,7 @@
                     :iconImage="data_get($module, 'data.icon_image')"
                     :backgroundColor="data_get($module, 'data.background_color')"
                     :backgroundImage="data_get($module, 'data.backgroundImage')"
-                    :columnTextOne="data_get($module, 'data.column_1_text')"
-                    :columnTextTwo="data_get($module, 'data.column_2_text')"
-                    :columnTextThree="data_get($module, 'data.column_3_text')"
+                    :columns="data_get($module, 'data.columns')"
                 />
             @endif
 

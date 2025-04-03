@@ -60,7 +60,7 @@ class PageResource extends Resource
                             ->columnSpanFull()
                             ->schema([
                                 Forms\Components\Select::make('hero.type')
-                                ->label('Type')
+                                    ->label('Type')
                                     ->options([
                                         'image' => 'Image',
                                         'video' => 'Video',
@@ -409,22 +409,85 @@ class PageResource extends Resource
                                                     ->acceptedFileTypes(['image/*'])
                                                     ->openable(),
 
-                                                Grid::make(3)
+                                                Repeater::make('columns')
+                                                    ->label('Columns')
                                                     ->schema([
-                                                        MarkdownEditor::make('column_1_text')
-                                                            ->label('Column 1 Text')
-                                                            ->required()
-                                                            ->maxLength(1000),
+                                                        Forms\Components\Select::make('type')
+                                                            ->label('Type')
+                                                            ->options([
+                                                                'single' => 'Single Column',
+                                                                'two' => 'Two Column',
+                                                                'three' => 'Three Column',
+                                                            ])
+                                                            ->columnSpanFull()
+                                                            ->live()
+                                                            ->afterStateUpdated(fn (Select $component) => $component
+                                                                ->getContainer()
+                                                                ->getComponent('dynamicColumnType')
+                                                                ->getChildComponentContainer()
+                                                                ->fill()),
 
-                                                        MarkdownEditor::make('column_2_text')
-                                                            ->label('Column 2 Text')
-                                                            ->required()
-                                                            ->maxLength(1000),
+                                                        Grid::make(2)
+                                                            ->schema(fn (Get $get): array => match ($get('type')) {
+                                                                'single' => [
+                                                                    Grid::make(1)
+                                                                        ->schema([
+                                                                            MarkdownEditor::make('column_1')
+                                                                                ->enableToolbarButtons([
+                                                                                    'attachFiles',
+                                                                                    'blockquote',
+                                                                                    'bold',
+                                                                                    'bulletList',
+                                                                                    'codeBlock',
+                                                                                    'heading',
+                                                                                    'h2',
+                                                                                    'h3',
+                                                                                    'heading4',
+                                                                                    'heading5',
+                                                                                    'heading6',
+                                                                                    'italic',
+                                                                                    'link',
+                                                                                    'orderedList',
+                                                                                    'redo',
+                                                                                    'strike',
+                                                                                    'table',
+                                                                                    'undo',
+                                                                                ])
+                                                                                ->label('Column 1 Text')
+                                                                                ->required(),
+                                                                        ]),
+                                                                ],
+                                                                'two' => [
+                                                                    Grid::make(2)
+                                                                        ->schema([
+                                                                            MarkdownEditor::make('column_1')
+                                                                                ->label('Column 1 Text')
+                                                                                ->required(),
 
-                                                        MarkdownEditor::make('column_3_text')
-                                                            ->label('Column 3 Text')
-                                                            ->required()
-                                                            ->maxLength(1000),
+                                                                            MarkdownEditor::make('column_2')
+                                                                                ->label('Column 2 Text')
+                                                                                ->required(),
+                                                                        ]),
+                                                                ],
+                                                                'three' => [
+                                                                    Grid::make(3)
+                                                                        ->schema([
+                                                                            MarkdownEditor::make('column_1')
+                                                                                ->label('Column 1 Text')
+                                                                                ->required(),
+
+                                                                            MarkdownEditor::make('column_2')
+                                                                                ->label('Column 2 Text')
+                                                                                ->required(),
+
+                                                                            MarkdownEditor::make('column_3')
+                                                                                ->label('Column 3 Text')
+                                                                                ->required(),
+                                                                        ]),
+                                                                ],
+                                                                default => [],
+                                                            })
+                                                            ->key('dynamicColumnType')
                                                     ]),
                                             ]),
 

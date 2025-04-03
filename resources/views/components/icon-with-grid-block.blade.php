@@ -3,9 +3,7 @@
     'iconImage' => null,
     'backgroundColor' => null,
     'backgroundImage'=> null,
-    'columnTextOne'=> null,
-    'columnTextTwo'=> null,
-    'columnTextThree'=> null
+    'columns' => null
 ])
 <div id="wI3QA5FB3MG2GMIN" class="mwPageBlock Include" style="">
     <div class="blockContents">
@@ -84,38 +82,81 @@
                                                             @endif
                                                             <div id="wOFNV6B10LXFF6I8" class="mwPageBlock Include" style="">
                                                                 <div class="blockContents">
-                                                                    <div class="threeCol row">
-                                                                        <div class="threeColItem col-lg-4 col-md-6">
-                                                                            <div class="mwPageArea">
-                                                                                <div id="w0YYUFBI43M2M48V" class="mwPageBlock Content" style="">
-                                                                                    <div class="blockContents">
-                                                                                        {!! str($columnTextOne)->markdown()->sanitizeHtml() !!}
+
+                                                                    @foreach($columns as $column)
+                                                                        @if($column['type'] == 'single')
+                                                                            <div class="row">
+                                                                                <div class="threeColItem col-lg-12 col-md-12">
+                                                                                    <div class="mwPageArea">
+                                                                                        <div id="w0YYUFBI43M2M48V" class="mwPageBlock Content" style="">
+                                                                                            <div class="blockContents">
+                                                                                                {!! str($column['column_1'])->markdown()->sanitizeHtml() !!}
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="Clear"></div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="Clear"></div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="threeColItem col-lg-4 col-md-6">
-                                                                            <div class="mwPageArea">
-                                                                                <div id="wZOF5DM0JRU3HIJO" class="mwPageBlock Content" style="">
-                                                                                    <div class="blockContents">
-                                                                                        {!! str($columnTextTwo)->markdown()->sanitizeHtml() !!}
+                                                                        @endif
+                                                                        @if($column['type']  == 'two')
+                                                                            <div class="threeCol row">
+                                                                                <div class="threeColItem col-lg-6 col-md-6">
+                                                                                    <div class="mwPageArea">
+                                                                                        <div id="w0YYUFBI43M2M48V" class="mwPageBlock Content" style="">
+                                                                                            <div class="blockContents">
+                                                                                                {!! str($column['column_1'])->markdown()->sanitizeHtml() !!}
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="Clear"></div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="Clear"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="threeColItem col-lg-4">
-                                                                            <div class="mwPageArea">
-                                                                                <div id="wJ12SXQ0HXASYP2N" class="mwPageBlock Content" style="">
-                                                                                    <div class="blockContents">
-                                                                                        {!! str($columnTextThree)->markdown()->sanitizeHtml() !!}
+                                                                                <div class="threeColItem col-lg-6 col-md-6">
+                                                                                    <div class="mwPageArea">
+                                                                                        <div id="wZOF5DM0JRU3HIJO" class="mwPageBlock Content" style="">
+                                                                                            <div class="blockContents">
+                                                                                                {!! str($column['column_2'])->markdown()->sanitizeHtml() !!}
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="Clear"></div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="Clear"></div>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
+                                                                        @endif
+                                                                        @if($column['type']  == 'three')
+                                                                            <div class="threeCol row">
+                                                                                <div class="threeColItem col-lg-4 col-md-6">
+                                                                                    <div class="mwPageArea">
+                                                                                        <div id="w0YYUFBI43M2M48V" class="mwPageBlock Content" style="">
+                                                                                            <div class="blockContents">
+                                                                                                {!! str($column['column_1'])->markdown()->sanitizeHtml() !!}
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="Clear"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="threeColItem col-lg-4 col-md-6">
+                                                                                    <div class="mwPageArea">
+                                                                                        <div id="wZOF5DM0JRU3HIJO" class="mwPageBlock Content" style="">
+                                                                                            <div class="blockContents">
+                                                                                                {!! str($column['column_2'])->markdown()->sanitizeHtml() !!}
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="Clear"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="threeColItem col-lg-4">
+                                                                                    <div class="mwPageArea">
+                                                                                        <div id="wJ12SXQ0HXASYP2N" class="mwPageBlock Content" style="">
+                                                                                            <div class="blockContents">
+                                                                                                {!! str($column['column_3'])->markdown()->sanitizeHtml() !!}
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="Clear"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        @endif
+                                                                    @endforeach
                                                                 </div>
                                                             </div>
                                                             <div class="Clear"></div>
