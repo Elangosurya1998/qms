@@ -17,7 +17,7 @@ class CategorySeeder extends Seeder
                 'name' => 'Flash News',
                 'slug' => 'flash-news',
                 'description' => 'Breaking and urgent news updates.',
-                'parent_id' => null, // No parent
+                'parent_id' => null, 
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -25,7 +25,7 @@ class CategorySeeder extends Seeder
                 'name' => 'News & Events',
                 'slug' => 'news-events',
                 'description' => 'General news and event updates.',
-                'parent_id' => null, // No parent
+                'parent_id' => null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -33,7 +33,7 @@ class CategorySeeder extends Seeder
                 'name' => 'Popup',
                 'slug' => 'popup',
                 'description' => 'Important notifications displayed as popups.',
-                'parent_id' => null, // No parent
+                'parent_id' => null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -41,7 +41,7 @@ class CategorySeeder extends Seeder
                 'name' => 'Upcoming Events',
                 'slug' => 'upcoming-events',
                 'description' => 'Details of upcoming events.',
-                'parent_id' => null, // No parent
+                'parent_id' => null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
