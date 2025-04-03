@@ -169,24 +169,6 @@ class PageResource extends Resource
                                                     ->label('Title')
                                                     ->required(),
 
-                                                TextInput::make('button1')
-                                                    ->label('Button 1 Text')
-                                                    ->maxLength(255),
-
-                                                TextInput::make('button1Link')
-                                                    ->label('Button 1 Link')
-                                                    ->url()
-                                                    ->nullable(),
-
-                                                TextInput::make('button2')
-                                                    ->label('Button 2 Text')
-                                                    ->maxLength(255),
-
-                                                TextInput::make('button2Link')
-                                                    ->label('Button 2 Link')
-                                                    ->url()
-                                                    ->nullable(),
-
                                                 Textarea::make('paragraph')
                                                     ->label('Paragraph')
                                                     ->rows(4)
@@ -199,6 +181,36 @@ class PageResource extends Resource
                                                     ->acceptedFileTypes(['image/*'])
                                                     ->openable()
                                                     ->required(),
+
+                                                Repeater::make('buttons')
+                                                    ->label('Buttons')
+                                                    ->columns(3)
+                                                    ->columnSpanFull()
+                                                    ->createItemButtonLabel('Add Button')
+                                                    ->schema([
+                                                        TextInput::make('label')
+                                                            ->label('Button Label')
+                                                            ->required()
+                                                            ->maxLength(100),
+
+                                                        TextInput::make('url')
+                                                            ->label('Button URL')
+                                                            ->required()
+                                                            ->placeholder('https://example.com')
+                                                            ->url(),
+
+                                                        Select::make('style')
+                                                            ->label('Button Style')
+                                                            ->options([
+                                                                'default' => 'Default',
+                                                                'outline' => 'Outline',
+                                                            ])
+                                                            ->default('primary')
+                                                            ->required(),
+                                                    ])
+                                                    ->minItems(1)
+                                                    ->maxItems(3)
+                                                    ->reorderable(),
                                             ]),
 
                                         Builder\Block::make('tabbed_interface')
@@ -247,10 +259,18 @@ class PageResource extends Resource
                                         Builder\Block::make('highlight_with_buttons')
                                             ->label('Highlight with Buttons')
                                             ->schema([
+
                                                 TextInput::make('title')
                                                     ->label('Title')
                                                     ->required()
                                                     ->maxLength(255),
+
+                                                FileUpload::make('backgroundImage')
+                                                    ->label('Background Image')
+                                                    ->directory('uploads/pages/highlight-with-buttons')
+                                                    ->preserveFilenames()
+                                                    ->acceptedFileTypes(['image/*'])
+                                                    ->openable(),
 
                                                 Repeater::make('buttons')
                                                     ->label('Buttons')
@@ -278,8 +298,72 @@ class PageResource extends Resource
                                                             ->required(),
                                                     ])
                                                     ->minItems(1)
+                                                    ->maxItems(3)
                                                     ->reorderable(),
 
+                                            ]),
+
+                                        Builder\Block::make('image_with_text_carousel')
+                                            ->label('Image with Text Carousel')
+                                            ->schema([
+
+                                                FileUpload::make('backgroundImage')
+                                                    ->label('Background Image')
+                                                    ->directory('uploads/pages/image-with-text-carousel/background-image')
+                                                    ->preserveFilenames()
+                                                    ->acceptedFileTypes(['image/*'])
+                                                    ->openable(),
+
+                                                Repeater::make('carouselItems')
+                                                    ->label('Carousel Items')
+                                                    ->columns(3)
+                                                    ->createItemButtonLabel('Add Carousel')
+                                                    ->schema([
+                                                        Textarea::make('content')
+                                                            ->label('Content')
+                                                            ->maxLength(400)
+                                                            ->rows(10)
+                                                            ->required(),
+
+                                                        FileUpload::make('image')
+                                                            ->label('Image')
+                                                            ->directory('uploads/pages/image-with-text-carousel')
+                                                            ->preserveFilenames()
+                                                            ->acceptedFileTypes(['image/*'])
+                                                            ->required()
+                                                            ->openable(),
+
+                                                        TextInput::make('author')
+                                                            ->label('Author')
+                                                            ->maxLength(155)
+                                                            ->required(),
+                                                    ])
+                                                    ->minItems(1)
+                                                    ->maxItems(3)
+                                                    ->reorderable(),
+
+                                            ]),
+
+                                        Builder\Block::make('title_with_content')
+                                            ->label('Title with Content')
+                                            ->schema([
+
+                                                FileUpload::make('backgroundImage')
+                                                    ->label('Background Image')
+                                                    ->directory('uploads/pages/image-with-text-carousel/background-image')
+                                                    ->preserveFilenames()
+                                                    ->acceptedFileTypes(['image/*'])
+                                                    ->openable(),
+
+                                                TextInput::make('title')
+                                                    ->label('Title')
+                                                    ->maxLength(100)
+                                                    ->required(),
+
+                                                Textarea::make('content')
+                                                    ->label('Content')
+                                                    ->rows(4)
+                                                    ->required(),
                                             ]),
 
                                     ])
@@ -303,17 +387,30 @@ class PageResource extends Resource
                                     ->hint('Select where you want to display the Quick Menu')
                                     ->hidden(fn (Get $get) => !$get('quick_menu_enabled')),
 
-                                Forms\Components\Select::make('quick_menus')
-                                    ->options(function () {
+                                TextInput::make('quick_menus.title')
+                                    ->label('Quick Menu Title')
+                                    ->placeholder('Enter the Quick Menu title...')
+                                    ->hidden(fn (Get $get) => !$get('quick_menu_enabled'))
+                                    ->maxLength(55)
+                                    ->required(),
 
+                                TextInput::make('quick_menus.blockContents')
+                                    ->label('Block Contents')
+                                    ->placeholder('Enter the main content block text...')
+                                    ->hidden(fn (Get $get) => !$get('quick_menu_enabled'))
+                                    ->maxLength(255)
+                                    ->required(),
+
+                                Forms\Components\Select::make('quick_menus.linkItems')
+                                    ->options(function () {
                                         // Fetch pages with prefixed key
                                         $pages = Page::all()->mapWithKeys(function ($page) {
-                                            return ['pages:' . $page->id => $page->title];
+                                            return [ $page->slug.':'.$page->title => $page->title];
                                         })->toArray();
 
                                         // Fetch posts with prefixed key
                                         $posts = Post::all()->mapWithKeys(function ($post) {
-                                            return ['posts:' . $post->id => $post->title];
+                                            return ['post/' . $post->slug .':'. $post->title => $post->title];
                                         })->toArray();
 
                                         return [
@@ -326,8 +423,15 @@ class PageResource extends Resource
                                     ->multiple()
                                     ->preload()
                                     ->searchable()
-                                    ->native(false)
-                                    ->columnSpanFull(),
+                                    ->native(false),
+
+                                FileUpload::make('quick_menus.backgroundImage')
+                                    ->label('Background Image')
+                                    ->directory('uploads/background-images')
+                                    ->preserveFilenames()
+                                    ->maxSize(2048)
+                                    ->acceptedFileTypes(['image/*'])
+                                    ->hidden(fn (Get $get) => !$get('quick_menu_enabled')),
 
                             ]),
                         Forms\Components\Tabs\Tab::make('Settings')

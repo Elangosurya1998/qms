@@ -1,7 +1,7 @@
 @props([
     'id' => null,
     'backgroundImage' => null,
-    'carousels' => []
+    'carouselItems' => []
 ])
 
 <div id="w0KB2HBX0EW5PEX2" class="mwPageBlock Include" style="">
@@ -23,16 +23,16 @@
                             <div class="blockContents">
                                 <div id="carousel-PIRX5A" class="carousel carouselOne content-style studentCarousel">
                                     <div class="carouselWrap">
-                                        @foreach ($carousels as $carousel)
+                                        @foreach ($carouselItems as $carousel)
                                             <div class="carouselItem">
                                                 <div class="twoColLeft"
-                                                    style="background: url({{ asset('storage/') }}) center center no-repeat; background-size: cover;">
+                                                    style="background: url({{ asset('storage/'.$carousel['image']) }}) center center no-repeat; background-size: cover;">
                                                     <div class="studentOverlay"></div>
                                                 </div>
                                                 <div class="twoColRight">
                                                     <div class="studentInfo">
-                                                        <p>{{ $carousel->content }}</p>
-                                                        <p class="studentTitle">- {{ $carousel->author }}</p>
+                                                        <p>{{ $carousel['content'] }}</p>
+                                                        <p class="studentTitle">- {{ $carousel['author'] }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,11 +94,5 @@
         </div>
 
 
-    </div>
-</div>
-
-<div id="wG2G3BSEACUTZ77A" class="mwPageBlock Spacer" style="">
-    <div class="blockContents">
-        <div class="mwSpacer hor" style="height:15px;"></div>
     </div>
 </div>

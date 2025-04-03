@@ -64,6 +64,15 @@
                 />
             @endif
 
+            @if (isset($module['type']) && $module['type'] === 'title_with_content')
+                <x-title-with-content
+                    :id="Str::random(5)"
+                    :backgroundImage="data_get($module, 'data.backgroundImage')"
+                    :title="data_get($module, 'data.title')"
+                    :content="data_get($module, 'data.content')"
+                />
+            @endif
+
         @endforeach
     @else
         <div id="wHTQESCH98BYS0TJ" class="mwPageBlock Include" style="">

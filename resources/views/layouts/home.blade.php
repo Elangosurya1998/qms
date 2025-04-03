@@ -16,9 +16,9 @@
 
                 @include('includes.studentsPerspective')
 
-                @include('includes.testimonials')
+{{--                @include('includes.testimonials')--}}
 
-                @include('includes.ourMission')
+{{--                @include('includes.ourMission')--}}
 
                 @include('includes.calendar')
 

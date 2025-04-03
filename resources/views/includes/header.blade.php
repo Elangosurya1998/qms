@@ -697,7 +697,7 @@
                                  }
 
                                  .supportDropMenu li:hover {
-                                     background: var(--color-yellow);
+                                     background: var(--color-default);
                                  }
 
                                  .supportDropMenu li:hover a {
