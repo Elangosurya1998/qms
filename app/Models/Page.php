@@ -22,6 +22,9 @@ class Page extends Model
         'author',
         'hero',
         'content',
+        'quick_menu_enabled',
+        'quick_menu_position',
+        'quick_menus',
         'status',
         'order_by',
         'publish_date',
@@ -32,6 +35,7 @@ class Page extends Model
     protected $casts = [
         'hero' => 'json',
         'content' => 'json',
+        'quick_menus' => 'json',
         'publish_date' => 'date',
     ];
 

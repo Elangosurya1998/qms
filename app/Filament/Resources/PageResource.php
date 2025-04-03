@@ -3,10 +3,13 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PageResource\Pages;
+use App\Models\Menus;
 use App\Models\Page;
+use App\Models\Post;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -196,17 +199,141 @@ class PageResource extends Resource
                                                     ->acceptedFileTypes(['image/*'])
                                                     ->openable()
                                                     ->required(),
-                                            ])
+                                            ]),
 
+                                        Builder\Block::make('tabbed_interface')
+                                            ->label('Tabbed Interface')
+                                            ->schema([
+                                                TextInput::make('title')
+                                                    ->label('Tabbed Section Title')
+                                                    ->required()
+                                                    ->maxLength(255),
+
+                                                Repeater::make('tabs')
+                                                    ->label('Tabs')
+                                                    ->schema([
+                                                        TextInput::make('title')
+                                                            ->label('Tab Title')
+                                                            ->required()
+                                                            ->maxLength(255),
+
+                                                        Repeater::make('statistics')
+                                                            ->label('Statistics')
+                                                            ->columns(3)
+                                                            ->schema([
+                                                                TextInput::make('value')
+                                                                    ->label('Statistic Value')
+                                                                    ->required()
+                                                                    ->maxLength(50),
+
+                                                                TextInput::make('symbol')
+                                                                    ->label('Statistic Symbol')
+                                                                    ->maxLength(10),
+
+                                                                Textarea::make('description')
+                                                                    ->label('Statistic Description')
+                                                                    ->rows(2)
+                                                                    ->required(),
+                                                            ])
+                                                            ->minItems(1)
+                                                            ->createItemButtonLabel('Add Statistic'),
+                                                    ])
+                                                    ->minItems(1)
+                                                    ->maxItems(3)
+                                                    ->createItemButtonLabel('Add Tab')
+                                                    ->collapsible(),
+                                            ]),
+
+                                        Builder\Block::make('highlight_with_buttons')
+                                            ->label('Highlight with Buttons')
+                                            ->schema([
+                                                TextInput::make('title')
+                                                    ->label('Title')
+                                                    ->required()
+                                                    ->maxLength(255),
+
+                                                Repeater::make('buttons')
+                                                    ->label('Buttons')
+                                                    ->columns(3)
+                                                    ->createItemButtonLabel('Add Button')
+                                                    ->schema([
+                                                        TextInput::make('label')
+                                                            ->label('Button Label')
+                                                            ->required()
+                                                            ->maxLength(100),
+
+                                                        TextInput::make('url')
+                                                            ->label('Button URL')
+                                                            ->required()
+                                                            ->placeholder('https://example.com')
+                                                            ->url(),
+
+                                                        Select::make('style')
+                                                            ->label('Button Style')
+                                                            ->options([
+                                                                'default' => 'Default',
+                                                                'outline' => 'Outline',
+                                                            ])
+                                                            ->default('primary')
+                                                            ->required(),
+                                                    ])
+                                                    ->minItems(1)
+                                                    ->reorderable(),
+
+                                            ]),
 
                                     ])
                                     ->columnSpanFull(),
                             ]),
+                        Forms\Components\Tabs\Tab::make('Quick Menu')
+                            ->schema([
+                                Forms\Components\Toggle::make('quick_menu_enabled')
+                                    ->label('Enable Quick Menu')
+                                    ->live()
+                                    ->inline(false)
+                                    ->default(false),
 
+                                Forms\Components\Select::make('quick_menu_position')
+                                    ->label('Position')
+                                    ->options([
+                                        'top' => 'Top',
+                                        'bottom' => 'Bottom',
+                                    ])
+                                    ->default('bottom')
+                                    ->hint('Select where you want to display the Quick Menu')
+                                    ->hidden(fn (Get $get) => !$get('quick_menu_enabled')),
+
+                                Forms\Components\Select::make('quick_menus')
+                                    ->options(function () {
+
+                                        // Fetch pages with prefixed key
+                                        $pages = Page::all()->mapWithKeys(function ($page) {
+                                            return ['pages:' . $page->id => $page->title];
+                                        })->toArray();
+
+                                        // Fetch posts with prefixed key
+                                        $posts = Post::all()->mapWithKeys(function ($post) {
+                                            return ['posts:' . $post->id => $post->title];
+                                        })->toArray();
+
+                                        return [
+                                            'Pages' => $pages,
+                                            'Posts' => $posts,
+                                        ];
+                                    })
+                                    ->label('Quick Menus')
+                                    ->hidden(fn (Get $get) => !$get('quick_menu_enabled'))
+                                    ->multiple()
+                                    ->preload()
+                                    ->searchable()
+                                    ->native(false)
+                                    ->columnSpanFull(),
+
+                            ]),
                         Forms\Components\Tabs\Tab::make('Settings')
                             ->schema([
                                 Forms\Components\TextInput::make('author')
-                                    ->default(auth()->user()->name)
+                                    ->default(auth()->user()?->name)
                                     ->maxLength(255),
                                 Forms\Components\TextInput::make('order_by')
                                     ->numeric(),

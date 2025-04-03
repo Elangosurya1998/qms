@@ -19,7 +19,6 @@ class PageSeeder extends Seeder
             'feature_image' => null,
             'excerpt' => 'This is the Home page.',
             'author' => 'Admin',
-            'hero_type' => null,
             'hero' => json_encode([]),
             'content' => json_encode([
                 ['type' => 'paragraph', 'text' => 'Welcome to the Home page!']

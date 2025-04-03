@@ -10,7 +10,7 @@
 
 {{--                @include('includes.welcome')--}}
 
-                @include('includes.selectTab')
+{{--                @include('includes.selectTab')--}}
 
                 @include('includes.experienceBishop')
 

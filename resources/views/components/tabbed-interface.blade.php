@@ -1,31 +1,6 @@
  @props([
-    'title' => 'Stats that set us apart',
-    'tabs' => [
-        [
-            'title' => 'Academics',
-            'statistics' => [
-                ['value' => '99', 'symbol' => '%', 'description' => '99% of graduates go on to college.'],
-                ['value' => '17', 'symbol' => ': 1', 'description' => 'Student-to-teacher ratio is 17:1.'],
-                ['value' => '110', 'symbol' => '+', 'description' => 'Over 110 unique courses offered.']
-            ],
-        ],
-        [
-            'title' => 'Athletics',
-            'statistics' => [
-                ['value' => '21', 'symbol' => '', 'description' => '21 athletic teams offered.'],
-                ['value' => '12', 'symbol' => '', 'description' => '12-season student-athletes excel at all levels.'],
-                ['value' => '27', 'symbol' => '+', 'description' => '27 MHSAA District Championships since 2013.']
-            ],
-        ],
-        [
-            'title' => 'Extracurricular',
-            'statistics' => [
-                ['value' => '90', 'symbol' => '%', 'description' => '90% student participation in clubs and activities.'],
-                ['value' => '18', 'symbol' => '', 'description' => '18 clubs including robotics, arts, and science.'],
-                ['value' => '6000', 'symbol' => '+', 'description' => '6000+ hours of student community service.']
-            ],
-        ],
-    ]
+    'title' => null,
+    'tabs' => []
 ])
 
 
@@ -106,9 +81,9 @@
                  jQuery('.tabBtn.bg-2').removeClass('active');
                  jQuery('.tabBtn.bg-3').removeClass('active');
 
-                 jQuery('.tabsLeft').removeClass('bg-2');
-                 jQuery('.tabsLeft').removeClass('bg-3');
-                 jQuery('.tabsLeft').addClass('bg-1');
+                 jQuery('.tabsLeft').removeClass('tab-2');
+                 jQuery('.tabsLeft').removeClass('tab-3');
+                 jQuery('.tabsLeft').addClass('tab-1');
 
              });
 
@@ -121,9 +96,9 @@
                  jQuery('.tabBtn.bg-2').addClass('active');
                  jQuery('.tabBtn.bg-3').removeClass('active');
 
-                 jQuery('.tabsLeft').addClass('bg-2');
-                 jQuery('.tabsLeft').removeClass('bg-1');
-                 jQuery('.tabsLeft').removeClass('bg-3');
+                 jQuery('.tabsLeft').addClass('tab-2');
+                 jQuery('.tabsLeft').removeClass('tab-1');
+                 jQuery('.tabsLeft').removeClass('tab-3');
              });
 
              jQuery('.tabBtn.bg-3').click(function() {
@@ -136,9 +111,9 @@
                  jQuery('.tabBtn.bg-2').removeClass('active');
                  jQuery('.tabBtn.bg-3').addClass('active');
 
-                 jQuery('.tabsLeft').addClass('bg-3');
-                 jQuery('.tabsLeft').removeClass('bg-1');
-                 jQuery('.tabsLeft').removeClass('bg-2');
+                 jQuery('.tabsLeft').addClass('tab-3');
+                 jQuery('.tabsLeft').removeClass('tab-1');
+                 jQuery('.tabsLeft').removeClass('tab-2');
 
              });
          </script>
