@@ -6,12 +6,14 @@ use Awcodes\Curator\Models\Media;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 use Storage;
 use Str;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, HasSlug;
 
     protected $casts = [
         'content' => 'json',
@@ -20,6 +22,7 @@ class Post extends Model
     protected $appends = [
         'category_names',
         'slug_url'
+        
     ];
 
     protected $fillable = [
@@ -43,9 +46,17 @@ class Post extends Model
             ->implode(', ');
     }
 
-    public function getSlugUrlAttribute(): string
+
+    public function getSlugOptions(): SlugOptions
     {
-        return url('post/' . $this->slug);
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
+    }
+
+    public function getSlugUrlAttribute()
+    {
+        return url($this->slug);
     }
 
     public function categories(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
