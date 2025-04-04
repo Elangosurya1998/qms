@@ -80,13 +80,14 @@ body {  font-family: 'Work Sans', sans-serif;  position: relative; }
    --color-red: #dc3545;
    --color-other: #f659cd;
    --color-yellowest: #F7F700;
-
+   --color-olive: #8a900c;
+   --color-dark-blue: #14213d;
    --color-yellow: #D59F0F;
    --color-blue: #034C8C;
    --color-footergrey: #4D4D4D;
    --color-brown: #653331;
    --navy-blue: #000080;
    --color-meroon: #900C3F;
-   --color-default: var(--color-meroon);
+   --color-default: var(--color-olive);
 }
 

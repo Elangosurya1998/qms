@@ -12,6 +12,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -432,27 +433,7 @@ class PageResource extends Resource
                                                                 'single' => [
                                                                     Grid::make(1)
                                                                         ->schema([
-                                                                            MarkdownEditor::make('column_1')
-                                                                                ->enableToolbarButtons([
-                                                                                    'attachFiles',
-                                                                                    'blockquote',
-                                                                                    'bold',
-                                                                                    'bulletList',
-                                                                                    'codeBlock',
-                                                                                    'heading',
-                                                                                    'h2',
-                                                                                    'h3',
-                                                                                    'heading4',
-                                                                                    'heading5',
-                                                                                    'heading6',
-                                                                                    'italic',
-                                                                                    'link',
-                                                                                    'orderedList',
-                                                                                    'redo',
-                                                                                    'strike',
-                                                                                    'table',
-                                                                                    'undo',
-                                                                                ])
+                                                                            RichEditor::make('column_1')
                                                                                 ->label('Column 1 Text')
                                                                                 ->required(),
                                                                         ]),
@@ -460,11 +441,11 @@ class PageResource extends Resource
                                                                 'two' => [
                                                                     Grid::make(2)
                                                                         ->schema([
-                                                                            MarkdownEditor::make('column_1')
+                                                                            RichEditor::make('column_1')
                                                                                 ->label('Column 1 Text')
                                                                                 ->required(),
 
-                                                                            MarkdownEditor::make('column_2')
+                                                                            RichEditor::make('column_2')
                                                                                 ->label('Column 2 Text')
                                                                                 ->required(),
                                                                         ]),
@@ -472,15 +453,15 @@ class PageResource extends Resource
                                                                 'three' => [
                                                                     Grid::make(3)
                                                                         ->schema([
-                                                                            MarkdownEditor::make('column_1')
+                                                                            RichEditor::make('column_1')
                                                                                 ->label('Column 1 Text')
                                                                                 ->required(),
 
-                                                                            MarkdownEditor::make('column_2')
+                                                                            RichEditor::make('column_2')
                                                                                 ->label('Column 2 Text')
                                                                                 ->required(),
 
-                                                                            MarkdownEditor::make('column_3')
+                                                                            RichEditor::make('column_3')
                                                                                 ->label('Column 3 Text')
                                                                                 ->required(),
                                                                         ]),
