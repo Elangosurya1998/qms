@@ -85,10 +85,10 @@
     <link href="../unpkg.com/aos%402.3.1/dist/aos.css" rel="stylesheet" />
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/rootf3ee.css?v=3.2') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/css/globalf3ee.css?v=3.2') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/css/allf3ee.css?v=3.2') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/css/overridef3ee.css?v=3.2') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/rootf3ee.css?v='.date('s')) }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/globalf3ee.css?v='.date('s')) }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/allf3ee.css?v='.date('s')) }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/overridef3ee.css?v=3.2'.date('s')) }}" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YPYWBKNT8"></script>

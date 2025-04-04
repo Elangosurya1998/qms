@@ -84,5 +84,5 @@ body {  font-family: 'Work Sans', sans-serif;  position: relative; }
    --color-blue: #034C8C;
    --color-footergrey: #4D4D4D;
    --color-brown: #653331;
-   --color-default: var(--color-brown);
+   --color-default: var(--color-blue);
 }
