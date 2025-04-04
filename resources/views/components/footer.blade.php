@@ -14,9 +14,9 @@
                                     <div class="footerColInner">
 
                                         <!-- Logo -->
-{{--                                        <div class="footerLogo">--}}
-{{--                                            <img src="{{ asset('frontend/images/logoFooter.svg') }}" title="{{ $siteSetting->name }}" />--}}
-{{--                                        </div>--}}
+                                        {{--                                        <div class="footerLogo"> --}}
+                                        {{--                                            <img src="{{ asset('frontend/images/logoFooter.svg') }}" title="{{ $siteSetting->name }}" /> --}}
+                                        {{--                                        </div> --}}
                                         <h1>{{ $siteSetting->name }}</h1>
 
                                         <!-- Description -->
@@ -51,8 +51,8 @@
                                                 </h6>
                                                 <p>
                                                     <a href="https://www.ncea.org/" target="_blank">
-{{--                                                        <img  src="{{ asset('frontend/files/_cache/372099805e9119a65e96fe8da9ef2321.png?207x134') }}"--}}
-{{--                                                            alt="NCEA_logo2.png" width="207" height="134" />--}}
+                                                        {{--                                                        <img  src="{{ asset('frontend/files/_cache/372099805e9119a65e96fe8da9ef2321.png?207x134') }}" --}}
+                                                        {{--                                                            alt="NCEA_logo2.png" width="207" height="134" /> --}}
                                                     </a>
                                                 </p>
                                             </div>
@@ -68,7 +68,8 @@
                                                 <ul>
                                                     @foreach ($footerMenus as $footerMenu)
                                                         <li>
-                                                            <a title="{{ $footerMenu->name }}" href="{{ $footerMenu->slug_url }}" >{{ $footerMenu->name }}</a>
+                                                            <a title="{{ $footerMenu->name }}"
+                                                                href="{{ $footerMenu->slug_url }}">{{ $footerMenu->name }}</a>
                                                         </li>
                                                     @endforeach
                                                 </ul>
@@ -82,71 +83,35 @@
                                     <div class="footerColInner">
 
                                         <!-- Newsletter -->
-                                        <div class="footerNewsletter">
-                                            <div id="wCSP4JPP4NSWF874" class="mwPageBlock Contact" style="">
+                                        <div class="footerNewsletter content-style">
+                                            <div class="newsletterBlock">
                                                 <div class="blockContents">
-                                                    <script type="text/javascript">
-                                                        jQuery(function() {
-                                                            styleDialog('#F7NHUGN131MHEV21 .Dialog');
-                                                            jQuery('#F7NHUGN131MHEV21').submit(function() {
-                                                                mwListForm(this).submit();
-                                                            });
-                                                        }); // jQuery.onLoad
-                                                    </script>
-                                                    <a name="AF7NHUGN131MHEV21"></a>
-                                                    <form id="F7NHUGN131MHEV21" method="post"
-                                                          enctype="multipart/form-data" onsubmit="return false;">
+                                                    <h6 class="newsletterTitle">Newsletter Sign-up</h6>
+                                                    <form id="newsletterForm" method="post"
+                                                        enctype="multipart/form-data">
                                                         <div class="mwFormStatus"></div>
-                                                        <input type="hidden" name="relation" value="14337" />
-                                                        <input type="hidden" name="list" value="25" />
-                                                        <input type="hidden" name="sn" value="F7NHUGN131MHEV21" />
-                                                        <table class="Dialog Tall">
-                                                            <tbody>
-                                                            <tr>
-                                                                <td class="formGroup">
-                                                                    <div class="Caption">
-                                                                        <h6>
-                                                                            Newsletter Sign-up
-                                                                        </h6>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            </tbody>
-                                                            <tbody>
-                                                            <tr>
-                                                                <th></th>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <input type="text" name="name"
-                                                                           value=""
-                                                                           placeholder="First/Last Name" />
-                                                                </td>
-                                                            </tr>
-                                                            </tbody>
-                                                            <tbody>
-                                                            <tr>
-                                                                <th></th>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <input type="text" name="email"
-                                                                           value=""
-                                                                           placeholder="Email Address" />
-                                                                </td>
-                                                            </tr>
-                                                            </tbody>
-                                                            <tbody>
-                                                            <tr>
-                                                                <td style="text-align: center;">
-                                                                    <input type="submit" value="Submit"
-                                                                           class="mwFormSubmit"
-                                                                           style="float: right;" />
-                                                                </td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <div class="Clear"></div>
+
+                                                        <!-- Name Input -->
+                                                        <div class="mwInput text  name-email">
+                                                            <input type="text" name="name"
+                                                                placeholder="First & Last Name" aria-label="Full Name"
+                                                                required>
+                                                        </div>
+
+                                                        <p class="clear"></p>
+
+                                                        <!-- Email Input -->
+                                                        <div class="mwInput text  name-email">
+                                                            <input type="email" name="email"
+                                                                placeholder="Email Address" aria-label="Email" required>
+                                                        </div>
+
+                                                        <!-- Submit Button -->
+                                                        <div class="mwInput button mwFormSubmit"
+                                                            style="float: right;  border: 1px solid #fff;   border-radius: 50px;  margin-top: 18px;">
+                                                            <input type="submit" value="Submit" class="mw"
+                                                                style="float: right;" />
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </div>
@@ -159,19 +124,19 @@
                                                     <div class="snsLink snsLinkDefault left">
 
                                                         <a href="https://www.facebook.com/BishopFoleyCatholic/"
-                                                           class="small" target="_blank" aria-label="small"
-                                                           title="facebook">
+                                                            class="small" target="_blank" aria-label="small"
+                                                            title="facebook">
                                                             <i class="fab fa-facebook"></i>
                                                         </a>
 
                                                         <a href="https://twitter.com/BishopFoley" class="small"
-                                                           target="_blank" aria-label="small" title="twitter">
+                                                            target="_blank" aria-label="small" title="twitter">
                                                             <i class="fab fa-twitter"></i>
                                                         </a>
 
                                                         <a href="https://www.youtube.com/channel/UCuRnn8vD1O0ugDRlv8mldIA"
-                                                           class="small" target="_blank" aria-label="small"
-                                                           title="youtube">
+                                                            class="small" target="_blank" aria-label="small"
+                                                            title="youtube">
                                                             <i class="fab fa-youtube"></i>
                                                         </a>
 
@@ -191,7 +156,7 @@
 
                     <!-- Footer Copyright -->
                     <div class="footerCopyright">
-                        <div class="copyrightAutoYear">© Copyright {{ date('Y')  }}</div>
+                        <div class="copyrightAutoYear">© Copyright {{ date('Y') }}</div>
                         <div id="w70YSIR18T5HQD20" class="mwPageBlock Embed" style="">
                             <div class="blockContents">
                                 <div class="Container">{{ $siteSetting->name }}. All Rights Reserved.</div>
