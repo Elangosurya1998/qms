@@ -494,6 +494,7 @@ class PageResource extends Resource
                                     ])
                                     ->columnSpanFull(),
                             ]),
+
                         Forms\Components\Tabs\Tab::make('Quick Menu')
                             ->schema([
                                 Forms\Components\Toggle::make('quick_menu_enabled')
@@ -559,6 +560,7 @@ class PageResource extends Resource
                                     ->hidden(fn (Get $get) => !$get('quick_menu_enabled')),
 
                             ]),
+
                         Forms\Components\Tabs\Tab::make('Settings')
                             ->schema([
                                 Forms\Components\TextInput::make('author')
