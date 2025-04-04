@@ -101,7 +101,7 @@
                      <div id="wCI1W9OEVSA8RXX8" class="mwPageBlock Button" style="">
                          <div class="blockContents  pad-right-m">
                              <div class="mwBtnCenter">
-                                 <div class="btn btnYellow btnOutline btnRounded">
+                                 <div class="btn btnDefault btnOutline btnRounded">
                                      <a href="https://campscui.active.com/orgs/BishopFoleyCatholicHighSchool0?orglink=camps-registration"
                                          template="default" class="medium" target="_blank">Register</a>
                                  </div>
@@ -192,7 +192,7 @@
                      <div id="wNFZE0R33YLZVPCP" class="mwPageBlock Button" style="">
                          <div class="blockContents  pad-left-l">
                              <div class="mwBtnCenter">
-                                 <div class="btn btnYellow btnOutline btnRounded">
+                                 <div class="btn btnDefault btnOutline btnRounded">
                                      <a href="https://campscui.active.com/orgs/BishopFoleyCatholicHighSchool0?orglink=camps-registration"
                                          template="default" class="medium" target="_blank">Register</a>
                                  </div>

@@ -1206,11 +1206,11 @@ hr {height: 0;overflow: visible;box-sizing: content-box;margin: 30px 0;border: 0
 .resetBtn:hover {  color: var(--color-default);  text-decoration: underline;}
 
 
-.btn.btnYellow.btnRounded a {  background: var(--color-default); color:var(--color-white); }
-.btn.btnYellow.btnRounded a:hover { background: var(--color-black); border-color:var(--color-black);}
+.btn.btnDefault.btnRounded a {  background: var(--color-default); color:var(--color-white); }
+.btn.btnDefault.btnRounded a:hover { background: var(--color-black); border-color:var(--color-black);}
 
-.btn.btnYellow.btnOutline.btnRounded a {background: none; color:var(--color-default);}
-.btn.btnYellow.btnOutline.btnRounded a:hover {  background: var(--color-black); border-color:var(--color-black); }
+.btn.btnDefault.btnOutline.btnRounded a {background: none; color:var(--color-default);}
+.btn.btnDefault.btnOutline.btnRounded a:hover {  background: var(--color-black); border-color:var(--color-black); }
 
 /*!
  |-----------------------------------------------------------------------------------------

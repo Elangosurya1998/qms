@@ -154,7 +154,7 @@
                                                                                         <div class="blockContents {{ $loop->first ? 'rowStart' : '' }}  {{ $loop->last ? 'rowEnd' : '' }}">
                                                                                             <div class="mwBtnLeft">
                                                                                                 <div
-                                                                                                    class="btn btnYellow {{ $button['style'] == 'outline' ? 'btnOutline' : '' }} btnRounded">
+                                                                                                    class="btn btnDefault {{ $button['style'] == 'outline' ? 'btnOutline' : '' }} btnRounded">
                                                                                                     <a href="{{ $button['url'] }}"
                                                                                                        template="default"
                                                                                                        class="medium"

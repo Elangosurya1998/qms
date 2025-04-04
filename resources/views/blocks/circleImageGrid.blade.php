@@ -23,7 +23,7 @@
                                       // Small timeout for browser to catch up
                                       //	setTimeout(function() {
 
-                                      // Getting image to setup				
+                                      // Getting image to setup
                                       var $img = document.getElementById('image_IWK03UGOPFNEJ6EQ');
                                       mwLoadImage($img, 323, 322);
 
@@ -62,7 +62,7 @@
                       <div id="wPMVRB2Y3NRTH8WQ" class="mwPageBlock Button" style="">
                           <div class="blockContents">
                               <div class="mwBtnCenter">
-                                  <div class="btn btnYellow btnRounded">
+                                  <div class="btn btnDefault btnRounded">
                                       <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1Q6C74-mCWNMdOpTqWtjfOPe0_ameWdadZJxcxlSZa4W-yD1yWjPaZ15v9gsN7MaUnptV19E2O"
                                           template="default" class="medium" target="_blank">Mrs. Peurach's Appointment
                                           Calendar</a>
@@ -93,7 +93,7 @@
                                       // Small timeout for browser to catch up
                                       //	setTimeout(function() {
 
-                                      // Getting image to setup				
+                                      // Getting image to setup
                                       var $img = document.getElementById('image_IHA4CA4HSXDDNKGY');
                                       mwLoadImage($img, 323, 323);
 
@@ -132,7 +132,7 @@
                       <div id="wZGFGZ8759J5I2MG" class="mwPageBlock Button" style="">
                           <div class="blockContents">
                               <div class="mwBtnCenter">
-                                  <div class="btn btnYellow btnRounded">
+                                  <div class="btn btnDefault btnRounded">
                                       <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1SgPBoUdPhVd-cXWwdGXsQvQv2sqGdmvJCy_zU96ACg5nEYLylw8QnhhzESALAODO1eeMrWdhe"
                                           template="default" class="medium" target="_blank">Mr. Lewalski's Appointment
                                           Calendar</a>

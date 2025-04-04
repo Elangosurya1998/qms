@@ -40,7 +40,7 @@
                                                         style="">
                                                         <div class="blockContents">
                                                             <div class="mwBtnLeft">
-                                                                <div class="btn btnYellow btnRounded">
+                                                                <div class="btn btnDefault btnRounded">
                                                                     <a href="https://logins2.renweb.com/logins/ParentsWeb-Login.aspx"
                                                                         template="default" class="medium"
                                                                         target="_blank">Parents Login</a>

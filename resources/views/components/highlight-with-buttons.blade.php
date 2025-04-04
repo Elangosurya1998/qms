@@ -42,7 +42,7 @@
                                             <div id="wKWBZJ8STT3PZKD1" class="mwPageBlock Button" style="">
                                                 <div class="blockContents">
                                                     <div class="mwBtnCenter">
-                                                        <div class="btn btnYellow {{ $button['style'] == 'outline' ? 'btnOutline': ''}} btnRounded">
+                                                        <div class="btn btnDefault {{ $button['style'] == 'outline' ? 'btnOutline': ''}} btnRounded">
                                                             <a href="{{ $button['url'] }}" template="default"
                                                                class="medium" target="_self">{{ $button['label'] }}</a>
                                                         </div>

@@ -24,7 +24,7 @@
                          <div id="w06JJE6C48XKSE62" class="mwPageBlock Button Float" style="width: 17.75%">
                              <div class="blockContents rowEnd">
                                  <div class="mwBtnLeft">
-                                     <div class="btn btnYellow btnRounded">
+                                     <div class="btn btnDefault btnRounded">
                                          <a href="Calendar.html" template="default" class="medium" target="_self">View
                                              Full Calendar</a>
                                      </div>

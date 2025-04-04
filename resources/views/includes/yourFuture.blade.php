@@ -41,7 +41,7 @@
                                                                  style="">
                                                                  <div class="blockContents">
                                                                      <div class="mwBtnCenter">
-                                                                         <div class="btn btnYellow btnRounded">
+                                                                         <div class="btn btnDefault btnRounded">
                                                                              <a href="https://bfchs-mi.client.renweb.com/oa/"
                                                                                  template="default" class="medium"
                                                                                  target="_blank">Apply
@@ -60,7 +60,7 @@
                                                                  <div class="blockContents">
                                                                      <div class="mwBtnCenter">
                                                                          <div
-                                                                             class="btn btnYellow btnOutline btnRounded">
+                                                                             class="btn btnDefault btnOutline btnRounded">
                                                                              <a href="Visit-BFC.html" template="default"
                                                                                  class="medium" target="_self">Plan a
                                                                                  Visit</a>
@@ -78,7 +78,7 @@
                                                                  <div class="blockContents">
                                                                      <div class="mwBtnCenter">
                                                                          <div
-                                                                             class="btn btnYellow btnOutline btnRounded">
+                                                                             class="btn btnDefault btnOutline btnRounded">
                                                                              <a href="Academics-departments.html"
                                                                                  template="default" class="medium"
                                                                                  target="_blank">EXPLORE

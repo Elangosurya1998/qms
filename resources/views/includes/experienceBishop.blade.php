@@ -23,7 +23,7 @@
                                             <div id="wKWBZJ8STT3PZKD1" class="mwPageBlock Button" style="">
                                                 <div class="blockContents">
                                                     <div class="mwBtnCenter">
-                                                        <div class="btn btnYellow btnRounded">
+                                                        <div class="btn btnDefault btnRounded">
                                                             <a href="Visit-BFC.html" template="default" class="medium"
                                                                 target="_self">Plan a Visit</a>
                                                         </div>
@@ -38,7 +38,7 @@
                                             <div id="w065ICIUTB5D8D50" class="mwPageBlock Button" style="">
                                                 <div class="blockContents">
                                                     <div class="mwBtnCenter">
-                                                        <div class="btn btnYellow btnOutline btnRounded">
+                                                        <div class="btn btnDefault btnOutline btnRounded">
                                                             <a href="Foley-Faith.html" template="default" class="medium"
                                                                 target="_self">Foley Faith</a>
                                                         </div>

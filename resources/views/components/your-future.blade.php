@@ -53,7 +53,7 @@
                                                                  style="">
                                                                  <div class="blockContents">
                                                                      <div class="mwBtnCenter">
-                                                                         <div class="btn btnYellow btnRounded">
+                                                                         <div class="btn btnDefault btnRounded">
                                                                              <a href="{{ $button1Link }}"
                                                                                  template="default" class="medium"
                                                                                  target="_blank">{{ $button1 }}</a>
@@ -71,7 +71,7 @@
                                                                  <div class="blockContents">
                                                                      <div class="mwBtnCenter">
                                                                          <div
-                                                                             class="btn btnYellow btnOutline btnRounded">
+                                                                             class="btn btnDefault btnOutline btnRounded">
                                                                              <a href="{{ $button2Link }}"
                                                                                  template="default" class="medium"
                                                                                  target="_self">{{ $button2 }}</a>
@@ -89,7 +89,7 @@
                                                                  <div class="blockContents">
                                                                      <div class="mwBtnCenter">
                                                                          <div
-                                                                             class="btn btnYellow btnOutline btnRounded">
+                                                                             class="btn btnDefault btnOutline btnRounded">
                                                                              <a href="{{ $button3Link }}"
                                                                                  template="default" class="medium"
                                                                                  target="_blank">{{ $button3 }}</a>

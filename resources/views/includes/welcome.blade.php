@@ -185,7 +185,7 @@
                                                                                     <div class="blockContents rowStart">
                                                                                         <div class="mwBtnLeft">
                                                                                             <div
-                                                                                                class="btn btnYellow btnRounded">
+                                                                                                class="btn btnDefault btnRounded">
                                                                                                 <a href="about-bfc.html"
                                                                                                     template="default"
                                                                                                     class="medium"
@@ -201,7 +201,7 @@
                                                                                     <div class="blockContents rowEnd">
                                                                                         <div class="mwBtnLeft">
                                                                                             <div
-                                                                                                class="btn btnYellow btnOutline btnRounded">
+                                                                                                class="btn btnDefault btnOutline btnRounded">
                                                                                                 <a href="https://bfchs-mi.client.renweb.com/oa/"
                                                                                                     template="default"
                                                                                                     class="medium"

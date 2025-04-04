@@ -19,7 +19,7 @@
                     <div id="w08DCX377BPBC5CM" class="mwPageBlock Button" style="">
                         <div class="blockContents">
                             <div class="mwBtnCenter">
-                                <div class="btn btnYellow btnRounded">
+                                <div class="btn btnDefault btnRounded">
                                     <a href="files/galleries/CatholicCorner_Feb25.pdf" template="default" class="large"
                                         target="_self">February 2025</a>
                                 </div>
@@ -47,7 +47,7 @@
                     <div id="w2I5MEORL6C65AUG" class="mwPageBlock Button" style="">
                         <div class="blockContents">
                             <div class="mwBtnCenter">
-                                <div class="btn btnYellow btnRounded">
+                                <div class="btn btnDefault btnRounded">
                                     <a href="files/galleries/CatholicCorner_Jan25.pdf" template="default" class="large"
                                         target="_blank">January 2025</a>
                                 </div>
@@ -75,7 +75,7 @@
                     <div id="wUWYIA35PO1LZ5DR" class="mwPageBlock Button" style="">
                         <div class="blockContents">
                             <div class="mwBtnCenter">
-                                <div class="btn btnYellow btnRounded">
+                                <div class="btn btnDefault btnRounded">
                                     <a href="files/galleries/CatholicCorner_Dec24.pdf" template="default" class="large"
                                         target="_blank">December 2024</a>
                                 </div>

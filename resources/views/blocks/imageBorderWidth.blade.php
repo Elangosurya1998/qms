@@ -17,7 +17,7 @@
                 // Small timeout for browser to catch up
                 //	setTimeout(function() {
 
-                // Getting image to setup				
+                // Getting image to setup
                 var $img = document.getElementById('image_IKY3HH6QYY5HADB8');
                 mwLoadImage($img, 1230, 553);
 
@@ -29,7 +29,7 @@
 <div id="wGI7G8LBRMHJTI61" class="mwPageBlock Button" style="">
     <div class="blockContents  pad-top-m pad-bottom-s pad-left-m pad-right-m">
         <div class="mwBtnCenter">
-            <div class="btn btnYellow btnRounded">
+            <div class="btn btnDefault btnRounded">
                 <a href="https://1stplacespiritwear.com/schools/MI/Madison+Heights/Bishop+Foley+Catholic+High+School"
                     template="default" class="large" target="_blank">Visit the Store</a>
             </div>
