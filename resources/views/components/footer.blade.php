@@ -1,7 +1,7 @@
 <footer id="footerArea">
     <div id="wYF781MUV8L1PH55" class="mwPageBlock Include" style="">
         <div class="blockContents">
-            <div class="footer footerThree content-style _bg-footergrey">
+            <div class="footer footerThree content-style _bg-gray">
                 <div class="footerWrap">
                     <div class="container">
 
@@ -187,7 +187,7 @@
 
                     </div>
                 </div> <!-- Secondary -->
-                <div class="footerSecondary">
+                <div class="footerSecondary ">
 
                     <!-- Footer Copyright -->
                     <div class="footerCopyright">

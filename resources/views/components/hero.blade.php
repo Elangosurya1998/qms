@@ -20,7 +20,7 @@
 @else
     <div class="mwPageBlock Include">
         <div class="blockContents">
-            <div id="contentArea-SQUJ3F" class="contentArea contentAreaLarge _bg-black content-style">
+            <div id="contentArea-SQUJ3F" class="contentArea contentAreaLarge _bg-gray content-style">
                 <div class="contentAreaWrap">
                     <div class="container">
                         <div class="mwPageArea">
