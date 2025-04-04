@@ -404,7 +404,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
 }
 
 .mejs__time-hovered {
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--color-gray-5);
     z-index: 10;
 }
 
@@ -563,7 +563,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
 }
 
 .mejs__volume-total {
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--color-gray-5);
     border: 0.06rem solid #fff;
     height: 6.25rem;
     left: 50%;
