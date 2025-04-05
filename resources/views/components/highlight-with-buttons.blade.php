@@ -20,7 +20,7 @@
                 </div>
                 <div id="wD5DQLSUYOYGSYVR" class="mwPageBlock Content" style="">
                     <div class="blockContents">
-                        <h2>
+                        <h2 style="{{ $backgroundImage != null ? 'color:#fff' : ''}}">
                             {{ $title }}
                         </h2>
                     </div>

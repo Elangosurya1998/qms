@@ -3185,7 +3185,7 @@ hr {
 
 .btn.btnDefault.btnRounded a:hover {
   background: var(--color-black);
-  border-color: var(--color-black);
+  border-color: var(--color-default);
 }
 
 .btn.btnDefault.btnOutline.btnRounded a {
@@ -3196,6 +3196,7 @@ hr {
 .btn.btnDefault.btnOutline.btnRounded a:hover {
   background: var(--color-black);
   border-color: var(--color-black);
+    color: var(--color-white);
 }
 
 /*!
@@ -4854,7 +4855,6 @@ hr {
   height: 2px;
   border-radius: 0;
   background-color: var(--color-black);
-  background-color: var(--color-b);
   bezier(0.25, 0.46, 0.45, 0.94) 500ms;
 }
 
@@ -6724,7 +6724,6 @@ img.contentImg {
 
 
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.99) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 1) 99%, rgba(0, 0, 0, 1) 100%);
-}
 }
 
 .videoBannerOne .videoBannerTitle {
@@ -15932,8 +15931,6 @@ img.contentImg {
 }
 
 
-}
-
 @media (max-width: 575px) {
   .headerTwo .utilityBarMenu {
     display: none;
@@ -19571,7 +19568,7 @@ html[dir=rtl] #accessibility ul li a:before {
 }
 
 .eventsCalendarThree .mwCalendar-day.event .dayInner {
-  background: var(--color-default-light);
+  background: var(--color-default);
   border-top: 2px solid var(--color-default);
 }
 
@@ -20288,7 +20285,7 @@ Home Call to Actions
 }
 
 .homeCTAContent {
-  max-width: 730px;
+  max-width: 800px;
   text-align: center;
   margin: 0 auto;
 }
@@ -20756,7 +20753,7 @@ home calendar styles
 
 .twoColRight .flexit p:first-child {
   margin-right: 30px;
-  font-family: ;
+  font-family: 'Dancing Script', cursive ;
 }
 
 .twoColRight .flexit p:last-of-type {
@@ -20925,7 +20922,7 @@ home newsletter styles
 
   .subfooterContent h2 {
     font-size: 40px;
-    -webkit-text-stroke: 0;
+    -webkit-text-stroke: 1px #000;
     color: var(--color-default);
   }
 }

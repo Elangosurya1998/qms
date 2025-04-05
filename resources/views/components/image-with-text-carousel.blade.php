@@ -15,7 +15,7 @@
             }
         </style>
 
-        <div id="contentArea-{{$id}}" class="contentArea contentAreaLarge _bg-gray-darkest content-style">
+        <div id="contentArea-{{$id}}" class="contentArea contentAreaLarge _bg-gray content-style">
             <div class="contentAreaWrap">
                 <div class="container">
                     <div class="mwPageArea">

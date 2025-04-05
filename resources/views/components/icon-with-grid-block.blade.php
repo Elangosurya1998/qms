@@ -1,5 +1,6 @@
 @props([
     'id' => null,
+    'title' => null,
     'iconImage' => null,
     'backgroundColor' => null,
     'backgroundImage'=> null,
@@ -9,13 +10,13 @@
     <div class="blockContents">
         <style type="text/css">
             #contentArea-{{$id}} {
-                background-image:  url("storage/{{$backgroundImage}}");
+                background-image:  url();
                 background-position: center;
                 background-size: auto;
                 background-repeat: no-repeat;
             }
         </style>
-        <div id="contentArea-{{$id}}" class="contentArea contentAreaMedium {{ $backgroundColor == null ? '_bg-gray-dark' : '_bg-white' }} content-style">
+        <div id="contentArea-{{$id}}" class="contentArea contentAreaMedium content-style">
             <div class="contentAreaWrap">
                 <div class="container">
                     <div class="mwPageArea">
@@ -39,7 +40,7 @@
                                                             <div id="w50J8WNAEBPU3FYE" class="mwPageBlock Content" style="">
                                                                 <div class="blockContents">
                                                                     <h3>
-                                                                        <a id="basics"></a>BFC: The Basics
+                                                                        <a id="basics"></a>{{ $title  }}
                                                                     </h3>
                                                                 </div>
                                                             </div>

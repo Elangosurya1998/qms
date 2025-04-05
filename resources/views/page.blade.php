@@ -88,6 +88,7 @@
             @if(isset($module['type']) && $module['type'] === 'icon_text_grid_block')
                 <x-icon-with-grid-block
                     :id="Str::random(5)"
+                    :title="data_get($module, 'data.title')"
                     :iconImage="data_get($module, 'data.icon_image')"
                     :backgroundColor="data_get($module, 'data.background_color')"
                     :backgroundImage="data_get($module, 'data.backgroundImage')"

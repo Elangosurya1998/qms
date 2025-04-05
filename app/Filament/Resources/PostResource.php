@@ -174,7 +174,8 @@ class PostResource extends Resource
                                                     Grid::make(2)
                                                         ->schema([
                                                             TextInput::make('title')
-                                                                ->label('Title'),
+                                                                ->label('Title')
+                                                                ->columnSpanFull(),
 
                                                             RichEditor::make('column_1')
                                                                 ->label('Column 1 Text')

@@ -295,7 +295,8 @@ class PageResource extends Resource
 
                                                                                                 Textarea::make('description')
                                                                                                     ->label('Statistic Description')
-                                                                                                    ->rows(2)
+                                                                                                    ->rows(5)
+                                                                                                    ->maxLength(255)
                                                                                                     ->required(),
                                                                                             ])
                                                                                             ->minItems(1)
@@ -358,17 +359,6 @@ class PageResource extends Resource
                                             ->schema([
                                                 Forms\Components\Tabs::make('Image with Text Carousel Details')
                                                     ->tabs([
-                                                        Forms\Components\Tabs\Tab::make('Background')
-                                                            ->label('Background')
-                                                            ->schema([
-                                                                FileUpload::make('backgroundImage')
-                                                                    ->label('Background Image')
-                                                                    ->directory('uploads/pages/image-with-text-carousel/background-image')
-                                                                    ->preserveFilenames()
-                                                                    ->acceptedFileTypes(['image/*'])
-                                                                    ->openable(),
-                                                            ]),
-
                                                         Forms\Components\Tabs\Tab::make('Carousel Items')
                                                             ->label('Carousel Items')
                                                             ->schema([
@@ -400,6 +390,7 @@ class PageResource extends Resource
                                                                     ->maxItems(3)
                                                                     ->reorderable(),
                                                             ]),
+
                                                     ]),
                                             ]),
 
@@ -408,16 +399,6 @@ class PageResource extends Resource
                                             ->schema([
                                                 Forms\Components\Tabs::make('Title with Content Details')
                                                     ->tabs([
-                                                        Forms\Components\Tabs\Tab::make('Background')
-                                                            ->label('Background')
-                                                            ->schema([
-                                                                FileUpload::make('backgroundImage')
-                                                                    ->label('Background Image')
-                                                                    ->directory('uploads/pages/image-with-text-carousel/background-image')
-                                                                    ->preserveFilenames()
-                                                                    ->acceptedFileTypes(['image/*'])
-                                                                    ->openable(),
-                                                            ]),
 
                                                         Forms\Components\Tabs\Tab::make('Content')
                                                             ->label('Content')
@@ -431,6 +412,17 @@ class PageResource extends Resource
                                                                     ->label('Content')
                                                                     ->rows(4)
                                                                     ->required(),
+                                                            ]),
+
+                                                        Forms\Components\Tabs\Tab::make('Background')
+                                                            ->label('Background')
+                                                            ->schema([
+                                                                FileUpload::make('backgroundImage')
+                                                                    ->label('Background Image')
+                                                                    ->directory('uploads/pages/image-with-text-carousel/background-image')
+                                                                    ->preserveFilenames()
+                                                                    ->acceptedFileTypes(['image/*'])
+                                                                    ->openable(),
                                                             ]),
                                                     ]),
                                             ]),
@@ -479,12 +471,12 @@ class PageResource extends Resource
                                                                     ->columnSpanFull()
                                                                     ->openable(),
 
-                                                                FileUpload::make('backgroundImage')
-                                                                    ->label('Background Image')
-                                                                    ->directory('uploads/pages/icon-text-grid-block/background-image')
-                                                                    ->preserveFilenames()
-                                                                    ->acceptedFileTypes(['image/*'])
-                                                                    ->openable(),
+//                                                                FileUpload::make('backgroundImage')
+//                                                                    ->label('Background Image')
+//                                                                    ->directory('uploads/pages/icon-text-grid-block/background-image')
+//                                                                    ->preserveFilenames()
+//                                                                    ->acceptedFileTypes(['image/*'])
+//                                                                    ->openable(),
                                                             ]),
 
                                                         Forms\Components\Tabs\Tab::make('Columns')

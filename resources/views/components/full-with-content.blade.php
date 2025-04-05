@@ -29,7 +29,7 @@
                             <div class="mwBtnCenter">
                                 @foreach ($record['button_columns'] as $button)
                                     <div class="btn {{ $button['style'] == 'outline' ? 'btnOutline': 'btnYellow'}} btnRounded">
-                                        <a href="{{$button['url']}}" template="default" class="medium" target="{{$button['target']}}">{{$button['label']}}</a>
+                                        <a href="{{$button['url']}}" class="medium" target="{{$button['target']}}">{{$button['label']}}</a>
                                     </div>
                                 @endforeach
 
@@ -40,7 +40,7 @@
                         <div class="blockContents">
                             @foreach ($record['images'] as $image)
                                 <div class="mwFileEmbed Image" style="overflow:hidden">
-                                    <img id="image" src="{{ asset('storage/'.$image) }}" class="mwFile Image full imgEd" style="display: block; border:none;width:100%; margin: 0 0%;" alt="PasinosSigning-11.jpg">
+                                    <img id="image" src="{{ asset('storage/'.$image) }}" class="mwFile Image full imgEd" style="display: block; border:none;width:100%; margin: 0 0;" alt="PasinosSigning-11.jpg">
                                 </div>
                                 <div class="blockContents">
                                     <div class="mwSpacer hor" style="height:20px;"></div>

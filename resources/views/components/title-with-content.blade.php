@@ -5,6 +5,9 @@
     'content' => null
 ])
 
+<div class="blockContents">
+    <div class="mwSpacer hor" style="height:20px;"></div>
+</div>
 <div id="wH8PX13VN0QHT67A" class="mwPageBlock Include" style="">
     <div class="blockContents">
         <style type="text/css">
@@ -15,6 +18,8 @@
                 background-repeat: no-repeat;
             }
         </style>
+
+
 
         <div id="contentArea-{{$id}}" class="contentArea _bg-primary content-style">
 
@@ -45,4 +50,7 @@
             </div>
         </div>
     </div>
+</div>
+<div class="blockContents">
+    <div class="mwSpacer hor" style="height:20px;"></div>
 </div>
