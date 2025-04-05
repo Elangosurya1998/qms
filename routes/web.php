@@ -15,4 +15,4 @@ Route::get('{slug}', [PageController::class,'index'])->name('pages.index');
 Route::get('preview/page/{slug}', [PageController::class,'preview'])->name('preview.page');
 
 Route::get('post/{slug}', [PostController::class,'index'])->name('post.index');
-Route::get('preview/post/{slug}', [PageController::class,'preview'])->name('preview.post');
+Route::get('preview/post/{slug}', [PostController::class,'preview'])->name('preview.post');

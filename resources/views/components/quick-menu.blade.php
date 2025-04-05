@@ -3,21 +3,12 @@
     'title' => null,
     'backgroundImage' => null, // 'frontend/files/_cache/22af7f7acf114d23f1b578e2264590e2.jpg'
     'quickMenus' => [],
+    'position' => null
 ])
-
 <div id="w0NYABIX221YCAFP" class="mwPageBlock Include" style="">
     <div class="blockContents">
 
-        <style type="text/css">
-            #contentArea-QV63NR {
-                background-image: url('storage\'{{ $backgroundImage }}');
-                background-position: center;
-                background-size: auto;
-                background-repeat: no-repeat;
-            }
-        </style>
-
-        <div id="contentArea-QV63NR" class="contentArea contentAreaLarge _bg-gray-light content-style">
+        <div  class="contentArea contentAreaLarge {{ $position == 'bottom' ? '_bg-gray-light' : ''}} content-style">
             <div class="contentAreaWrap">
                 <div class="container">
                     <div class="mwPageArea">

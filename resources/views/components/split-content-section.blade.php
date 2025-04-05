@@ -142,9 +142,7 @@
                                                                                     class="mwPageBlock Content"
                                                                                     style="">
                                                                                     <div class="blockContents">
-                                                                                        <p>
-                                                                                            {{ $paragraph }}
-                                                                                        </p>
+                                                                                        {!! str($paragraph)->sanitizeHtml() !!}
                                                                                     </div>
                                                                                 </div>
 

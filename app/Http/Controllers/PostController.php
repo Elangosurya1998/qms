@@ -17,7 +17,7 @@ class PostController extends Controller
             abort(404);
         }
 
-        return view('frontend.post', compact('post'));
+        return view('post', compact('post'));
     }
 
     public function preview(Request $request, $slug)
@@ -29,7 +29,7 @@ class PostController extends Controller
             abort(404);
         }
 
-        return view('frontend.post', compact('post'));
+        return view('post', compact('post'));
     }
 
 

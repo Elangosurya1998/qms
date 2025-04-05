@@ -69,7 +69,7 @@
     <script type="text/javascript" src="{{ asset('frontend/res/intouch/js/block.contacts.js') }}"></script>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('frontend/images/favicon.ico') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="" type="image/x-icon" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -85,10 +85,10 @@
     <link href="../unpkg.com/aos%402.3.1/dist/aos.css" rel="stylesheet" />
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/rootf3ee.css?v='.date('s')) }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/css/globalf3ee.css?v='.date('s')) }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/css/allf3ee.css?v='.date('s')) }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/css/overridef3ee.css?v=3.2'.date('s')) }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/rootqms.css?v='.date('s')) }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/globalqms.css?v='.date('s')) }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/qmsstyles.css?v='.date('s')) }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/overrideqms.css?v=3.2'.date('s')) }}" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YPYWBKNT8"></script>
@@ -102,96 +102,6 @@
 
         gtag('config', 'G-2YPYWBKNT8');
     </script>
-
-    <style>
-        :root {
-            --hero-bg-color: #000007;
-
-            --section-1-bg-color: #b4e3f9;
-            --section-2-bg-color: #ffffff;
-            --section-3-bg-color: #005183;
-            --section-4-bg-color: #eef4ed;
-            --section-4-bg-image: url('images/bg-1.jpg');
-            --section-5-bg-color: #ffffff;
-            --section-6-bg-color: #111117;
-            --section-6-bg-image: url('images/bg-1.jpg');
-            --section-7-bg-color: #ffffff;
-        }
-
-        .filament-tiptap-grid,
-        .filament-tiptap-grid-builder {
-            display: grid;
-            gap: 1rem;
-            box-sizing: border-box;
-            padding-bottom: 14px;
-            border-radius: 10px;
-        }
-
-        .filament-tiptap-grid[type^="asymetric"] {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto;
-        }
-
-        .filament-tiptap-grid-builder__column {
-            /* border: 3px solid #09134a; */
-            border-radius: 12px;
-            height: fit-content;
-            /* overflow: auto; */
-        }
-
-        .filament-tiptap-grid-builder__column {
-            position: relative;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .filament-tiptap-grid-builder__column img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .filament-tiptap-grid-builder__column img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .fancybox__overlay {
-            background-color: rgba(0, 0, 0, 0.8) !important;
-        }
-
-        .fancybox__image {
-            max-width: 90vw;
-            max-height: 80vh;
-            margin: auto;
-        }
-
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-            height: auto;
-
-        }
-
-        td,
-        th {
-            border: 1px solid #dddddd;
-            padding: 8px;
-
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-
-        .section-content {
-            text-align: justify;
-        }
-    </style>
-
 </head>
 
 <body>

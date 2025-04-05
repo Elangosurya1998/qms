@@ -1,34 +1,33 @@
 
-    @import url("../../fast.fonts.net/lt/1b05b.css?apiType=css&amp;c=c0045dd7-e6e0-475c-95f4-b579eae2360b&amp;fontids=5720412,5720418,5720424,5720430,5720436,5720442");
-    @font-face{
-        font-family:"ITC Leawood W03 Bold Italic";
-        src:url("../fonts/5720412/b70cc73a-81f9-4004-8c9a-507cda479a55.woff2") format("woff2"),url("../fonts/5720412/a8094a70-72c0-44cc-b8c2-7d70bf4b74cd.woff") format("woff");
-    }
-    @font-face{
-        font-family:"ITC Leawood W03 Bold";
-        src:url("../fonts/5720418/899ea844-d2fe-40af-890e-71ab863c3b0c.woff2") format("woff2"),url("../fonts/5720418/0b99944e-9364-4798-9890-1dd7cb43ab64.woff") format("woff");
-    }
-    @font-face{
-        font-family:"ITC Leawood W03 Medium Italic";
-        src:url("../fonts/5720424/ae93ee49-4dd9-4036-b495-fd92f2ce72ea.woff2") format("woff2"),url("../fonts/5720424/8fcde25f-fe97-47f5-abdf-17a11541af4f.woff") format("woff");
-    }
-    @font-face{
-        font-family:"ITC Leawood W03 Medium";
-        src:url("../fonts/5720430/a1f2678c-c8d7-46b8-b205-35936e6f49e3.woff2") format("woff2"),url("../fonts/5720430/bf3b621d-664f-49b4-b5e2-e6452dc700af.woff") format("woff");
-    }
-    @font-face{
-        font-family:"ITC Leawood W03 Book Italic";
-        src:url("../fonts/5720436/2e87b22b-8aa5-4141-a59d-896c5a3c61e8.woff2") format("woff2"),url("../fonts/5720436/9081389a-df83-46e2-997f-3d3f26ac77ca.woff") format("woff");
-    }
-    @font-face{
-        font-family:"ITC Leawood W03 Book";
-        src:url("../fonts/5720442/9af094b0-563a-40f7-9801-bae1ab7bbe49.woff2") format("woff2"),url("../fonts/5720442/85938de4-3abb-46ef-b365-e9b5a0c17646.woff") format("woff");
-    }
+@font-face{
+    font-family:"ITC Leawood W03 Bold Italic";
+    src:url("../fonts/5720412/b70cc73a-81f9-4004-8c9a-507cda479a55.woff2") format("woff2"),url("../fonts/5720412/a8094a70-72c0-44cc-b8c2-7d70bf4b74cd.woff") format("woff");
+}
+@font-face{
+    font-family:"ITC Leawood W03 Bold";
+    src:url("../fonts/5720418/899ea844-d2fe-40af-890e-71ab863c3b0c.woff2") format("woff2"),url("../fonts/5720418/0b99944e-9364-4798-9890-1dd7cb43ab64.woff") format("woff");
+}
+@font-face{
+    font-family:"ITC Leawood W03 Medium Italic";
+    src:url("../fonts/5720424/ae93ee49-4dd9-4036-b495-fd92f2ce72ea.woff2") format("woff2"),url("../fonts/5720424/8fcde25f-fe97-47f5-abdf-17a11541af4f.woff") format("woff");
+}
+@font-face{
+    font-family:"ITC Leawood W03 Medium";
+    src:url("../fonts/5720430/a1f2678c-c8d7-46b8-b205-35936e6f49e3.woff2") format("woff2"),url("../fonts/5720430/bf3b621d-664f-49b4-b5e2-e6452dc700af.woff") format("woff");
+}
+@font-face{
+    font-family:"ITC Leawood W03 Book Italic";
+    src:url("../fonts/5720436/2e87b22b-8aa5-4141-a59d-896c5a3c61e8.woff2") format("woff2"),url("../fonts/5720436/9081389a-df83-46e2-997f-3d3f26ac77ca.woff") format("woff");
+}
+@font-face{
+    font-family:"ITC Leawood W03 Book";
+    src:url("../fonts/5720442/9af094b0-563a-40f7-9801-bae1ab7bbe49.woff2") format("woff2"),url("../fonts/5720442/85938de4-3abb-46ef-b365-e9b5a0c17646.woff") format("woff");
+}
 
 
-
-
-h1, h2, h3, h4, h5 {  font-family: ITC Leawood W03 Bold; }
+h1, h2, h3, h4, h5 {
+    font-family: ITC Leawood W03 Bold, serif;
+}
 div, ul, li, ol, p, h6 {  font-family: museo-sans, sans-serif;}
 body {  font-family: 'Work Sans', sans-serif;  position: relative; }
 .trans {  -webkit-transition: all 0.3s ease;  -moz-transition: all 0.3s ease;  -o-transition: all 0.3s ease; }

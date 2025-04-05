@@ -1,90 +1,43 @@
-@extends('frontend.layouts.subpage')
+@props([
+    'post',
+])
 @section('title', $post->title)
-@section('content')
-    <!-- Start page-content -->
-    <div class="main-content">
+<x-main-layout>
+    <x-hero
+        :hero="$post->hero"
+        :title="$post->title"
+        :description="$post->excerpt"
+    />
 
-        <div class="main-content">
-            <!-- Breadcrumbs Start -->
-            <div class="rs-breadcrumbs breadcrumbs-overlay">
-                <div class="breadcrumbs-img">
-                    <img src="{{ asset('frontend/images/bg/newsletter-bg.jpg') }}" alt="Breadcrumbs Image">
-                </div>
-                <div class="breadcrumbs-text white-color">
-                    <h1 class="page-title">{{ $post->title }}</h1>
-                    <ul>
-                        <li>
-                            <a class="active" href="{{ url('/') }}">Home</a>
-                        </li>
-                        <li>{{ $post->title }}</li>
-                    </ul>
-                </div>
-            </div>
+    {{-- Include at the top if position is 'top' --}}
+    @if ($post->quick_menu_enabled && $post->quick_menu_position === 'top')
+        <x-quick-menu
+            :title="data_get($post->quick_menus, 'title')"
+            :blockContents="data_get($post->quick_menus, 'blockContents')"
+            :quickMenus="data_get($post->quick_menus, 'linkItems')"
+            :top="data_get($page->quick_menus, 'position')"
+        />
+    @endif
 
-            <section class="pt-105 pb-110">
-                <div class="container">
-                    <div class="section-content">
-                        @if ($post->feature_image)
-                            <img width="300px" height="300px"
-                                src="{{ asset($post->feature_image ? asset('storage/' . $post->feature_image) : asset('assets/img/news-events/1.JPG')) }}"
-                                alt="Featured Image">
-                        @else
-                            <img src="{{ asset('assets/assets/images/dummy.jpg') }}" style="width:200px; height:200px;"
-                                alt="Featured Image">
-                        @endif
+    {{-- Post Builder Section --}}
+    @if (!empty($post->content))
+        <x-full-with-content
+            :id="Str::random(5)"
+            :title="$post->title"
+            :excerpt="$post->excerpt"
+            :content="$post->content"
+        />
+    @else
+        <x-page-under-construction />
+    @endisset
 
-                        <p>{{ $post->excerpt }}</p>
-                        <br>
-                        @if (!empty($post->content))
+    {{-- Include at the bottom if position is 'bottom' or no position is specified --}}
+    @if ($post->quick_menu_enabled && $post->quick_menu_position === 'bottom')
+        <x-quick-menu
+            :title="data_get($post->quick_menus, 'title')"
+            :blockContents="data_get($post->quick_menus, 'blockContents')"
+            :quickMenus="data_get($post->quick_menus, 'linkItems')"
+        />
+    @endif
 
-                            @foreach ($post->content as $block)
-                                @php
-                                    $dataBlock = $block['data'];
-                                    $content = data_get($dataBlock, 'content');
-                                    $alt = data_get($dataBlock, 'alt');
-                                    $image = data_get($dataBlock, 'image');
-                                    $images = data_get($dataBlock, 'images');
-                                    $url = data_get($dataBlock, 'url');
-                                    $level = data_get($dataBlock, 'level');
-
-                                @endphp
-                                @switch($block['type'])
-                                    @case('heading')
-                                        {!! "<$level>$content</$level>" !!}
-                                    @break
-
-                                    @case('Rich Editor')
-                                        {!! $content !!}
-                                    @break
-
-                                    @case('TipTap Editor')
-                                        {!! tiptap_converter()->asHTML($content) !!}
-                                    @break
-
-                                    @case('image')
-                                        @if ($url)
-                                            <img src="{{ asset("storage/$url") }}" alt="{{ $alt }}">
-                                        @endif
-                                    @break
-
-                                    @case('Multiple Images')
-                                        @if (is_array($url) && count($url))
-                                            @foreach ($url as $item)
-                                                <img src="{{ asset("storage/$item") }}" alt="{{ $alt }}">
-                                            @endforeach
-                                        @endif
-                                    @break
-
-                                    @default
-                                        <div>{{ 'Block type not recognized.' }}</div>
-                                @endswitch
-                            @endforeach
-                        @endif
-
-                    </div>
-                </div>
-            </section>
-
-        </div>
-        <!-- end page-content -->
-    @endsection
+</x-main-layout>

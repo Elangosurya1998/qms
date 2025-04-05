@@ -13,6 +13,11 @@ class EditPost extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            Actions\Action::make('preview')
+                ->icon('heroicon-o-globe-alt')
+                ->label('Preview')
+                ->url(fn () => url('preview/post/'.$this->record?->slug))
+                ->openUrlInNewTab(),
             Actions\DeleteAction::make(),
         ];
     }

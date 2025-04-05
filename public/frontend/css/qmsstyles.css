@@ -1487,12 +1487,12 @@ hr {
 
 .content-style._bg-gray-light,
 .content-style ._bg-gray-light {
-  background-color: var(--color-default);
+  background-color: var(--color-gray-4);
 }
 
 .content-style._bg-gray-light,
 .content-style ._bg-gray-light {
-  background-color: var(--color-default);
+  background-color: var(--color-gray-4);
 }
 
 .content-style._bg-gray-lighter,

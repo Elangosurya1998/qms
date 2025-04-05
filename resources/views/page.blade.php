@@ -15,11 +15,11 @@
             :title="data_get($page->quick_menus, 'title')"
             :blockContents="data_get($page->quick_menus, 'blockContents')"
             :quickMenus="data_get($page->quick_menus, 'linkItems')"
-            :backgroundImage="data_get($page->quick_menus, 'backgroundImage')"
+            :top="data_get($page->quick_menus, 'position')"
         />
     @endif
 
-
+    {{-- Page Builder section --}}
     @if (!empty($page->content['modules']))
         @foreach ($page->content['modules'] as $index => $module)
 
@@ -95,44 +95,17 @@
                 />
             @endif
 
+            @if(isset($module['type']) && $module['type'] === 'full_with_content')
+                <x-full-with-content
+                    :id="Str::random(5)"
+                    :title="data_get($module, 'data.title')"
+                    :content="data_get($module, 'data.columns')"
+                />
+            @endif
+
         @endforeach
     @else
-        <div id="wHTQESCH98BYS0TJ" class="mwPageBlock Include" style="">
-            <div class="blockContents">
-                <style type="text/css">
-                    #contentArea-{{Str::random(5)}} {
-                        background-image:  url("");
-                        background-position: center;
-                        background-size: auto;
-                        background-repeat: no-repeat;
-                    }
-                </style>
-
-                <div id="contentArea-VX05NZ" class="contentArea contentAreaLarge _bg-white content-style">
-                    <div class="contentAreaWrap">
-                        <div class="container">
-                            <div class="mwPageArea">
-                                <div id="wQ6YDFMEXK0LC12I" class="mwPageBlock Content" style="">
-                                    <div class="blockContents">
-                                        <h1 style="text-align: center;">
-                                            PAGE UNDER CONSTRUCTION
-                                        </h1>
-                                        <h5 style="text-align: center;">
-                                            We are unable to find the page you were looking for or it is still under construction.
-                                        </h5>
-                                        <h5 style="text-align: center;">
-                                            Please check back soon, or <a href="/" style="color: var(--color-default);">click here</a> to return to the homepage.
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="Clear"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        <x-page-under-construction />
     @endisset
 
     {{-- Include at the bottom if position is 'bottom' or no position is specified --}}
@@ -141,7 +114,6 @@
             :title="data_get($page->quick_menus, 'title')"
             :blockContents="data_get($page->quick_menus, 'blockContents')"
             :quickMenus="data_get($page->quick_menus, 'linkItems')"
-            :backgroundImage="data_get($page->quick_menus, 'backgroundImage')"
         />
     @endif
 

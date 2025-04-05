@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Forms\Components\LinkFieldSet;
 use App\Filament\Resources\PostResource\Pages;
 use App\Models\Page;
 use App\Models\Post;
@@ -11,10 +12,12 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
@@ -44,15 +47,21 @@ class PostResource extends Resource
                                     ->required()
                                     ->live(onBlur: true)
                                     ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
-
                                     ->maxLength(255),
+
+                                Forms\Components\Select::make('categories')
+                                    ->relationship('categories', 'name')
+                                    ->required()
+                                    ->preload()
+                                    ->multiple(),
+
                                 Forms\Components\FileUpload::make('feature_image')
                                     ->image()
                                     ->directory('file-manager/post/feature_image')
                                     ->preserveFilenames()
                                     ->maxSize(1024 * 2),
-                                Forms\Components\Textarea::make('excerpt')
-                                    ->columnSpanFull(),
+
+                                Forms\Components\Textarea::make('excerpt'),
                             ]),
 
                         Forms\Components\Tabs\Tab::make('Hero')
@@ -122,386 +131,174 @@ class PostResource extends Resource
                                     ->key('dynamicTypeFields')
                             ]),
 
-                        Forms\Components\Tabs\Tab::make('Categories')
-                            ->columns(2)
-                            ->schema([
-                                Forms\Components\Select::make('categories')
-                                    ->relationship('categories', 'name')
-                                    ->required()
-                                    ->preload()
-                                    ->multiple(),
-                            ]),
-
                         Forms\Components\Tabs\Tab::make('Content')
                             ->schema([
-                                Forms\Components\Builder::make('content.modules')
-                                    ->label('Modules')
-                                    ->collapsible(true)
-                                    ->blocks([
+                                Repeater::make('content')
+                                    ->label('Rows')
+                                    ->reorderable()
+                                    ->schema([
+                                        Forms\Components\Select::make('type')
+                                            ->label('Type')
+                                            ->options([
+                                                'single' => 'Single Column Row',
+                                                'two' => 'Two Column Row',
+                                                'two-1-2' => 'Two Column 1:2 Row',
+                                                'three' => 'Three Column Row',
+                                                'button' => 'Button Column Row',
+                                                'images' => 'Image Column Row',
+                                                'pdf' => 'PDF Column Row',
+                                                'downloads' => 'Download Column Row',
+                                            ])
+                                            ->columnSpanFull()
+                                            ->live()
+                                            ->afterStateUpdated(fn (Select $component) => $component
+                                                ->getContainer()
+                                                ->getComponent('dynamicPageRowBuilder')
+                                                ->getChildComponentContainer()
+                                                ->fill()),
 
-                                        Builder\Block::make('interactive_grid')
-                                            ->label('Interactive Grid')
-                                            ->schema([
-                                                Forms\Components\TextInput::make('title')
-                                                    ->label('Section Title')
-                                                    ->default('Where will you venture to?')
-                                                    ->required(),
-                                                Forms\Components\Repeater::make('columns')
-                                                    ->label('Columns')
-                                                    ->columns(3)
-                                                    ->schema([
-                                                        Forms\Components\TextInput::make('title')
-                                                            ->label('Column Title')
-                                                            ->required(),
-                                                        Forms\Components\TextInput::make('link')
-                                                            ->label('Column Link')
-                                                            ->required(),
-                                                        Forms\Components\FileUpload::make('image')
-                                                            ->label('Column Image')
-                                                            ->directory('uploads/pages/columns')
-                                                            ->preserveFilenames()
-                                                            ->image()
-                                                            ->required(),
-                                                    ])
-                                                    ->minItems(1)
-                                                    ->maxItems(3),
-                                            ]),
+                                        Grid::make(2)
+                                            ->schema(fn (Get $get): array => match ($get('type')) {
+                                                'single' => [
+                                                    Grid::make(1)
+                                                        ->schema([
+                                                            TextInput::make('title')
+                                                                ->label('Title'),
 
-                                        Builder\Block::make('split_content_section')
-                                            ->label('Split Content Section')
-                                            ->columns(2)
-                                            ->schema([
+                                                            RichEditor::make('column_1')
+                                                                ->label('Column 1 Text')
+                                                                ->required(),
+                                                        ]),
+                                                ],
+                                                'two' => [
+                                                    Grid::make(2)
+                                                        ->schema([
+                                                            TextInput::make('title')
+                                                                ->label('Title'),
 
-                                                TextInput::make('head')
-                                                    ->label('Head')
-                                                    ->maxLength(255),
+                                                            RichEditor::make('column_1')
+                                                                ->label('Column 1 Text')
+                                                                ->required(),
 
-                                                TextInput::make('title')
-                                                    ->label('Title')
-                                                    ->required(),
+                                                            RichEditor::make('column_2')
+                                                                ->label('Column 2 Text')
+                                                                ->required(),
+                                                        ]),
+                                                ],
+                                                'two-1-2' => [
+                                                    Grid::make(3)
+                                                        ->schema([
+                                                            TextInput::make('title')
+                                                                ->label('Title')
+                                                                ->columnSpanFull(),
 
-                                                Textarea::make('paragraph')
-                                                    ->label('Paragraph')
-                                                    ->rows(4)
-                                                    ->required(),
+                                                            Toggle::make('reverse')
+                                                                ->label('Reverse Order'),
 
-                                                FileUpload::make('image')
-                                                    ->label('Image')
-                                                    ->directory('uploads/pages/split-content')
-                                                    ->preserveFilenames()
-                                                    ->acceptedFileTypes(['image/*'])
-                                                    ->openable()
-                                                    ->required(),
+                                                            RichEditor::make('column_1')
+                                                                ->label('Column 1 Text')
+                                                                ->required(),
 
-                                                Repeater::make('buttons')
-                                                    ->label('Buttons')
-                                                    ->columns(3)
-                                                    ->columnSpanFull()
-                                                    ->createItemButtonLabel('Add Button')
-                                                    ->schema([
-                                                        TextInput::make('label')
-                                                            ->label('Button Label')
-                                                            ->required()
-                                                            ->maxLength(100),
+                                                            RichEditor::make('column_2')
+                                                                ->label('Column 2 Text')
+                                                                ->columnSpan(2)
+                                                                ->required(),
+                                                        ]),
+                                                ],
+                                                'three' => [
+                                                    Grid::make(3)
+                                                        ->schema([
+                                                            TextInput::make('title')
+                                                                ->label('Title')
+                                                                ->columnSpanFull(),
 
-                                                        TextInput::make('url')
-                                                            ->label('Button URL')
-                                                            ->required()
-                                                            ->placeholder('https://example.com')
-                                                            ->url(),
+                                                            RichEditor::make('column_1')
+                                                                ->label('Column 1 Text')
+                                                                ->required(),
 
-                                                        Select::make('style')
-                                                            ->label('Button Style')
-                                                            ->options([
-                                                                'default' => 'Default',
-                                                                'outline' => 'Outline',
-                                                            ])
-                                                            ->default('primary')
-                                                            ->required(),
-                                                    ])
-                                                    ->minItems(1)
-                                                    ->maxItems(3)
-                                                    ->reorderable(),
-                                            ]),
+                                                            RichEditor::make('column_2')
+                                                                ->label('Column 2 Text')
+                                                                ->required(),
 
-                                        Builder\Block::make('tabbed_interface')
-                                            ->label('Tabbed Interface')
-                                            ->schema([
-                                                TextInput::make('title')
-                                                    ->label('Tabbed Section Title')
-                                                    ->required()
-                                                    ->maxLength(255),
+                                                            RichEditor::make('column_3')
+                                                                ->label('Column 3 Text')
+                                                                ->required(),
+                                                        ]),
+                                                ],
+                                                'button' => [
+                                                    Grid::make(1)
+                                                        ->schema([
+                                                            Repeater::make('button_columns')
+                                                                ->label('Button Columns')
+                                                                ->schema([
+                                                                    LinkFieldSet::make('link'),
+                                                                ])
+                                                                ->minItems(1)
+                                                                ->maxItems(3)
+                                                                ->reorderable(),
+                                                        ]),
+                                                ],
+                                                'images' => [
+                                                    Grid::make(1)
+                                                        ->schema([
+                                                            TextInput::make('title')
+                                                                ->label('Title')
+                                                                ->columnSpanFull(),
 
-                                                Repeater::make('tabs')
-                                                    ->label('Tabs')
-                                                    ->schema([
-                                                        TextInput::make('title')
-                                                            ->label('Tab Title')
-                                                            ->required()
-                                                            ->maxLength(255),
+                                                            FileUpload::make('images')
+                                                                ->label('Images')
+                                                                ->directory('uploads/pages/full-with-content/image')
+                                                                ->preserveFilenames()
+                                                                ->acceptedFileTypes(['image/*'])
+                                                                ->multiple()
+                                                                ->required()
+                                                        ])
+                                                ],
+                                                'pdf' => [
+                                                    Grid::make(1)
+                                                        ->schema([
+                                                            TextInput::make('title')
+                                                                ->label('Title')
+                                                                ->columnSpanFull(),
 
-                                                        Repeater::make('statistics')
-                                                            ->label('Statistics')
-                                                            ->columns(3)
-                                                            ->schema([
-                                                                TextInput::make('value')
-                                                                    ->label('Statistic Value')
-                                                                    ->required()
-                                                                    ->maxLength(50),
+                                                            FileUpload::make('pdf')
+                                                                ->label('PDF')
+                                                                ->directory('uploads/pages/full-with-content/pdf')
+                                                                ->preserveFilenames()
+                                                                ->required()
+                                                                ->multiple()
+                                                                ->acceptedFileTypes(['application/pdf'])
+                                                        ])
+                                                ],
+                                                'downloads' => [
+                                                    Grid::make(1)
+                                                        ->schema([
+                                                            TextInput::make('title')
+                                                                ->label('Title')
+                                                                ->columnSpanFull(),
 
-                                                                TextInput::make('symbol')
-                                                                    ->label('Statistic Symbol')
-                                                                    ->maxLength(10),
+                                                            Repeater::make('downloads')
+                                                                ->label('Downloads')
+                                                                ->schema([
 
-                                                                Textarea::make('description')
-                                                                    ->label('Statistic Description')
-                                                                    ->rows(2)
-                                                                    ->required(),
-                                                            ])
-                                                            ->minItems(1)
-                                                            ->createItemButtonLabel('Add Statistic'),
-                                                    ])
-                                                    ->minItems(1)
-                                                    ->maxItems(3)
-                                                    ->createItemButtonLabel('Add Tab')
-                                                    ->collapsible(),
-                                            ]),
+                                                                    TextInput::make('title')
+                                                                        ->label('Title')
+                                                                        ->required()
+                                                                        ->columnSpanFull(),
 
-                                        Builder\Block::make('highlight_with_buttons')
-                                            ->label('Highlight with Buttons')
-                                            ->schema([
-
-                                                TextInput::make('title')
-                                                    ->label('Title')
-                                                    ->required()
-                                                    ->maxLength(255),
-
-                                                FileUpload::make('backgroundImage')
-                                                    ->label('Background Image')
-                                                    ->directory('uploads/pages/highlight-with-buttons')
-                                                    ->preserveFilenames()
-                                                    ->acceptedFileTypes(['image/*'])
-                                                    ->openable(),
-
-                                                Repeater::make('buttons')
-                                                    ->label('Buttons')
-                                                    ->columns(3)
-                                                    ->createItemButtonLabel('Add Button')
-                                                    ->schema([
-                                                        TextInput::make('label')
-                                                            ->label('Button Label')
-                                                            ->required()
-                                                            ->maxLength(100),
-
-                                                        TextInput::make('url')
-                                                            ->label('Button URL')
-                                                            ->required()
-                                                            ->placeholder('https://example.com')
-                                                            ->url(),
-
-                                                        Select::make('style')
-                                                            ->label('Button Style')
-                                                            ->options([
-                                                                'default' => 'Default',
-                                                                'outline' => 'Outline',
-                                                            ])
-                                                            ->default('primary')
-                                                            ->required(),
-                                                    ])
-                                                    ->minItems(1)
-                                                    ->maxItems(3)
-                                                    ->reorderable(),
-
-                                            ]),
-
-                                        Builder\Block::make('image_with_text_carousel')
-                                            ->label('Image with Text Carousel')
-                                            ->schema([
-
-                                                FileUpload::make('backgroundImage')
-                                                    ->label('Background Image')
-                                                    ->directory('uploads/pages/image-with-text-carousel/background-image')
-                                                    ->preserveFilenames()
-                                                    ->acceptedFileTypes(['image/*'])
-                                                    ->openable(),
-
-                                                Repeater::make('carouselItems')
-                                                    ->label('Carousel Items')
-                                                    ->columns(3)
-                                                    ->createItemButtonLabel('Add Carousel')
-                                                    ->schema([
-                                                        Textarea::make('content')
-                                                            ->label('Content')
-                                                            ->maxLength(400)
-                                                            ->rows(10)
-                                                            ->required(),
-
-                                                        FileUpload::make('image')
-                                                            ->label('Image')
-                                                            ->directory('uploads/pages/image-with-text-carousel')
-                                                            ->preserveFilenames()
-                                                            ->acceptedFileTypes(['image/*'])
-                                                            ->required()
-                                                            ->openable(),
-
-                                                        TextInput::make('author')
-                                                            ->label('Author')
-                                                            ->maxLength(155)
-                                                            ->required(),
-                                                    ])
-                                                    ->minItems(1)
-                                                    ->maxItems(3)
-                                                    ->reorderable(),
-
-                                            ]),
-
-                                        Builder\Block::make('title_with_content')
-                                            ->label('Title with Content')
-                                            ->schema([
-
-                                                FileUpload::make('backgroundImage')
-                                                    ->label('Background Image')
-                                                    ->directory('uploads/pages/image-with-text-carousel/background-image')
-                                                    ->preserveFilenames()
-                                                    ->acceptedFileTypes(['image/*'])
-                                                    ->openable(),
-
-                                                TextInput::make('title')
-                                                    ->label('Title')
-                                                    ->maxLength(100)
-                                                    ->required(),
-
-                                                Textarea::make('content')
-                                                    ->label('Content')
-                                                    ->rows(4)
-                                                    ->required(),
-                                            ]),
-
-                                        Builder\Block::make('full_with_image')
-                                            ->label('Full with Image')
-                                            ->schema([
-
-                                                FileUpload::make('image')
-                                                    ->label('Image')
-                                                    ->directory('uploads/pages/full-with-image/image')
-                                                    ->preserveFilenames()
-                                                    ->acceptedFileTypes(['image/*'])
-                                                    ->columnSpanFull()
-                                                    ->openable(),
-
-                                            ]),
-
-                                        Builder\Block::make('icon_text_grid_block')
-                                            ->label('Icon Text Grid Block')
-                                            ->schema([
-
-                                                TextInput::make('title')
-                                                    ->label('Title')
-                                                    ->required()
-                                                    ->maxLength(255),
-
-                                                FileUpload::make('icon_image')
-                                                    ->label('Icon Image')
-                                                    ->directory('uploads/pages/full-with-image/image')
-                                                    ->preserveFilenames()
-                                                    ->acceptedFileTypes(['image/*'])
-                                                    ->columnSpanFull()
-                                                    ->openable(),
-
-                                                ColorPicker::make('background_color')
-                                                    ->label('Background Color'),
-
-                                                FileUpload::make('backgroundImage')
-                                                    ->label('Background Image')
-                                                    ->directory('uploads/pages/icon-text-grid-block/background-image')
-                                                    ->preserveFilenames()
-                                                    ->acceptedFileTypes(['image/*'])
-                                                    ->openable(),
-
-                                                Repeater::make('columns')
-                                                    ->label('Columns')
-                                                    ->schema([
-                                                        Forms\Components\Select::make('type')
-                                                            ->label('Type')
-                                                            ->options([
-                                                                'single' => 'Single Column',
-                                                                'two' => 'Two Column',
-                                                                'three' => 'Three Column',
-                                                            ])
-                                                            ->columnSpanFull()
-                                                            ->live()
-                                                            ->afterStateUpdated(fn (Select $component) => $component
-                                                                ->getContainer()
-                                                                ->getComponent('dynamicColumnType')
-                                                                ->getChildComponentContainer()
-                                                                ->fill()),
-
-                                                        Grid::make(2)
-                                                            ->schema(fn (Get $get): array => match ($get('type')) {
-                                                                'single' => [
-                                                                    Grid::make(1)
-                                                                        ->schema([
-                                                                            MarkdownEditor::make('column_1')
-                                                                                ->enableToolbarButtons([
-                                                                                    'attachFiles',
-                                                                                    'blockquote',
-                                                                                    'bold',
-                                                                                    'bulletList',
-                                                                                    'codeBlock',
-                                                                                    'heading',
-                                                                                    'h2',
-                                                                                    'h3',
-                                                                                    'heading4',
-                                                                                    'heading5',
-                                                                                    'heading6',
-                                                                                    'italic',
-                                                                                    'link',
-                                                                                    'orderedList',
-                                                                                    'redo',
-                                                                                    'strike',
-                                                                                    'table',
-                                                                                    'undo',
-                                                                                ])
-                                                                                ->label('Column 1 Text')
-                                                                                ->required(),
-                                                                        ]),
-                                                                ],
-                                                                'two' => [
-                                                                    Grid::make(2)
-                                                                        ->schema([
-                                                                            MarkdownEditor::make('column_1')
-                                                                                ->label('Column 1 Text')
-                                                                                ->required(),
-
-                                                                            MarkdownEditor::make('column_2')
-                                                                                ->label('Column 2 Text')
-                                                                                ->required(),
-                                                                        ]),
-                                                                ],
-                                                                'three' => [
-                                                                    Grid::make(3)
-                                                                        ->schema([
-                                                                            MarkdownEditor::make('column_1')
-                                                                                ->label('Column 1 Text')
-                                                                                ->required(),
-
-                                                                            MarkdownEditor::make('column_2')
-                                                                                ->label('Column 2 Text')
-                                                                                ->required(),
-
-                                                                            MarkdownEditor::make('column_3')
-                                                                                ->label('Column 3 Text')
-                                                                                ->required(),
-                                                                        ]),
-                                                                ],
-                                                                default => [],
-                                                            })
-                                                            ->key('dynamicColumnType')
-                                                    ]),
-                                            ]),
-
-                                    ])
-                                    ->columnSpanFull(),
+                                                                    FileUpload::make('file')
+                                                                        ->label('File')
+                                                                        ->directory('uploads/pages/full-with-content/downloads')
+                                                                        ->preserveFilenames()
+                                                                        ->acceptedFileTypes(['application/pdf', 'application/zip', 'application/word'])
+                                                                        ->required(),
+                                                                ])
+                                                        ])
+                                                ],
+                                                default => [],
+                                            })
+                                            ->key('dynamicPageRowBuilder'),
+                                    ]),
                             ]),
 
                         Forms\Components\Tabs\Tab::make('Quick Menu')
@@ -560,14 +357,6 @@ class PostResource extends Resource
                                     ->searchable()
                                     ->native(false),
 
-                                FileUpload::make('quick_menus.backgroundImage')
-                                    ->label('Background Image')
-                                    ->directory('uploads/background-images')
-                                    ->preserveFilenames()
-                                    ->maxSize(2048)
-                                    ->acceptedFileTypes(['image/*'])
-                                    ->hidden(fn (Get $get) => !$get('quick_menu_enabled')),
-
                             ]),
 
                         Forms\Components\Tabs\Tab::make('Settings')
@@ -612,13 +401,14 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('feature_image'),
                 Tables\Columns\TextColumn::make('title')
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->sortable()
                     ->searchable(),
+                Tables\Columns\ImageColumn::make('feature_image')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('slug_url')
                     ->icon('heroicon-o-clipboard')
                     ->tooltip('Copy Link')
@@ -653,7 +443,12 @@ class PostResource extends Resource
             ->filters([
                 //
             ])
-              ->actions([
+            ->actions([
+                Tables\Actions\Action::make('preview')
+                  ->icon('heroicon-o-globe-alt')
+                  ->label('Preview')
+                  ->url(fn($record) => url('preview/post/'.$record->slug))
+                  ->openUrlInNewTab(),
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),

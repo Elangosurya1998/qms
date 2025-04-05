@@ -73,7 +73,11 @@ class Menus extends Model
 
     public function getSlugUrlAttribute(): string
     {
-        return $this->isExternalUrl() ? $this->url : route('pages.index', ['slug' => $this->slug]);
+        if ($this->isExternalUrl()) {
+            return $this->url ?? '';
+        }
+
+        return $this->page?->slug_url ?? '/';
     }
 
 //    /**
