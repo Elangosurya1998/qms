@@ -1,6 +1,6 @@
 /** //** ----= mwImageReader	=--------------------------------------------------------------------------------------\**//** \
 *
-*	Fast loads image from File object and runs callback on it.	
+*	Fast loads image from File object and runs callback on it.
 *
 *	@param		object(File)	$file		- File object to use as source.
 *	@param		function	$callback	- Callback to execute.
@@ -13,7 +13,7 @@ function mwImageReader ($file, $callback) {
 		$file = $file.get(0);
 
 	// If file is DOM input - using first file
-	if ( $file instanceof HTMLInputElement ) 
+	if ( $file instanceof HTMLInputElement )
 		$file = $file.files[0];
 
 	// Nothng to do if no files selected
@@ -27,20 +27,20 @@ function mwImageReader ($file, $callback) {
 	// Reading file
 	var $reader = new FileReader();
 	$reader.onload = function ($e) {
-		
+
 		// Issuing callback
 		if ( typeof($callback) == 'function' )
 			$callback($reader.result);
-		
+
 	}; //FUNC reader.onload
-	
+
 	$reader.readAsDataURL($file);
-	
+
 } //FUNC mwImageReader
 
 /** //** ----= mwImagePreview	=--------------------------------------------------------------------------------------\**//** \
 *
-*	Fast loads image from File object (usually obtained from file input) into <img> element using HTML5 filesAPI.	
+*	Fast loads image from File object (usually obtained from file input) into <img> element using HTML5 filesAPI.
 *
 *	@param		jQuery		$image	- Image to update.
 *	@param		object(File)	$file	- File object to use as source.
@@ -54,33 +54,33 @@ function mwImagePreview ($image, $file, $callback) {
 
 	// Reading image from file input and applying to image
 	mwImageReader($file, function ($src) {
-		
+
 		// Saving old event handler, replacing with own and then returning it back
-		var $oe = $image.onload; 
+		var $oe = $image.onload;
 
 		// Triggering callback after image was actually drawn
 		// Setting this before
 		$image.onload = function () {
-			
+
 			// Resetting onload we just added
 			$image.onload = $oe;
-			
+
 			// Issuing callback
 			if ( typeof($callback) == 'function' )
 				$callback($src);
-				
+
 		}; //FUNC image.onLoad
-		
+
 		// Now after event is setup, we can actually apply loaded image
 		$image.src = $src;
-		
+
 	}); //mwImageReader.callback
 
 } //FUNC mwImagePreview
 
 /** //** ----= mwBackgroundPreview	=------------------------------------------------------------------------------\**//** \
 *
-*	Fast loads image from File object (usually obtained from file input) into background of element using HTML5 filesAPI.	
+*	Fast loads image from File object (usually obtained from file input) into background of element using HTML5 filesAPI.
 *
 *	@param		jQuery		$image	- Image to update.
 *	@param		object(File)	$file	- File object to use as source.
@@ -93,18 +93,18 @@ function mwBackgroundPreview ($image, $file, $callback) {
 
 		// Now after event is setup, we can actually apply loaded image
 		$image.css('background-image', "url('"+$src+"')");
-	
+
 		// Issuing callback
 		if ( typeof($callback) == 'function' )
 			$callback($src);
-		
+
 	}); //mwImageReader.callback
 
 } //FUNC mwBackgroundPreview
 
 /** //** ----= mwOnImageChange	=--------------------------------------------------------------------------------------\**//** \
 *
-*	Binds onChange event to given file input, and updates specified <img> element using HTML5 files API once input changes.	
+*	Binds onChange event to given file input, and updates specified <img> element using HTML5 files API once input changes.
 *
 *	@param		jQuery		$image		- Image to update.
 *	@param		jQuery		$imageInput	- File input to bing.
@@ -118,22 +118,22 @@ function mwOnImageChange ($image, $imageInput) {
 	$imageInput
 		.off('change.mwOnImageChange')
 		.on('change.mwOnImageChange', function () {
-			
+
 			// Safety check
 			if ( !this.files.length )
 				return;
-			
+
 			// Using first given file (single image update essencially)
 			mwImagePreview($image, this.files[0]);
 
 		}) //onChange
 	; //jQuery imageInput
-	
+
 } //FUNC mwOnImageChange
 
 /** //** ----= mwLoadImage	=--------------------------------------------------------------------------------------\**//** \
 *
-*	Adds preloader to specified <img> element. Uses expected dimensions to draw proper loading box. 
+*	Adds preloader to specified <img> element. Uses expected dimensions to draw proper loading box.
 *	Uses native DOM tree methods, to be less depended on onLoad event (no need to wait other libs to load).
 *	Detects element proportinal changes (in case of dynamic image widths of responsive images).
 *
@@ -160,7 +160,7 @@ function mwLoadImage ($image, $width, $height) {
 
 	// Calculating ratio for scticking sizes. Will calculate on place from width, for full responsive behavior
 	var $ratio	= $width / $height;
-	
+
 	// Saving original image styles, to restore after it's loaded
 	var $css = {
 		'width'		: $image.style.width,
@@ -171,7 +171,7 @@ function mwLoadImage ($image, $width, $height) {
 	var $alt = $image.getAttribute('alt');
 	$image.setAttribute('alt', '');
 
-	// Setting loading state	
+	// Setting loading state
 	$image.className += ' loading';
 
 	// Setting image size strictly while it loads (to make sure loader look correctly)
@@ -179,41 +179,39 @@ function mwLoadImage ($image, $width, $height) {
 	// ToDo: Test source dimensions, might be clientWidth better to use as source
 	$image.style.width	= $width + 'px';
 	$image.style.height	= Math.round($width / $ratio) + 'px';
-	
+
 	// When image loaded - need to revert changes and remove loading state
 	$image.onload = function () {
 
 		// Removing class
 		$image.className = $image.className.replace('loading', '');
-		
+
 		// Setting height/width back
 		$image.style.width = $css.width;
 		$image.style.height = $css.height;
-		
+
 		// Restoring alt
 		$image.setAttribute('alt', $alt);
-		
+
 		// Unsetting onload
 		$image.onload = false;
-	} //FUNC $image.onLoad			
-	
+	} //FUNC $image.onLoad
+
 } //FUNC mwLoadImage
 
 /** //** ----= mwInitMedia	=--------------------------------------------------------------------------------------\**//** \
 *
 *	Initiates common morweb audion/video players on page.
 *
-*	@param		jQuery	[$context]	- Context to search within.	
+*	@param		jQuery	[$context]	- Context to search within.
 *
 \**//** ---------------------------------------------------------------------------= by Mr.V!T @ Morad Media Inc. =----/** //**/
 function mwInitMedia ($context) {
-
 	// ToDo: Implement conditional media resources initiating
 	var $el = jQuery('audio, video', $context);
-	
 	if ( !$el.length )
 		return;
-		
+
 	// Initiating common audio/video
 	$el.mediaelementplayer({
 		enableAutosize		: false,
@@ -228,10 +226,10 @@ function mwInitMedia ($context) {
 		shimScriptAccess	: 'always',
 	/**/
 		success                 : function( $mediaElement, $originalNode, $instance ) {
-			
+
 			// Storing instance as element data for easy access later
 			jQuery($originalNode).data('mediaelement', $instance);
-			
+
 			// Workaround to retain controls attribute on video
 			// Somehow mediaelement looses it, and fails to init
 			// Required only on video
@@ -242,18 +240,18 @@ function mwInitMedia ($context) {
 			jQuery($originalNode).attr({
 				'controls'      :       'controls'
 			});
-		
+
 			setTimeout( function () {
 			//	jQuery($originalNode).removeAttr('controls');
 			}, 10);
-		
+
 		/*/
 			// jQuery($originalNode).removeAttr('controls');
-		/**/	
+		/**/
 		}, //FUNC success
 
 	}); //mediaelementplayer.options
-	
+
 	// ToDo: Implement widget based initiations
-	
+
 } //FUNC mwInitMedia

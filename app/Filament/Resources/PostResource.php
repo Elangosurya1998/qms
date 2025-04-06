@@ -59,6 +59,7 @@ class PostResource extends Resource
                                     ->image()
                                     ->directory('file-manager/post/feature_image')
                                     ->preserveFilenames()
+                                    ->required()
                                     ->maxSize(1024 * 2),
 
                                 Forms\Components\Textarea::make('excerpt'),
@@ -144,6 +145,7 @@ class PostResource extends Resource
                                                 'two' => 'Two Column Row',
                                                 'two-1-2' => 'Two Column 1:2 Row',
                                                 'three' => 'Three Column Row',
+                                                'irregular_grid' => 'Irregular Grid Row',
                                                 'button' => 'Button Column Row',
                                                 'images' => 'Image Column Row',
                                                 'pdf' => 'PDF Column Row',
@@ -225,6 +227,24 @@ class PostResource extends Resource
                                                                 ->label('Column 3 Text')
                                                                 ->required(),
                                                         ]),
+                                                ],
+                                                'irregular_grid' => [
+                                                    Grid::make(1)
+                                                        ->schema([
+                                                            FileUpload::make('image')
+                                                                ->label('Image')
+                                                                ->directory('uploads/post/irregualr-grid')
+                                                                ->preserveFilenames()
+                                                                ->acceptedFileTypes(['image/*'])
+                                                                ->required()
+                                                                ->openable(),
+
+                                                            Textarea::make('content')
+                                                                ->label('Content')
+                                                                ->maxLength(500)
+                                                                ->rows(10)
+                                                                ->required(),
+                                                        ])
                                                 ],
                                                 'button' => [
                                                     Grid::make(1)
@@ -410,6 +430,7 @@ class PostResource extends Resource
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('feature_image')
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 Tables\Columns\TextColumn::make('slug_url')
                     ->icon('heroicon-o-clipboard')
                     ->tooltip('Copy Link')
@@ -417,6 +438,7 @@ class PostResource extends Resource
                     ->label('Link')
                     ->copyable()
                     ->copyMessage('Link copied'),
+
                 Tables\Columns\TextColumn::make('category_names')
                     ->sortable()
                     ->searchable(),

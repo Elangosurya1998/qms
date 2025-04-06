@@ -54,7 +54,7 @@
                                         <div id="wHKYMKO5Z21U1S82" class="mwPageBlock Content" style="">
                                             <div class="blockContents">
                                                 <p>
-                                                    <img src="{{ $headerMenu->image ? asset('storage/' . $headerMenu->image) : asset('frontend/files/_cache/default-fallback.jpg') }}"
+                                                    <img src="{{ $headerMenu->image != null ? asset('storage/' . $headerMenu->image) : asset('frontend/files/_cache/8038d3668302af8d6540e10a28d8330d.jpg') }}"
                                                          alt="{{ $headerMenu->title ?? 'Menu Image' }}"
                                                          width="247"
                                                          height="225" />
@@ -180,13 +180,10 @@
                         <div class="headerMainLeft">
                             <!-- Header Logo -->
                             <div class="headerLogo trans">
-                                <h1>
-                                    <a href="/">{{ $siteSetting->name }}</a>
-                                </h1>
-                                {{--                                <a href="/">--}}
-                                {{--                                    <img src="{{ asset('frontend/images/logo.svg') }}" class="trans"--}}
-                                {{--                                        title="{{ $siteSetting->name }}" alt="{{ $siteSetting->name }}" />--}}
-                                {{--                                </a>--}}
+                                <a href="/">
+                                    <img src="{{ asset('/images/logo.png') }}" class="trans"
+                                        title="{{ $siteSetting->name }}" alt="{{ $siteSetting->name }}" style="width: 150px"/>
+                                </a>
                             </div>
                         </div>
                         <!-- Header Main Right -->

@@ -19,8 +19,6 @@
             }
         </style>
 
-
-
         <div id="contentArea-{{$id}}" class="contentArea _bg-primary content-style">
 
             <div class="contentAreaWrap">

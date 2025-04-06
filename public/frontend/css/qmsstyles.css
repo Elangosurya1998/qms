@@ -20420,7 +20420,7 @@ PerspectivesWrap
 .studentCarousel {}
 
 .studentCarousel:before {
-  content: url(../images/quoteOpen.png);
+  /*content: url(../images/quoteOpen.png);*/
   display: block;
   position: absolute;
   z-index: 8;
@@ -20435,7 +20435,7 @@ PerspectivesWrap
 }
 
 .studentCarousel:after {
-  content: url(../images/quoteEnd.png);
+  /*content: url(../images/quoteEnd.png);*/
   display: block;
   position: absolute;
   z-index: 8;
@@ -20446,7 +20446,7 @@ PerspectivesWrap
 }
 
 .studentCarousel.carouselNoImage:after {
-  content: url(../images/quoteEnd.png);
+  /*content: url(../images/quoteEnd.png);*/
   display: block;
   position: absolute;
   z-index: 8;
@@ -20457,7 +20457,7 @@ PerspectivesWrap
 }
 
 .studentCarousel.carouselNoImage.studentSingleItem:after {
-  content: url(../images/quoteEnd.png);
+  /*content: url(../images/quoteEnd.png);*/
   display: block;
   position: absolute;
   z-index: 8;

@@ -14,9 +14,9 @@
                                     <div class="footerColInner">
 
                                         <!-- Logo -->
-                                        {{--                                        <div class="footerLogo"> --}}
-                                        {{--                                            <img src="{{ asset('frontend/images/logoFooter.svg') }}" title="{{ $siteSetting->name }}" /> --}}
-                                        {{--                                        </div> --}}
+{{--                                        <div class="footerLogo">--}}
+{{--                                            <img src="{{ asset('images/logoFooter.svg') }}" title="{{ $siteSetting->name }}" />--}}
+{{--                                        </div>--}}
                                         <h1>{{ $siteSetting->name }}</h1>
 
                                         <!-- Description -->
@@ -47,13 +47,13 @@
                                                 </p>
                                                 <hr />
                                                 <h6>
-                                                    An Accredited School
+                                                    AFFILIATED TO
                                                 </h6>
                                                 <p>
-                                                    <a href="https://www.ncea.org/" target="_blank">
-                                                        {{--                                                        <img  src="{{ asset('frontend/files/_cache/372099805e9119a65e96fe8da9ef2321.png?207x134') }}" --}}
-                                                        {{--                                                            alt="NCEA_logo2.png" width="207" height="134" /> --}}
-                                                    </a>
+                                                    <a href="https://cisce.org/" target="_blank">
+                                                        <img  src="{{ asset('images/logo-cisce.webp?207x134') }}"
+                                                            alt="NCEA_logo2.png" width="207" height="134" />
+                                                        </a>
                                                 </p>
                                             </div>
                                         </div>

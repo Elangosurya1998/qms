@@ -6,20 +6,24 @@ use Awcodes\Curator\Models\Media;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class PhotoGallery extends Model
 {
-    use HasFactory;
+    use HasFactory, HasSlug;
 
-    // protected $casts = [
-    //     'images' => 'array',
-    // ];
+     protected $casts = [
+         'images' => 'array',
+     ];
+
+     protected $appends = ['thumbnails', 'slug_url'];
 
     protected $fillable = [
         'title',
         'slug',
         'description',
-        // 'images',
+        'images',
         'status',
         'order_by',
         'publish_date',
@@ -27,30 +31,34 @@ class PhotoGallery extends Model
         'updated_at'
     ];
 
-    public function images(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function getSlugOptions(): SlugOptions
     {
-        return $this->belongsToMany(Media::class, 'photo_gallery_media')
-            ->withTimestamps();
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
     }
 
-     protected static function booted()
+    public function getSlugUrlAttribute()
     {
-        static::deleting(function ($photoGallery) {
-            // Detach related media records
-            $photoGallery->images()->each(function ($image) {
-                // Delete the file from the 'public' disk
-                if (\Storage::disk('public')->exists($image->path)) {
-                    \Storage::disk('public')->delete($image->path);
-                } else {
-                    \Log::warning('Image file not found: ' . $image->path);
-                }
+        return '';
+    }
 
-                // Delete the media record itself
-                $image->delete();
-            });
+    public function getThumbnailsAttribute()
+    {
+        if (is_array($this->images) && count($this->images) > 0) {
+            // Get a random image
+            $randomImage = $this->images[array_rand($this->images)];
 
-            // Clean up the pivot table entries
-            $photoGallery->images()->detach();
-        });
+            // Extract the file name for alt text
+            $fileName = pathinfo($randomImage, PATHINFO_FILENAME);
+
+            return [
+                'url' => $randomImage,
+                'alt' => $fileName, // Use the file name as the alt text
+            ];
+        }
+
+        return null;
+
     }
 }

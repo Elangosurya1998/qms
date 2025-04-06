@@ -25,15 +25,29 @@ class TestimonialsResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('designation')
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('content')
-                    ->columnSpanFull(),
-                Forms\Components\FileUpload::make('image')
-                    ->image(),
+                Forms\Components\Tabs::make('Testimonial Details')
+                ->columnSpanFull()
+                ->tabs([
+                    Forms\Components\Tabs\Tab::make('General')
+                        ->columns(2)
+                        ->schema([
+                            Forms\Components\TextInput::make('name')
+                                ->required()
+                                ->maxLength(155),
+                            Forms\Components\TextInput::make('designation')
+                                ->maxLength(255),
+                            Forms\Components\Textarea::make('content')
+                                ->rows(5)
+                                ->maxLength(500 )
+                                ->required(),
+                            Forms\Components\FileUpload::make('image')
+                                ->image()
+                                ->required()
+                                ->disk(config('media-library.disk_name'))
+                                ->directory('testimonials')
+                                ->preserveFilenames(),
+                        ]),
+                ])
             ]);
     }
 

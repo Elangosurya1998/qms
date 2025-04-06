@@ -1,24 +1,22 @@
 @props([
     'id' => null,
-    'backgroundImage' => null,
+    'title' => null,
     'carouselItems' => []
 ])
 
 <div id="w0KB2HBX0EW5PEX2" class="mwPageBlock Include" style="">
     <div class="blockContents">
-        <style type="text/css">
-            #contentArea-{{$id}} {
-                background-image: url("{{asset('storage/'.$backgroundImage)}}");
-                background-position: center;
-                background-size: cover;
-                background-repeat: no-repeat;
-            }
-        </style>
-
         <div id="contentArea-{{$id}}" class="contentArea contentAreaLarge _bg-gray content-style">
             <div class="contentAreaWrap">
                 <div class="container">
                     <div class="mwPageArea">
+                        <div id="w772AML51ZJPIOQE" class="mwPageBlock Content" style="">
+                            <div class="blockContents">
+                                <h2>
+                                    {{ $title }}
+                                </h2>
+                            </div>
+                        </div>
                         <div id="wQU43693BG3XEZ7T" class="mwPageBlock Gallery" style="">
                             <div class="blockContents">
                                 <div id="carousel-PIRX5A" class="carousel carouselOne content-style studentCarousel">
@@ -32,7 +30,11 @@
                                                 <div class="twoColRight">
                                                     <div class="studentInfo">
                                                         <p>{{ $carousel['content'] }}</p>
-                                                        <p class="studentTitle">- {{ $carousel['author'] }}</p>
+                                                        <p class="studentTitle">- {{ $carousel['name'] }}
+                                                            @if (!empty($carousel['designation']))
+                                                                ( {{ $carousel['designation'] }} )
+                                                            @endif
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>

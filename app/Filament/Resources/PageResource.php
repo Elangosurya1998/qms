@@ -136,6 +136,35 @@ class PageResource extends Resource
                                     ->collapsed(true)
                                     ->blocks([
 
+                                        Builder\Block::make('default_section')
+                                            ->label('Default Sections')
+                                            ->schema([
+                                                Forms\Components\Tabs::make('Default Section Details')
+                                                    ->tabs([
+                                                        Forms\Components\Tabs\Tab::make('Section Title')
+                                                            ->label('Section Title')
+                                                            ->schema([
+                                                                Forms\Components\TextInput::make('title')
+                                                                    ->label('Section Title')
+                                                                    ->required(),
+
+                                                                Forms\Components\Select::make('section')
+                                                                    ->label('Select Section')
+                                                                    ->options([
+                                                                        'testimonials' => 'Testimonials',
+                                                                        'news_and_events' => 'News and Events',
+                                                                        'gallery' => 'Gallery',
+//                                                                        'flash_news' => 'Flash News',
+//                                                                        'upcoming_events' => 'Upcoming Events',
+//                                                                        'contact_us' => 'Contact Us',
+//                                                                        'about_us' => 'About Us',
+//                                                                        'our_team' => 'Our Team',
+                                                                    ])
+                                                                    ->required(),
+                                                            ]),
+                                                    ]),
+                                            ]),
+
                                         Builder\Block::make('interactive_grid')
                                             ->label('Interactive Grid')
                                             ->schema([
@@ -354,40 +383,34 @@ class PageResource extends Resource
                                                     ]),
                                             ]),
 
-                                        Builder\Block::make('image_with_text_carousel')
-                                            ->label('Image with Text Carousel')
+                                        Builder\Block::make('irregular_grid')
+                                            ->label('Irregular grid Image with text')
                                             ->schema([
-                                                Forms\Components\Tabs::make('Image with Text Carousel Details')
+                                                Forms\Components\Tabs::make('Irregular Grid Details')
                                                     ->tabs([
-                                                        Forms\Components\Tabs\Tab::make('Carousel Items')
-                                                            ->label('Carousel Items')
+                                                        Forms\Components\Tabs\Tab::make('Grid Items')
+                                                            ->label('Grid Items')
                                                             ->schema([
-                                                                Repeater::make('carouselItems')
-                                                                    ->label('Carousel Items')
-                                                                    ->columns(3)
-                                                                    ->createItemButtonLabel('Add Carousel')
+                                                                Repeater::make('gridItems')
+                                                                    ->label('Grid Items')
+                                                                    ->columns(2)
+                                                                    ->createItemButtonLabel('Add Grid Item')
                                                                     ->schema([
-                                                                        Textarea::make('content')
-                                                                            ->label('Content')
-                                                                            ->maxLength(400)
-                                                                            ->rows(10)
-                                                                            ->required(),
-
                                                                         FileUpload::make('image')
                                                                             ->label('Image')
-                                                                            ->directory('uploads/pages/image-with-text-carousel')
+                                                                            ->directory('uploads/pages/irregualr-grid')
                                                                             ->preserveFilenames()
                                                                             ->acceptedFileTypes(['image/*'])
                                                                             ->required()
                                                                             ->openable(),
 
-                                                                        TextInput::make('author')
-                                                                            ->label('Author')
-                                                                            ->maxLength(155)
+                                                                        Textarea::make('content')
+                                                                            ->label('Content')
+                                                                            ->maxLength(500)
+                                                                            ->rows(10)
                                                                             ->required(),
                                                                     ])
                                                                     ->minItems(1)
-                                                                    ->maxItems(3)
                                                                     ->reorderable(),
                                                             ]),
 

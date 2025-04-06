@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\View\Composers\MenuComposer;
 use App\View\Composers\PageSettingComposer;
+use App\View\Composers\DefaultSectionComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,5 +25,6 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer(['components.header','components.footer'], MenuComposer::class);
         View::composer(['layouts.main-layout', 'components.header','components.footer'], PageSettingComposer::class);
+        View::composer(['components.default-sections'], DefaultSectionComposer::class);
     }
 }

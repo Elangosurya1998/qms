@@ -22,7 +22,7 @@ class Post extends Model
     protected $appends = [
         'category_names',
         'slug_url'
-        
+
     ];
 
     protected $fillable = [
@@ -56,7 +56,7 @@ class Post extends Model
 
     public function getSlugUrlAttribute()
     {
-        return url($this->slug);
+        return url('post/'.$this->slug);
     }
 
     public function categories(): \Illuminate\Database\Eloquent\Relations\BelongsToMany

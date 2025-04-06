@@ -32,5 +32,17 @@ class PostController extends Controller
         return view('post', compact('post'));
     }
 
+    public function newsAndEvents(Request $request){
+        $newsAndEvents = Post::whereHas('categories', function ($query) {
+            $query->where('slug', 'news-events');
+        })
+            ->where('status', 1)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+
+        return view('pages.news-events', compact('newsAndEvents'));
+    }
+
 
 }

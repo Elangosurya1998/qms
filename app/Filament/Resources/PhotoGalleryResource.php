@@ -7,6 +7,7 @@ use App\Filament\Resources\PhotoGalleryResource\RelationManagers;
 use App\Models\PhotoGallery;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -24,22 +25,35 @@ class PhotoGalleryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('images')
-                    ->columnSpanFull(),
-                Forms\Components\Toggle::make('status')
-                    ->required(),
-                Forms\Components\TextInput::make('order_by')
-                    ->numeric(),
-                Forms\Components\DatePicker::make('publish_date'),
+                Forms\Components\Tabs::make('Photo Gallery Details')
+                ->columnSpanFull()
+                ->tabs([
+                    Forms\Components\Tabs\Tab::make('General')->schema([
+                        Forms\Components\TextInput::make('title')
+                            ->required()
+                            ->unique(ignoreRecord: true)
+                            ->maxLength(255),
+                        Forms\Components\Textarea::make('description')
+                            ->required()
+                            ->columnSpanFull(),
+                        Forms\Components\FileUpload::make('images')
+                            ->multiple()
+                            ->directory(fn (Get $get, $record) => 'uploads/photo-galleries/' . $get('title'))
+                            ->image()
+                            ->preserveFilenames()
+                            ->panelLayout('grid')
+                            ->maxParallelUploads(10)
+                            ->columnSpanFull(),
+                    ]),
+
+                    Forms\Components\Tabs\Tab::make('Settings')->schema([
+                        Forms\Components\Toggle::make('status')
+                            ->required(),
+                        Forms\Components\TextInput::make('order_by')
+                            ->numeric(),
+                        Forms\Components\DatePicker::make('publish_date'),
+                    ]),
+                ])
             ]);
     }
 

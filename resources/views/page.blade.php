@@ -61,11 +61,11 @@
                 />
             @endif
 
-            @if (isset($module['type']) && $module['type'] === 'image_with_text_carousel')
-                <x-image-with-text-carousel
+            @if (isset($module['type']) && $module['type'] === 'irregular_grid')
+                <x-irregular-grid
                     :id="Str::random(5)"
                     :backgroundImage="data_get($module, 'data.backgroundImage')"
-                    :carouselItems="data_get($module, 'data.carouselItems')"
+                    :gridItems="data_get($module, 'data.gridItems')"
                 />
             @endif
 
@@ -104,7 +104,17 @@
                 />
             @endif
 
+            @if(isset($module['type']) && $module['type'] === 'default_section')
+                <x-default-sections
+                    :id="Str::random(5)"
+                    :title="data_get($module, 'data.title')"
+                    :type="data_get($module, 'data.section')"
+                />
+            @endif
+
         @endforeach
+
+
     @else
         <x-page-under-construction />
     @endisset

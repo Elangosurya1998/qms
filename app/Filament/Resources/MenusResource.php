@@ -37,7 +37,8 @@ class MenusResource extends Resource
                                     ->maxLength(255),
 
                                 Forms\Components\Textarea::make('excerpt')
-                                    ->label('Excerpt'),
+                                    ->label('Excerpt')
+                                    ->required(),
 
                                 Forms\Components\Hidden::make('type')
                                     ->default('main_menu')
