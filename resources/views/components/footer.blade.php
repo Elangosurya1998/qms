@@ -170,16 +170,3 @@
         </div>
     </div>
 </footer>
-
-<div class="mdPopupWrapB" id="request_thankyou">
-    <div class="mdPopup">
-        <div class="memWrap">
-            <div class="mdCloseB"><span class="fa fa-times"></span></div>
-
-            <div class="thank-you">
-                <h3>Message Successfully Sent!</h3>
-                <br /><br />
-            </div>
-        </div>
-    </div>
-</div>

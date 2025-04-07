@@ -19,6 +19,15 @@
 
                 @foreach ($content as $record)
                     @if($record['type'] == 'single')
+                        @if($record['title'])
+                        <div id="wQFF0QXSJFIAIUY0" class="mwPageBlock Content" style="">
+                            <div class="blockContents">
+                                <h3>
+                                    {{ $record['title'] }}
+                                </h3>
+                            </div>
+                        </div>
+                        @endif
                         <div id="wSAMXWBVTHPCO3KQ" class="mwPageBlock Content" style="">
                             <div class="blockContents">
                                 {!! str($record['column_1'])->sanitizeHtml() !!}
@@ -26,6 +35,50 @@
                         </div>
                     @endif
                     @if($record['type'] == 'two')
+                            @if($record['title'])
+                        <div id="wQFF0QXSJFIAIUY0" class="mwPageBlock Content" style="">
+                            <div class="blockContents">
+                                <h3>
+                                    {{ $record['title'] }}
+                                </h3>
+                            </div>
+                        </div>
+                            @endif
+                        <div id="wO50NN3PHQHCEO11" class="mwPageBlock Include" style="">
+                            <div class="blockContents">
+                                <div class="twoCol row content-style">
+                                    <div class="twoColLeft twoColFirst col-lg-6">
+                                        {!! str($record['column_1'])->sanitizeHtml() !!}
+                                    </div>
+                                    <div class="twoColRight col-lg-6">
+                                        {!! str($record['column_2'])->sanitizeHtml() !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                    @if($record['type'] == 'two-1-2')
+                        @if($record['title'])
+                            <div id="wQFF0QXSJFIAIUY0" class="mwPageBlock Content" style="">
+                                <div class="blockContents">
+                                    <h3>
+                                        {{ $record['title'] }}
+                                    </h3>
+                                </div>
+                            </div>
+                        @endif
+                        <div id="wO50NN3PHQHCEO11" class="mwPageBlock Include" style="">
+                            <div class="blockContents">
+                                <div class="twoCol row content-style">
+                                    <div class="twoColLeft twoColFirst {{ $record['reverse'] == true ? 'col-md-8': 'col-lg-4'}}">
+                                        {!! str($record['column_1'])->sanitizeHtml() !!}
+                                    </div>
+                                    <div class="twoColRight {{ $record['reverse'] == true ? 'col-md-4': 'col-lg-8'}}">
+                                        {!! str($record['column_2'])->sanitizeHtml() !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @endif
                     @if($record['type'] == 'irregular_grid')
                         <div id="wO50NN3PHQHCEO11" class="mwPageBlock Include" style="">
@@ -75,6 +128,13 @@
                         </div>
                     @endif
                     @if($record['type'] == 'images')
+                        <div id="wQFF0QXSJFIAIUY0" class="mwPageBlock Content" style="">
+                            <div class="blockContents">
+                                <h3>
+                                    {{ $record['title'] }}
+                                </h3>
+                            </div>
+                        </div>
                         <div class="blockContents">
                             @foreach ($record['images'] as $image)
                                 <div class="mwFileEmbed Image" style="overflow:hidden">
@@ -104,7 +164,7 @@
                                 <div id="wUVFRIOU0CD5T6E5" class="mwPageBlock Content" style="">
                                     <div class="blockContents  pad-top-l">
                                         <h3>
-                                            BFC Breakfast Menu
+                                            {{ $record['title'] }}
                                         </h3>
                                     </div>
                                 </div>

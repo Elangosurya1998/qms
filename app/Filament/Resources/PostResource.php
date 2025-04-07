@@ -196,6 +196,7 @@ class PostResource extends Resource
                                                                 ->columnSpanFull(),
 
                                                             Toggle::make('reverse')
+                                                                ->columnSpanFull()
                                                                 ->label('Reverse Order'),
 
                                                             RichEditor::make('column_1')
