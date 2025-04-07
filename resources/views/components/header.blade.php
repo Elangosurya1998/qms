@@ -182,7 +182,7 @@
                             <div class="headerLogo trans">
                                 <a href="/">
                                     <img src="{{ asset('/images/logo.png') }}" class="trans"
-                                        title="{{ $siteSetting->name }}" alt="{{ $siteSetting->name }}" style="width: 150px"/>
+                                        title="{{ $siteSetting->name }}" alt="{{ $siteSetting->name }}" style="width: 100px"/>
                                 </a>
                             </div>
                         </div>
