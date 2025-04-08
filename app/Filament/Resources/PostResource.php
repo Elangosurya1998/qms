@@ -240,11 +240,19 @@ class PostResource extends Resource
                                                                 ->required()
                                                                 ->openable(),
 
+                                                            TextInput::make('title')
+                                                                ->label('Title')
+                                                                ->columnSpanFull(),
+
                                                             Textarea::make('content')
                                                                 ->label('Content')
-                                                                ->maxLength(500)
-                                                                ->rows(10)
+                                                                ->maxLength(350)
+                                                                ->rows(5)
                                                                 ->required(),
+
+                                                            Toggle::make('reverse')
+                                                                ->columnSpanFull()
+                                                                ->label('Reverse Order'),
                                                         ])
                                                 ],
                                                 'button' => [

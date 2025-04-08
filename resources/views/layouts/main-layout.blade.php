@@ -207,8 +207,8 @@
     <script src="{{ asset('frontend/js/vendors/matchHeight/0.7.2/jquery.matchHeight-min.js') }}"></script>
 
     <!-- Scripts -->
-    <script src="{{ asset('frontend/js/globalf3ee.js?v=3.2') }}"></script>
-    <script src="{{ asset('frontend/js/scriptf3ee.js?v=3.2') }}"></script>
+    <script src="{{ asset('frontend/js/globalqms.js?v=3.2') }}"></script>
+    <script src="{{ asset('frontend/js/scriptqms.js?v=3.2') }}"></script>
 
     <script src="../unpkg.com/aos%402.3.1/dist/aos.js"></script>
     <script>

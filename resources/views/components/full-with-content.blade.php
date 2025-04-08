@@ -83,6 +83,10 @@
                     @if($record['type'] == 'irregular_grid')
                         <div id="wO50NN3PHQHCEO11" class="mwPageBlock Include" style="">
                             <div class="blockContents">
+                                <div class="mwSpacer hor" style="height:50px;"></div>
+                            </div>
+                            @if($record['reverse'] == false)
+                            <div class="blockContents">
                                 <div class="twoCol twoColFullwidth row content-style">
                                     <div class="twoColLeft twoColFirst col-lg-6">
                                         <div class="twoColImg">
@@ -96,23 +100,81 @@
                                     <div class="twoColRight col-lg-6 _bg-white">
                                         <div class="twoColContent">
                                             <div class="mwPageArea">
-                                                <div id="wFXD93FX7BF829WZ" class="mwPageBlock Content" style="">
+                                                <div id="wTIPRXZV3FF850U2" class="mwPageBlock Content" style="">
                                                     <div class="blockContents">
-                                                        <p style="text-align: center;">
-                                                            <strong>
-                                                                <span style="font-size: 14pt;">
-                                                                    {{ $record['content'] }}
-                                                                </span>
-                                                            </strong>
+                                                        <h3>
+                                                            {{ $record['title'] }}
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                                <div id="wFX2WLIPHZHK8ZR9" class="mwPageBlock Content" style="">
+                                                    <div class="blockContents">
+                                                        <p>
+                                                            {{ $record['content'] }}
                                                         </p>
                                                     </div>
                                                 </div>
+{{--                                                <div id="wPDNL12NIEVLFCXN" class="mwPageBlock Button" style="">--}}
+{{--                                                    <div class="blockContents">--}}
+{{--                                                        <div class="mwBtnLeft">--}}
+{{--                                                            <div class="btn btnYellow btnOutline btnRounded">--}}
+{{--                                                                <a href="#" template="default" class="medium" target="_self">Learn more</a>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
                                                 <div class="Clear"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            @else
+                                <div class="blockContents">
+                                    <div class="twoCol twoColFullwidth row content-style">
+                                        <div class="twoColLeft col-lg-6 _bg-white">
+                                            <div class="twoColContent">
+                                                <div class="mwPageArea">
+                                                    <div id="wTIPRXZV3FF850U2" class="mwPageBlock Content" style="">
+                                                        <div class="blockContents">
+                                                            <h3>
+                                                                {{ $record['title'] }}
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                    <div id="wFX2WLIPHZHK8ZR9" class="mwPageBlock Content" style="">
+                                                        <div class="blockContents">
+                                                            <p>
+                                                                {{ $record['content'] }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+{{--                                                    <div id="wPDNL12NIEVLFCXN" class="mwPageBlock Button" style="">--}}
+{{--                                                        <div class="blockContents">--}}
+{{--                                                            <div class="mwBtnLeft">--}}
+{{--                                                                <div class="btn btnYellow btnOutline btnRounded">--}}
+{{--                                                                    <a href="#" template="default" class="medium" target="_self">Learn more</a>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+                                                    <div class="Clear"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="twoColRight twoColFirst col-lg-6">
+                                            <div class="twoColImg">
+                                                <div id="wKN61FM35Z0PH4J3" class="mwPageBlock File" style="">
+                                                    <div class="blockContents">
+                                                        <div class="stretchImg _bg-stretch" role="img" aria-label="Alumni.jpg" style="background-image: url({{ asset('storage/'.$record['image']) }});"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
                         </div>
                     @endif
                     @if($record['type'] == 'button')

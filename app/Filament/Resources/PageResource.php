@@ -597,6 +597,7 @@ class PageResource extends Resource
                                                                             'two' => 'Two Column Row',
                                                                             'two-1-2' => 'Two Column 1:2 Row',
                                                                             'three' => 'Three Column Row',
+                                                                            'irregular_grid' => 'Irregular Grid Row',
                                                                             'button' => 'Button Column Row',
                                                                             'images' => 'Image Column Row',
                                                                             'pdf' => 'PDF Column Row',
@@ -627,7 +628,8 @@ class PageResource extends Resource
                                                                                 Grid::make(2)
                                                                                     ->schema([
                                                                                         TextInput::make('title')
-                                                                                            ->label('Title'),
+                                                                                            ->label('Title')
+                                                                                            ->columnSpanFull(),
 
                                                                                         RichEditor::make('column_1')
                                                                                             ->label('Column 1 Text')
@@ -646,6 +648,7 @@ class PageResource extends Resource
                                                                                             ->columnSpanFull(),
 
                                                                                         Toggle::make('reverse')
+                                                                                            ->columnSpanFull()
                                                                                             ->label('Reverse Order'),
 
                                                                                         RichEditor::make('column_1')
@@ -677,6 +680,32 @@ class PageResource extends Resource
                                                                                             ->label('Column 3 Text')
                                                                                             ->required(),
                                                                                     ]),
+                                                                            ],
+                                                                            'irregular_grid' => [
+                                                                                Grid::make(1)
+                                                                                    ->schema([
+                                                                                        FileUpload::make('image')
+                                                                                            ->label('Image')
+                                                                                            ->directory('uploads/post/irregualr-grid')
+                                                                                            ->preserveFilenames()
+                                                                                            ->acceptedFileTypes(['image/*'])
+                                                                                            ->required()
+                                                                                            ->openable(),
+
+                                                                                        TextInput::make('title')
+                                                                                            ->label('Title')
+                                                                                            ->columnSpanFull(),
+
+                                                                                        Textarea::make('content')
+                                                                                            ->label('Content')
+                                                                                            ->maxLength(350)
+                                                                                            ->rows(5)
+                                                                                            ->required(),
+
+                                                                                        Toggle::make('reverse')
+                                                                                            ->columnSpanFull()
+                                                                                            ->label('Reverse Order'),
+                                                                                    ])
                                                                             ],
                                                                             'button' => [
                                                                                 Grid::make(1)
@@ -740,11 +769,11 @@ class PageResource extends Resource
                                                                                                     ->columnSpanFull(),
 
                                                                                                 FileUpload::make('file')
-                                                                                                ->label('File')
-                                                                                                ->directory('uploads/pages/full-with-content/downloads')
-                                                                                                ->preserveFilenames()
-                                                                                                ->acceptedFileTypes(['application/pdf', 'application/zip', 'application/word'])
-                                                                                                ->required(),
+                                                                                                    ->label('File')
+                                                                                                    ->directory('uploads/pages/full-with-content/downloads')
+                                                                                                    ->preserveFilenames()
+                                                                                                    ->acceptedFileTypes(['application/pdf', 'application/zip', 'application/word'])
+                                                                                                    ->required(),
                                                                                             ])
                                                                                     ])
                                                                             ],
