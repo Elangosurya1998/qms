@@ -15392,25 +15392,14 @@ img.contentImg {
 }
 
 @media (max-width: 991px) {
-  .headerTwo.stuck .headerLogo {
+    .headerTwo.stuck .headerLogo {
     width: 135px;
-  }
+    }
 
-
+    .headerTwo .headerName {
+         display: none;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @media (max-width: 1199px) {
@@ -15421,17 +15410,19 @@ img.contentImg {
   .headerTwo .headerLogo {
     /* padding: 15px 20px; */
     /* min-height: 82.92px; */
-    width: 210px;
+      position: absolute;
+    min-width: 60px;
+      top: 40px;
   }
 }
 
 @media (max-width: 575px) {
   .headerTwo .headerLogo {
     padding: 0px 15px;
-    width: 122.92px;
+    width: 90px;
     min-height: 82.92px;
     position: relative;
-    top: 0px;
+    top: 40px;
   }
 }
 
