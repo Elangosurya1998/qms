@@ -89,6 +89,6 @@ body {  font-family: 'Work Sans', sans-serif;  position: relative; }
    --color-meroon: #900C3F;
    --color-logo: #0014f5;
     --color-logo-meroon: #9b0505;
-   --color-default: var(--color-logo);
+   --color-default: var(--color-logo-meroon);
 }
 

@@ -15367,17 +15367,36 @@ img.contentImg {
 }
 
 .headerTwo .headerLogo img {
-  width: 100%;
+    width: auto;
+    position: absolute;
+    top: -38px;
+    max-height: 120px;
+    max-width: 100px;
 }
 
-.headerTwo.stuck .headerLogo {
-  width: 170px;
+.headerTwo.stuck .headerLogo img{
+    width: auto;
+    position: absolute;
+    top: -38px;
+    max-height: 120px;
+    max-width: 100px;
+}
+
+.headerTwo .headerName{
+    color: var(--color-default);
+}
+
+
+.headerTwo .headerName {
+  margin-left: 85px;
 }
 
 @media (max-width: 991px) {
   .headerTwo.stuck .headerLogo {
     width: 135px;
   }
+
+
 }
 
 
@@ -17094,7 +17113,7 @@ img.contentImg {
   padding: 10px 0;
   margin: 0 0 5px;
   font-size: 20px;
-  border-bottom: 1px solid var(--color-default);
+  /*border-bottom: 1px solid var(--color-default);*/
 }
 
 .footerThree ul li:before {
