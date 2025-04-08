@@ -86,7 +86,7 @@
                                 <div class="mwSpacer hor" style="height:50px;"></div>
                             </div>
                             @if($record['reverse'] == false)
-                            <div class="blockContents">
+                                <div class="blockContents">
                                 <div class="twoCol twoColFullwidth row content-style">
                                     <div class="twoColLeft twoColFirst col-lg-6">
                                         <div class="twoColImg">
@@ -174,7 +174,6 @@
                                     </div>
                                 </div>
                             @endif
-
                         </div>
                     @endif
                     @if($record['type'] == 'button')
