@@ -39,7 +39,7 @@ class PhotoGalleryResource extends Resource
                         Forms\Components\FileUpload::make('images')
                             ->multiple()
                             ->directory(fn (Get $get, $record) => 'uploads/photo-galleries/' . $get('title'))
-                            ->image()
+                            ->acceptedFileTypes(['image/*'])
                             ->preserveFilenames()
                             ->panelLayout('grid')
                             ->maxParallelUploads(10)
@@ -48,6 +48,7 @@ class PhotoGalleryResource extends Resource
 
                     Forms\Components\Tabs\Tab::make('Settings')->schema([
                         Forms\Components\Toggle::make('status')
+                            ->default(true)
                             ->required(),
                         Forms\Components\TextInput::make('order_by')
                             ->numeric(),

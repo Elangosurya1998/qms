@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->tinyText('description');
+            $table->longtext('description');
             $table->longtext('images')->nullable();
             $table->boolean('status')->default(true);
             $table->integer('order_by')->nullable();

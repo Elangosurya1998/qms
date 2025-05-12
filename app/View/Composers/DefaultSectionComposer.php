@@ -23,7 +23,9 @@ class DefaultSectionComposer
             $query->where('slug', 'news-events');
         })->latest()->take(5)->get();
 
-        $gallery = PhotoGallery::latest()->take(8)->get();
+        $gallery = PhotoGallery::latest()
+            ->where('status', 1)
+            ->take(8)->get();
 
         // Pass the retrieved data to the view
         $view->with([

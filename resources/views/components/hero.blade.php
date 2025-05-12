@@ -1,6 +1,6 @@
 @props([
     'title' => 'Oops!',
-    'description' => 'Looks like the page you are looking for is not here',
+    'description' => null,
     'hero' => [],
 ])
 
