@@ -8,8 +8,10 @@ use App\Filament\Resources\PageResource\Pages;
 use App\Models\Menus;
 use App\Models\Page;
 use App\Models\Post;
+use Awcodes\Curator\Components\Forms\CuratorEditor;
+use Awcodes\Curator\Components\Forms\CuratorPicker;
+use Awcodes\Palette\Forms\Components\ColorPicker;
 use Filament\Forms;
-use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\MarkdownEditor;
@@ -50,13 +52,20 @@ class PageResource extends Resource
                                     ->maxLength(255),
                                 Forms\Components\Select::make('menu_id')
                                     ->relationship('menu', 'name'),
-                                Forms\Components\FileUpload::make('feature_image')
-                                    ->directory('file-manager/page/feature_image')
+//                                Forms\Components\FileUpload::make('feature_image')
+//                                    ->directory('file-manager/page/feature_image')
+//                                    ->preserveFilenames()
+//                                    ->maxSize(1024 * 2)
+//                                    ->openable()
+//                                    ->columnSpanFull()
+//                                    ->image(),
+
+                                CuratorPicker::make('feature_image')
                                     ->preserveFilenames()
                                     ->maxSize(1024 * 2)
-                                    ->openable()
                                     ->columnSpanFull()
-                                    ->image(),
+                                    ->label('Feature Image'),
+
                                 Forms\Components\Textarea::make('excerpt')
                                     ->columnSpanFull(),
                             ]),
@@ -579,9 +588,9 @@ class PageResource extends Resource
                                                         ->schema([
                                                             TextInput::make('title')
                                                                 ->label('Title')
-                                                                ->required()
                                                                 ->maxLength(255),
                                                         ]),
+
                                                     Forms\Components\Tabs\Tab::make('Content')
                                                         ->label('Content')
                                                         ->schema([

@@ -5,6 +5,9 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Models\SiteSetting;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
+
+URL::forceScheme('https');
 
 // Homepage route
 Route::get('/', function () {
