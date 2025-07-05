@@ -54,6 +54,9 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
+            ->plugins([
+                \Awcodes\Curator\CuratorPlugin::make()
+            ])
             ->navigationGroups([
                 'CMS',
                 'Settings',
